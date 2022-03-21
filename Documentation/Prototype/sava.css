@@ -121,3 +121,7 @@ ul > li > a:hover, ul > li > a:active {
     border-radius: 25px;
 }
 
+.dugmenceCrniTekst{
+    color: black;
+    text-decoration: none;
+}

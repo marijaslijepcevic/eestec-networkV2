@@ -50,7 +50,7 @@ button {
 
 .register{
     background-color: #797D7F;
-
+    text
     
 }
 
@@ -182,4 +182,9 @@ button:hover {
 
 .razmak {
     margin-top: 5%;
+}
+
+.dugmence{
+    color:white;
+    text-decoration: none;
 }

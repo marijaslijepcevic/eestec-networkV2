@@ -258,3 +258,8 @@ button:hover {
   .accdecb{
     background-color: #e52a30;
   }
+
+.dugmenceSiviTekst{
+    color:gray;
+    text-decoration: none;
+}
