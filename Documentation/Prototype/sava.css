@@ -1,0 +1,123 @@
+
+.ul {
+    flex-wrap: nowrap;
+    background-color: #e52a30; 
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    justify-content: space-around;
+  }
+
+ul > li > a:link, ul> li > a:visited {
+    background-color: #e52a30;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+   display: inline-block;
+}
+  
+ul > li > a:hover, ul > li > a:active {
+    background-color: #f44336;
+}
+
+.nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.wrapper{
+      margin-left: 20px;
+      margin-right: 20px;
+      display: grid;
+      grid-template-columns: 30% 70%;
+}
+
+.wrapper > div{
+      padding: 1em;
+}
+
+.left > img{
+      width: 100%;
+}
+
+.right{
+      text-align: center;
+}
+
+.right > img{
+      display: inline-block;
+      vertical-align: middle;
+      width: 60%;
+      background-color: white;
+}
+
+.helper{
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+}
+
+.main{
+      text-align: center;
+      margin-left: 60px;
+      margin-right: 60px;
+}
+
+.sekcija{
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.artikal{
+    background-color: gray;
+    margin-top: 15px;
+    border-radius: 25px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.lc{
+    border-radius: 25px;
+    display: grid;
+    grid-auto-rows: 100px;
+}
+
+.btn{
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.btn:hover{
+    background-color: #e52a30;
+}
+
+.box1{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+.opis{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    padding-top: 15px;
+}
+
+.levaivica{
+    text-align: left;
+}
+
+.desnaivica{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.levaivica > img{
+    border-radius: 25px;
+}
+
