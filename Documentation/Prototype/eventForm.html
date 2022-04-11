@@ -38,11 +38,11 @@
         <div class="container">
             <div></div>
             <div>
-                <label for="event_name"><b>Event Name</b></label>
+                <label for="event_name" required><b>Event Name</b></label>
                 <input type="text" placeholder="Enter Event Name" name="event_name" required>
                 <br>
                 <div class="razmak">
-                    <label for="type"><b>Type of your Committee</b></label><br>
+                    <label for="type" required><b>Type of your Committee</b></label><br>
                     <input type="radio" name="type" required> IMW
                     <input type="radio" name="type" required> Workshop
                     <input type="radio" name="type" required> Exchange
@@ -51,41 +51,33 @@
                 </div>
 
                 <div class="razmak">
-                    <label for="opis"><b>Description</b></label>
-                    <textarea name="opis" cols="60" rows="10"></textarea>
+                    <label for="opis" ><b>Description</b></label>
+                    <textarea name="opis" cols="60" rows="10" required></textarea>
                     <br>
                </div>      
                <div class="razmak">
-                    <label for="br_uc"><b>Number of Participants</b></label>
+                    <label for="br_uc" required><b>Number of Participants</b></label>
                     <input type="text" placeholder="Enter Number of Participants" name="br_uc" required>
                     <br>
                </div>
                 <div class = "razmak">
-                    <label for="committee"><b>Select your Committee</b></label>
-                    <input list="browsers">
+                    <label for="committee" ><b>Select your Committee</b></label>
+                    <input list="browsers" required>
                         <datalist id="browsers">
                             <option value="LC Belgrade">
                             <option value="Observer Guimares">
                             <option value="JLC Porto">
                         </datalist>
                 </div>
-                <div class = "razmak">
-                <label for="committee"><b>Select your Committee</b></label>
-                <input list="browsers">
-                    <datalist id="browsers">
-                        <option value="LC Belgrade">
-                        <option value="Observer Guimares">
-                        <option value="JLC Porto">
-                    </datalist>
-                </div>
+          
                 <div class="razmak">
-                    <label for="org_odbor"><b>Organizing Committee</b></label>
+                    <label for="org_odbor" required><b>Organizing Committee</b></label>
                     <input type="textarea" placeholder="Organizing Committee" name="org_odbor" required>
                     <br>
                 </div>
                 <div class = "razmak">
-                    <label for="picture"><b>Submit a picture</b></label>
-                    <input type="file" name="picture">
+                    <label for="picture" ><b>Submit a picture</b></label>
+                    <input type="file" name="picture" required>
                     <br>
                 </div>
                                 
@@ -94,7 +86,7 @@
                     <div></div>
                     <div>
                         <!--ODLUCITI GDE TE VODI-->
-                        <button class = "login" type="submit">Publish Event</button>
+                        <button class = "login" type="submit" required>Publish Event</button>
                     </div>
                 </div>
                 <br>
