@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 17, 2022 at 01:40 PM
+-- Generation Time: May 17, 2022 at 03:11 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -188,7 +188,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `IdUser` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `psw` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`IdUser`),
   UNIQUE KEY `email` (`email`)
@@ -198,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`IdUser`, `username`, `password`, `email`) VALUES
+INSERT INTO `user` (`IdUser`, `username`, `psw`, `email`) VALUES
 (1, 'admin', '123', 'admin@gmail.com'),
 (2, 'sava', '123', 'sava@gmail.com'),
 (3, 'marija', '123', 'marija@gmail.com'),
