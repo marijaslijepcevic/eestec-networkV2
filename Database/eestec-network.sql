@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 17, 2022 at 12:45 PM
+-- Generation Time: May 17, 2022 at 01:40 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -112,6 +112,7 @@ CREATE TABLE IF NOT EXISTS `localcommittee` (
   `picture` blob,
   `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `isApproved` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`IdUser`),
   KEY `IdUser` (`IdUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
