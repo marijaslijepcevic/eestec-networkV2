@@ -30,7 +30,7 @@
               </ul>
         </div>
     </nav>
-    
+    <?php if(isset($msg)) echo "<font color='red'>$msg</font><br>"; ?>
     <form action="<?php echo site_url("Gost/loginSubmit") ?>" method="post">
 
         <div class="container">

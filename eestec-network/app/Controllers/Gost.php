@@ -20,23 +20,37 @@ class Gost extends Controller
      public function loginSubmit()
     {
 
+        
+        
+        
+         //skontaj ko se loguje
+        $userModel = new App\Models\userModel();
+        $user = $userModel->where('username', $this->request->getVar("uname"));
+        
+       
+        $reguserModel = new App\Models\regUserModel;
+        //$reguser = $reguserModel->where('IdUser', $id);
+        
         //proveri da li postoji korisnik
-        //proveri jel odobren taj korisnik
-        //proveri da li je dobra sifra
-        /*$autorModel = new AutorModel();
-        $autor = $autorModel->find($this->request->getVar("uname"));
-        if($autor==null){
-          $this->prikazi('login',['poruka' => "Korisnik ne postoji"]);
+        if($user==null){
+          $this->prikaz('login',['msg' => "Korisnik ne postoji"]);
           return;
         }
         
-        if($autor->lozinka!=$this->request->getVar("lozinka")){
-          $this->prikazi('login',['poruka' => "Pogresna lozinka"]);
+        //proveri jel odobren taj korisnik
+        
+        
+        //proveri da li je dobra sifra
+        if($user->password!=$this->request->getVar("psw")){
+          $this->prikaz('login',['msg' => "Pogresna lozinka"]);
           
         }
-        $this->session->set('autor',$autor);
+        $this->session->set('user',$user);
         
-        return redirect()->to(site_url("Korisnik"));*/
+        //ako je reguser
+         $this->session->set('reguser',$reguser);
+        
+        //return redirect()->to(site_url("Korisnik"));*/
     }
    
     
