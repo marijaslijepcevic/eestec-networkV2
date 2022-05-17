@@ -32,7 +32,7 @@
         </div>
 
     </nav>
-    
+    <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
     <form action="<?php echo site_url("Gost/index") ?>" method="post">
 
         <div class="container">
