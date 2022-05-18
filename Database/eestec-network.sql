@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 18, 2022 at 09:46 AM
+-- Generation Time: May 18, 2022 at 10:05 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -86,6 +86,7 @@ CREATE TABLE IF NOT EXISTS `eventapplication` (
   `IdEvent` int(11) UNSIGNED NOT NULL,
   `motivationalLetter` text COLLATE utf8_unicode_ci,
   `isAccepted` tinyint(1) NOT NULL DEFAULT '0',
+  `dateOfAppl` date NOT NULL,
   PRIMARY KEY (`IdUser`,`IdEvent`),
   KEY `IdUser` (`IdUser`),
   KEY `IdEvent` (`IdEvent`)
@@ -95,9 +96,9 @@ CREATE TABLE IF NOT EXISTS `eventapplication` (
 -- Dumping data for table `eventapplication`
 --
 
-INSERT INTO `eventapplication` (`IdUser`, `IdEvent`, `motivationalLetter`, `isAccepted`) VALUES
-(2, 2, NULL, 1),
-(4, 1, 'lorem ipsum', 0);
+INSERT INTO `eventapplication` (`IdUser`, `IdEvent`, `motivationalLetter`, `isAccepted`, `dateOfAppl`) VALUES
+(2, 2, NULL, 1, '2020-11-02'),
+(4, 1, 'lorem ipsum', 0, '2020-11-02');
 
 -- --------------------------------------------------------
 
@@ -113,6 +114,7 @@ CREATE TABLE IF NOT EXISTS `localcommittee` (
   `picture` blob,
   `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `isApproved` int(11) NOT NULL DEFAULT '0',
+  `dateOfReg` date NOT NULL,
   PRIMARY KEY (`IdUser`),
   KEY `IdUser` (`IdUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -121,9 +123,9 @@ CREATE TABLE IF NOT EXISTS `localcommittee` (
 -- Dumping data for table `localcommittee`
 --
 
-INSERT INTO `localcommittee` (`IdUser`, `committeeName`, `universityName`, `picture`, `type`, `isApproved`) VALUES
-(6, 'LC Belgrade', 'University of Belgrade', NULL, 'LC', 0),
-(7, 'Observer Madrid', 'University of Madrid', NULL, 'observer', 0);
+INSERT INTO `localcommittee` (`IdUser`, `committeeName`, `universityName`, `picture`, `type`, `isApproved`, `dateOfReg`) VALUES
+(6, 'LC Belgrade', 'University of Belgrade', NULL, 'LC', 0, '2001-01-20'),
+(7, 'Observer Madrid', 'University of Madrid', NULL, 'observer', 0, '2001-01-20');
 
 -- --------------------------------------------------------
 
@@ -161,6 +163,7 @@ CREATE TABLE IF NOT EXISTS `reguser` (
   `surname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `picture` blob,
   `isApproved` int(11) NOT NULL DEFAULT '0',
+  `dateOfReg` date NOT NULL,
   PRIMARY KEY (`IdUser`),
   KEY `IdUser` (`IdUser`),
   KEY `IdUserCom` (`IdUserCom`)
@@ -170,14 +173,14 @@ CREATE TABLE IF NOT EXISTS `reguser` (
 -- Dumping data for table `reguser`
 --
 
-INSERT INTO `reguser` (`IdUser`, `IdUserCom`, `name`, `surname`, `picture`, `isApproved`) VALUES
-(2, 6, 'Sava', 'Andric', NULL, 1),
-(3, 6, 'Marija', 'Sljepcevic', NULL, 1),
-(4, 6, 'Jovan', 'Dojcilovic', NULL, 1),
-(5, 7, 'Petar', 'Petrovic', NULL, 0),
-(8, 7, 'Zika', 'Zikic', NULL, 0),
-(9, 7, 'Nikola', 'Nikolic', NULL, 0),
-(10, 7, 'Ana', 'Anic', NULL, 0);
+INSERT INTO `reguser` (`IdUser`, `IdUserCom`, `name`, `surname`, `picture`, `isApproved`, `dateOfReg`) VALUES
+(2, 6, 'Sava', 'Andric', NULL, 1, '2016-10-01'),
+(3, 6, 'Marija', 'Sljepcevic', NULL, 1, '2016-10-01'),
+(4, 6, 'Jovan', 'Dojcilovic', NULL, 1, '2016-10-01'),
+(5, 7, 'Petar', 'Petrovic', NULL, 0, '2016-10-01'),
+(8, 7, 'Zika', 'Zikic', NULL, 0, '2016-10-01'),
+(9, 7, 'Nikola', 'Nikolic', NULL, 0, '2016-10-01'),
+(10, 7, 'Ana', 'Anic', NULL, 0, '2016-10-01');
 
 -- --------------------------------------------------------
 
