@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 18, 2022 at 08:39 AM
+-- Generation Time: May 18, 2022 at 09:00 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -107,7 +107,7 @@ INSERT INTO `eventapplication` (`IdUser`, `IdEvent`, `motivationalLetter`, `isAc
 DROP TABLE IF EXISTS `localcommittee`;
 CREATE TABLE IF NOT EXISTS `localcommittee` (
   `IdUser` int(11) UNSIGNED NOT NULL,
-  `comitteeName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `committeeName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `universityName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `picture` blob,
   `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `localcommittee` (
 -- Dumping data for table `localcommittee`
 --
 
-INSERT INTO `localcommittee` (`IdUser`, `comitteeName`, `universityName`, `picture`, `type`, `isApproved`) VALUES
+INSERT INTO `localcommittee` (`IdUser`, `committeeName`, `universityName`, `picture`, `type`, `isApproved`) VALUES
 (6, 'LCBelgrade', 'University of Belgrade', NULL, 'LC', 0),
 (7, 'LCMadrid', 'University of Madrid', NULL, 'observer', 0);
 
