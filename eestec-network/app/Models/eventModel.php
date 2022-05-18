@@ -11,6 +11,6 @@ class eventModel extends Model
    
     protected $returnType     = 'object';
   
-    protected $allowedFields = ['eventName', 'type', 'description', 'numOfParticipants', 'picture', 'isActive', 'openApplications', 'isApproved', 'IdEventCom', 'finishedSelection'];
+    protected $allowedFields = ['eventName', 'type', 'description', 'numOfParticipants', 'picture', 'isActive', 'openApplications', 'isApproved', 'IdEventCom', 'finishedSelection', 'dateStart', 'dateEnd'];
 
 }

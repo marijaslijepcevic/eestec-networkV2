@@ -38,7 +38,7 @@
         <div></div>
         
          <?php foreach ($events as $event) {?>  
-            <div class='artikal'>  <!--artikal treba da bude resizable-->
+            <div class='artikal'>
             <div class='lc'>
 
                 <div class='levaivica'>
@@ -64,10 +64,10 @@
                     $event->description;
                 </div>"?>
                 <div>
-                    <a href='<?= site_url("Admin/clickReadMoreEvent")?>'><button class = 'btn '  type='button' name="<?php $event->IdEvent?>.'rm'">Read more</button></a>
+                    <a href='<?= site_url("Admin/clickReadMoreEvent")?>'><button class = 'btn '  type='button'>Read more</button></a>
                 </div>
                 <div>
-                    <a href='<?= site_url("Admin/clickAcceptEvent")?>'><button class = 'btn '  type='button' >Accept</button></a>
+                    <a href='<?= site_url("Admin/clickAcceptEvent")?>'><button class = 'btn '  type='button'>Accept</button></a>
                 </div>
                 <div>
                     <a href='<?= site_url("Admin/clickDeclineEvent")?>'><button class = 'btn '  type='button'>Decline</button></a>

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
-class LocalCommittee extends BaseController
+class LocalCommittee extends Controller
 {
      protected function prikaz($stranica,$data){
        

@@ -5,18 +5,16 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\eventModel;
 
-class Admin extends BaseController
+class Admin extends Controller
 {
      protected function prikaz($stranica,$data){
-        //$data['controller'] = 'Admin';
         echo view($stranica, $data);    
     }
     
     public function index(){
-        $committeeModel = new \App\Models\committeeModel();
-        $committees = $committeeModel->where("isApproved", 0)->findAll();
-       // $this->session->set('committees', $committees);
-        $this->prikaz("adminAcceptCommittees", ['committees' => $committees]);  
+        $eventModel = new \App\Models\eventModel();
+        $events = $eventModel->where("isApproved", 0)->findAll();
+        $this->prikaz("adminAcceptEvents", ['events' => $events]);  
     }
   
       
@@ -27,7 +25,9 @@ class Admin extends BaseController
     }
     
     public function deleteEvents(){
-        //TO DO...
+        $eventModel = new \App\Models\eventModel();
+        $events = $eventModel->where("isActive", 1)->findAll();
+        $this->prikaz("adminDeleteEvents", ['events' => $events]); 
     }
     
     public function acceptCommittees(){
