@@ -30,7 +30,7 @@
               </ul>
         </div>
     </nav>
-    <?php if(isset($msg)) echo "<font color='red'>$msg</font><br>"; ?>
+    <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
     <form action="<?php echo site_url("Gost/loginSubmit") ?>" method="post">
 
         <div class="container">
@@ -46,12 +46,12 @@
                 <div class = "buttons">
                     <div>
                         <a href="<?= site_url("Gost/register")?>"><button class = "register "  type="button">Register</button></a>
-                       <!-- <a href = "registrationPicker.html" class = "dugmence"> </a>  ovo treba da se sredi u cssu-->
+                      
                     </div>
                     <div></div>
                     <div>
                         <button class = "login" type="submit">Login</button>
-                        <!--<a href = "adminAcceptEvents.html" class = "dugmence">-->
+                     
                     </div>
                 </div>
 
