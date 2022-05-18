@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
-class RegUser extends Controller
+class RegUser extends BaseController
 {
      protected function prikaz($stranica,$data){
        

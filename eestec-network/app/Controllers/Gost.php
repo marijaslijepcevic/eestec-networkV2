@@ -5,7 +5,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
-class Gost extends Controller
+class Gost extends BaseController
 {
      protected function prikaz($stranica,$data){
        
