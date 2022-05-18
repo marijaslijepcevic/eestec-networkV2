@@ -11,7 +11,8 @@ class regUserModel extends Model
 
    
     protected $returnType     = 'object';
-  
-    protected $allowedFields = ['IdUserCom', 'name', 'surname', 'picture','isApproved'];
+    protected $useAutoIncrement = false;
+
+    protected $allowedFields = ['IdUser','IdUserCom', 'name', 'surname', 'picture','isApproved', 'dateOfReg'];
 
 }

@@ -12,6 +12,6 @@ class userModel extends Model
    
     protected $returnType     = 'object';
   
-    protected $allowedFields = ['username', 'password', 'email'];
+    protected $allowedFields = ['username', 'psw', 'email'];
 
 }

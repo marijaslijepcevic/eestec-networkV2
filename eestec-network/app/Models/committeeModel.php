@@ -11,7 +11,7 @@ class committeeModel extends Model
 
    
     protected $returnType     = 'object';
-  
-    protected $allowedFields = ['committeeName', 'universityName', 'picture', 'type', 'isApproved'];
+    protected $useAutoIncrement = false;
+    protected $allowedFields = ['IdUser', 'committeeName', 'universityName', 'picture', 'type', 'isApproved', 'dateOfReg'];
 
 }

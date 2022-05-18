@@ -1,4 +1,4 @@
-<!-- AUTOR JOVAN DOJCILOVIC -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +33,7 @@
 
     </nav>
     <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
-    <form action="<?php echo site_url("Gost/index") ?>" method="post">
+    <form action="<?php echo site_url("Gost/committeeRegisterClick") ?>" method="post">
 
         <div class="container">
             <div></div>
@@ -50,8 +50,8 @@
                 <input type="password" placeholder="Enter Password" name="psw" required>
                 <br>
                 
-                <label for="psw"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw" required>
+                <label for="pswRepeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Repeat Password" name="pswRepeat" required>
                 <br>
                 
                 <label for="comname"><b>Name of your Committee</b></label>
@@ -68,9 +68,9 @@
                 </div>
                 <div class = "razmak">
                 <label for="type"><b>Type of your Committee</b></label><br>
-                <input type="radio" placeholder="Enter Username" name="type" required> LocalCommittee
-                <input type="radio" placeholder="Enter Username" name="type" required> Junior Local Committee
-                <input type="radio" placeholder="Enter Username" name="type" required> Observer
+                <input type="radio" placeholder="Enter Username" name="type" value = "Local Committee" required> LocalCommittee
+                <input type="radio" placeholder="Enter Username" name="type" value = "Junior Local Committee" required> Junior Local Committee
+                <input type="radio" placeholder="Enter Username" name="type" value = "Observer" required> Observer
                 <br>
                 </div>
                 
