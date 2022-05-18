@@ -1,5 +1,3 @@
-@@ -1,103 +1,103 @@
-<!-- AUTOR JOVAN DOJCILOVIC -->
 
 
 <!DOCTYPE html>
@@ -16,10 +14,8 @@
 <body>
     <header class="header">
         <div class="wrapper">
-           <div class="left">
-             
-                <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="300px" height="135px">
-                
+             <div class="left">
+             <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="300px" height="135px"> 
             </div>
             <div class="right">
                 <span class="helper"></span>
@@ -31,51 +27,35 @@
     <nav class="nav">
         <div>
             <ul class="ul">
-                <li></li>
+                <li><a href = "memberPage.html" class = "dugmence">View events</a></li>  
+                <li><a href = "memberChangeInfo.html" class = "dugmence">Edit profile</a></li>  
+                <li><a href = "index.html" class = "dugmence">Logout</a></li>
               </ul>
         </div>
 
     </nav>
     
-    <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
-    <form action="<?php echo site_url("Gost/index") ?>" method="post">
+    <form action="#" method="post">
 
         <div class="container">
             <div></div>
             <div>
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
-                <br>
-                
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-                <br>
 
                 <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Ovde ce ici sifra dovucena iz baze" name="psw" required>
                 <br>
                 
                 <label for="psw"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="pswRepeat" required>
+                <input type="password" placeholder="Ovde ce ici sifra dovucena iz baze" name="psw" required>
                 <br>
                 
                 <label for="fistname"><b>First Name</b></label>
-                <input type="text" placeholder="Enter your First Name" name="fistname" required>
+                <input type="text" placeholder="Ovde ce ime dovuceno iz baze" name="fistname" required>
                 <br>
                 
                 <label for="lastname"><b>Last Name</b></label>
-                <input type="text" placeholder="Enter your Last Name" name="lastname" required>
+                <input type="text" placeholder="Ovde ce prezime dovuceno iz baze" name="lastname" required>
                 <br>
-                
-                <div class = "razmak">
-                <label for="committee"><b>Select your Committee</b></label>
-                <input list="browsers" name="type" required>
-                    <datalist id="browsers">
-                        <option value="LC Belgrade">
-                        <option value="Observer Guimares">
-                        <option value="JLC Porto">
-                    </datalist>
-                </div>
                 
                 <div class = "razmak">
                     <label for="picture"><b>Submit a picture</b></label>
@@ -87,8 +67,8 @@
                     <div></div>
                     <div></div>
                     <div>
-                        <button class = "login" type="submit">Register</button>
-                        <!-- memberPage -->
+                        <!--ODLUCITI GDE TE VODI-->
+                        <button class = "login" type="submit">Change Info</button>
                     </div>
                 </div>
 

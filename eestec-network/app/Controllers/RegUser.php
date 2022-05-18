@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
-class Gost extends Controller
+class RegUser extends Controller
 {
      protected function prikaz($stranica,$data){
        
@@ -13,9 +13,20 @@ class Gost extends Controller
     }
     
     public function index(){
-        $this->prikaz('login',[]);   //samo promeni stranicu kad se ubaci      
+        $this->prikaz('memberPage',[]);   //samo promeni stranicu kad se ubaci      
     }
- 
-
     
+     public function viewEvents(){
+        $this->prikaz('memberPage',[]);   //samo promeni stranicu kad se ubaci      
+    }
+    
+     public function changeInfo(){
+        $this->prikaz('memberPage',[]);   //samo promeni stranicu kad se ubaci      
+    }
+    /*
+     public function logout(){
+        $this->session->destroy();
+        return redirect()->to(site_url("Gost"));
+    }
+  */
 }
