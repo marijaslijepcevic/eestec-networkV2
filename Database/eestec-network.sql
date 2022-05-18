@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 18, 2022 at 09:00 AM
+-- Generation Time: May 18, 2022 at 09:46 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -58,8 +58,9 @@ CREATE TABLE IF NOT EXISTS `event` (
   `picture` blob,
   `isActive` tinyint(1) NOT NULL DEFAULT '0',
   `openApplications` tinyint(1) NOT NULL DEFAULT '0',
-  `isApproved` int(1) NOT NULL DEFAULT '0',
+  `isApproved` int(11) NOT NULL DEFAULT '0',
   `IdEventCom` int(11) UNSIGNED DEFAULT NULL,
+  `finishedSelection` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`IdEvent`),
   KEY `IdEventCom` (`IdEventCom`),
   KEY `IdEvent` (`IdEvent`)
@@ -69,9 +70,9 @@ CREATE TABLE IF NOT EXISTS `event` (
 -- Dumping data for table `event`
 --
 
-INSERT INTO `event` (`IdEvent`, `eventName`, `type`, `description`, `numOfParticipants`, `picture`, `isActive`, `openApplications`, `isApproved`, `IdEventCom`) VALUES
-(1, 'Kongres', 'IMW', 'Lorem ipsum', 400, NULL, 1, 1, 1, 6),
-(2, 'Jobfair', 'IMW', 'lorem ipsum', 200, NULL, 0, 0, 0, 7);
+INSERT INTO `event` (`IdEvent`, `eventName`, `type`, `description`, `numOfParticipants`, `picture`, `isActive`, `openApplications`, `isApproved`, `IdEventCom`, `finishedSelection`) VALUES
+(1, 'Kongres', 'IMW', 'Lorem ipsum', 400, NULL, 1, 1, 1, 6, 0),
+(2, 'Jobfair', 'IMW', 'lorem ipsum', 200, NULL, 0, 0, 0, 7, 0);
 
 -- --------------------------------------------------------
 
@@ -111,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `localcommittee` (
   `universityName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `picture` blob,
   `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `isApproved` tinyint(1) NOT NULL DEFAULT '0',
+  `isApproved` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`IdUser`),
   KEY `IdUser` (`IdUser`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -121,8 +122,8 @@ CREATE TABLE IF NOT EXISTS `localcommittee` (
 --
 
 INSERT INTO `localcommittee` (`IdUser`, `committeeName`, `universityName`, `picture`, `type`, `isApproved`) VALUES
-(6, 'LCBelgrade', 'University of Belgrade', NULL, 'LC', 0),
-(7, 'LCMadrid', 'University of Madrid', NULL, 'observer', 0);
+(6, 'LC Belgrade', 'University of Belgrade', NULL, 'LC', 0),
+(7, 'Observer Madrid', 'University of Madrid', NULL, 'observer', 0);
 
 -- --------------------------------------------------------
 
@@ -159,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `reguser` (
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `surname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `picture` blob,
-  `isApproved` tinyint(1) NOT NULL DEFAULT '0',
+  `isApproved` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`IdUser`),
   KEY `IdUser` (`IdUser`),
   KEY `IdUserCom` (`IdUserCom`)
@@ -204,8 +205,8 @@ INSERT INTO `user` (`IdUser`, `username`, `psw`, `email`) VALUES
 (3, 'marija', '123', 'marija@gmail.com'),
 (4, 'jovan', '123', 'jovan@gmail.com'),
 (5, 'pera', '123', 'pera@gmail.com'),
-(6, 'LCBelgrade', '123', 'lcbelgrade@gmail.com'),
-(7, 'LCMadrid', '123', 'lcmadrid@gmail.com'),
+(6, 'LC Belgrade', '123', 'lcbelgrade@gmail.com'),
+(7, 'Observer Madrid', '123', 'observermadrid@gmail.com'),
 (8, 'zika', '123', 'zika@gmail.com'),
 (9, 'nikola', 'nikola@gmail.com', 'nikola@gmail.com'),
 (10, 'ana', '123', 'ana@gmail.com');
