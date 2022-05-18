@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 17, 2022 at 03:11 PM
+-- Generation Time: May 18, 2022 at 08:39 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `picture` blob,
   `isActive` tinyint(1) NOT NULL DEFAULT '0',
   `openApplications` tinyint(1) NOT NULL DEFAULT '0',
-  `isApproved` tinyint(1) NOT NULL DEFAULT '0',
+  `isApproved` int(1) NOT NULL DEFAULT '0',
   `IdEventCom` int(11) UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`IdEvent`),
   KEY `IdEventCom` (`IdEventCom`),
