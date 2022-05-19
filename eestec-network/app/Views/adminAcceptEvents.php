@@ -40,43 +40,42 @@
         
          <?php foreach ($events as $event) {?>  
             <div class='artikal'>  
-            <div class='lc'>
+                <div class='lc'>
 
-                <div class='levaivica'>
-                    <?php $event->picture?>
-                    
-                   <?php echo '<img src = "data:image/jpeg;base64,'.base64_encode($event->picture).'"/ alt="" width="100px" height="100px">'; ?>
-                </div>
-    
-                <div class='box'>
-                    <span class='levaivica'>
+                    <div class='levaivica'>
+
+                       <?php echo '<img src = "data:image/jpeg;base64,'.base64_encode($event->picture).'"/ alt="" width="100px" height="100px">'; ?>
+                    </div>
+
+                    <div class='box'>
+                        <span class='levaivica'>
+                            <?php echo "
+                            <h1>$event->eventName</h1>
+                               " ?>
+                        </span>
+                        <span>
+                             <?php
+                            $committeeModel = new \App\Models\committeeModel();
+                            $committee = $committeeModel->where('IdUser', $event->IdEventCom);
+                             echo "<h4>$committee->committeeName</h4>"
+                                    ?>
+                        </span>
+                    </div>
+
+                    <div class='opis'>
                         <?php echo "
-                        <h1>$event->eventName</h1>
-                           " ?>
-                    </span>
-                    <span>
-                         <?php
-                        $committeeModel = new \App\Models\committeeModel();
-                        $committee = $committeeModel->where('IdUser', $event->IdEventCom);
-                         echo "<h4>$committee->committeeName</h4>"
-                                ?>
-                    </span>
-                </div>
-  
-                <div class='opis'>
-                    <?php echo "
-                    $event->description;
-                    "?>
-                </div>
-                <div>
-                    <a href='<?= site_url("Admin/eventReadMore/$event->IdEvent")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php $event->IdEvent?>>Read more</button></a>
-                </div>
-                <div>
-                  <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/1")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Accept</button></a>
-                </div>
-                <div>
-                    <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/2")?>'><button class = 'btn '  type='submit' name='dec' value = '<?php echo $event->IdEvent?>'>Decline</button></a>
-                </div>
+                        $event->description;
+                        "?>
+                    </div>
+                    <div>
+                        <a href='<?= site_url("Admin/eventReadMore/$event->IdEvent/1")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php echo $event->IdEvent?>>Read more</button></a>
+                    </div>
+                    <div>
+                      <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/1")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Accept</button></a>
+                    </div>
+                    <div>
+                        <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/2")?>'><button class = 'btn '  type='submit' name='dec' value = '<?php echo $event->IdEvent?>'>Decline</button></a>
+                    </div>
             </div>
         </div>
         <div></div>

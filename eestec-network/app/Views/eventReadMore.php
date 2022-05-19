@@ -37,44 +37,53 @@
 <main class="main">
     <div class="sekcija">
         <div></div>
+        
             <div class='artikal'>  <!--artikal treba da bude resizable-->
-            <div class='lc'>
+                <div class='lc'>
+                    <div class='levaivica'>
+                        
+                           <?php echo '<img src = "data:image/jpeg;base64,'.base64_encode($event->picture).'"/ alt="" width="100px" height="100px">'; ?>
+                    </div>
 
-                <div class='levaivica'>
-                    <?php $event->picture?>
-                    
-                   <?php echo '<img src = "data:image/jpeg;base64,'.base64_encode($event->picture).'"/ alt="" width="100px" height="100px">'; ?>
-                </div>
-    
-                <div class='box'>
-                    <span class='levaivica'>
+                    <div class='box'>
+                        <span class='levaivica'>
+                            <?php echo "
+                            <h1>$event->eventName</h1>
+                               " ?>
+                        </span>
+                        <span>
+                             <?php
+                            $committeeModel = new \App\Models\committeeModel();
+                            $committee = $committeeModel->where('IdUser', $event->IdEventCom);
+                             echo "<h4>$committee->committeeName</h4>"
+                                    ?>
+                        </span>
+                    </div>
+
+                    <div class='opis'>
                         <?php echo "
-                        <h1>$event->eventName</h1>
-                           " ?>
-                    </span>
-                    <span>
-                         <?php
-                        $committeeModel = new \App\Models\committeeModel();
-                        $committee = $committeeModel->where('IdUser', $event->IdEventCom);
-                         echo "<h4>$committee->committeeName</h4>"
-                                ?>
-                    </span>
-                </div>
-  
-                <div class='opis'>
-                    <?php echo "
-                    $event->description;
-                    "?>
-                </div>
-                <div>
-                    <a href='<?= site_url("Admin/clickReadMoreEvent/$event->IdEvent/1")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php $event->IdEvent?>>Read more</button></a>
-                </div>
-                <div>
-                  <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/2")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Accept</button></a>
-                </div>
-                <div>
-                    <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/3")?>'><button class = 'btn '  type='submit' name='dec' value = '<?php echo $event->IdEvent?>'>Decline</button></a>
-                </div>
+                        $event->description; <br>
+                        Tip: $event->type; <br>
+                        Broj participanata: $event->numOfParticipants; <br>
+                        Datum: $event->dateStart - $event->dateEnd; <br>
+                        "?>
+                        <br>
+ 
+                    </div>
+                    
+                    <div>
+                        <?php if($op == 1) : ?>
+                            <a href='<?= site_url("Admin/acceptEvents")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Back</button></a>
+                        <?php else : ?>
+                            <a href='<?= site_url("Admin/deleteEvents")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Back</button></a>    
+                        <?php endif; ?>
+                        
+                    </div>
+                    <div>
+                      
+                    </div>
+                    <div>
+                    </div>
             </div>
         </div>
         <div></div>

@@ -46,11 +46,13 @@
                     
                    <?php echo '<img src = "data:image/jpeg;base64,'.base64_encode($event->picture).'"/ alt="" width="100px" height="100px">'; ?>
                 </div>
-                                <?php echo "
+                
                 <div class='box'>
                     <span class='levaivica'>
+                        <?php echo "
                         <h1>$event->eventName</h1>
-                    </span>"?>
+                        "?>
+                    </span>
                     <span>
                          <?php
                         $committeeModel = new \App\Models\committeeModel();
@@ -59,17 +61,18 @@
                                 ?>
                     </span>
                 </div>
-                <?php echo "
                 <div class='opis'>
+                    <?php echo "
                     $event->description;
-                </div>"?>
+                    "?>
+                </div>
                 <div>
-                    <a href='<?= site_url("Admin/clickReadMoreEvent")?>'><button class = 'btn '  type='button' name="<?php $event->IdEvent?>.'rdmdel'">Read more</button></a>
+                    <a href='<?= site_url("Admin/eventReadMore/$event->IdEvent/2")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php echo $event->IdEvent?>>Read more</button></a>
                 </div>
                 <div>
                 </div>
                 <div>
-                    <a href='<?= site_url("Admin/clickDeleteEvent")?>'><button class = 'btn '  type='button' name="<?php $event->IdEvent?>.'del'">Delete</button></a>
+                    <a href='<?= site_url("Admin/deleteEvents/$event->IdEvent")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php echo $event->IdEvent?>>Delete</button></a>
                 </div>
             </div>
         </div>

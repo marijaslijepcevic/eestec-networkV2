@@ -42,16 +42,14 @@ class Admin extends BaseController
           
     }
     
-    public function deleteEvents($id = 0, $op = 0){  
+    public function deleteEvents($id = 0){  
         $eventModel = new \App\Models\eventModel();
-        
-        
-        
-        if($id > 0 && $op == 3){
+
+        if($id > 0){
             $event = $eventModel->where('IdEvent', $id);
             $event->save([
                 "IdEvent" => $id,
-                "isApproved" =>  2        
+                "isActive" =>  0        
             ]);
         }
         
@@ -66,10 +64,10 @@ class Admin extends BaseController
         $this->prikaz("adminAcceptCommittees", ['committees' => $committees]);  
     }
     
-    public function eventReadMore($id = 1){
+    public function eventReadMore($id, $op){
         $eventModel = new \App\Models\eventModel();
-        $event = $eventModel->where("IdEvent", $id);
-        $this->prikaz("eventReadMore", ['event' => $event]);  
+        $event = $eventModel->where("IdEvent", $id)->first();
+        $this->prikaz("eventReadMore", ['event' => $event, 'op' => $op]);  
     }
     
     public function clickDeleteEvent(){
