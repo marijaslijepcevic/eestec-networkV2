@@ -16,15 +16,15 @@ class LocalCommittee extends BaseController
         $this->prikaz('committeePage',[]);        
     }
     public function viewEvents(){
-        $this->prikaz('login',[]);        
+        $this->prikaz('committeePage',[]);        
     }
     
     public function acceptMembers(){
-        $this->prikaz('login',[]);        
+        $this->prikaz('committeeAcceptMembers',[]);        
     }
     
     public function publishEvents(){
-        $this->prikaz('login',[]);        
+        $this->prikaz('committeePublishEvent',[]);        
     }
     
     public function changeInfo(){
@@ -99,6 +99,55 @@ class LocalCommittee extends BaseController
         $this->session->set('user', $userModel->find($id) );
         $this->session->set('committee', $committeeModel->find($id));
         $this->changeInfo();
+    }
+    
+    public function publishEventClick(){
+        $eventModel = new \App\Models\eventModel;
+
+        $eventModel->save([
+                
+            "eventName" => $this->request->getVar("event_name"),
+            "type" => $this->request->getVar("type"),
+            "description" => $this->request->getVar("opis"),
+            "numOfParticipants" => $this->request->getVar("br_uc"),
+            "picture" => $this->request->getVar("picture"),
+            "IdEventCom" => $this->session->get("committee")->IdUser,
+            "dateStart" => $this->request->getVar("startDate"),
+            "dateEnd" => $this->request->getVar("endDate")
+        ]);
+        
+        $idEvent = $eventModel->getInsertId();
+        
+        $orgCommitteeModel = new \App\Models\orgCommitteeModel;
+        
+       
+        $eventCommittee = $this->request->getVar("org_odbor");
+        $eventCommitteeList = preg_split("/,\s/",$eventCommittee);
+        $regUserModel = new \App\Models\regUserModel;
+        foreach ($eventCommitteeList as $person) {
+            $nameAndSurname = preg_split("/\s/",$person);
+            $name = $nameAndSurname[0];           
+            $surname = $nameAndSurname[1];
+         
+            $regUser = $regUserModel->where('name',$name)->where('surname', $surname)->first();
+            
+            if($regUser==null){
+                 $this->prikaz('committeePublishEvent',['msg' => "Nisu svi ljudi korisnici sistema"]);
+            }
+            
+            $IdUser = $regUser->IdUser;
+            
+            
+            $orgCommitteeModel->save([
+                "IdUser" =>  $IdUser,
+                "IdEvent" => $idEvent,
+                      
+            ]);
+            
+           
+
+        }
+         $this->index();
     }
     
 }

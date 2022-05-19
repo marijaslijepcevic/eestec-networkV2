@@ -29,7 +29,7 @@
             <ul class="ul">
                  <li><a href = "<?= site_url("LocalCommittee/viewEvents")?>">View events</a></li>
                 <li><a href = "<?= site_url("LocalCommittee/acceptMembers")?>">Accept members</a></li>
-                <li><a href="<?= site_url("LocalCommittee/publishEvents")?>">Publish events</a></li>
+                <li><a href="<?= site_url("LocalCommittee/publishEvents")?>">Publish event</a></li>
                 <li><a href="<?= site_url("LocalCommittee/changeInfo")?>">Edit profile</a></li>  
                 <li><a href="<?= site_url("LocalCommittee/logout")?>">Logout</a></li>
               </ul>

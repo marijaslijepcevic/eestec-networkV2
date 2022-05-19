@@ -14,11 +14,12 @@
     <header class="header">
         <div class="wrapper">
             <div class="left">
-                <img src="images/eestec.png" alt="" width="300px" height="135px">
+             <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="300px" height="135px"> 
             </div>
             <div class="right">
                 <span class="helper"></span>
-                <img src="images/eestectekst.svg" alt="">
+                <img src="<?php echo base_url('images/eestectekst.svg')?>" alt=""  width="300px" height="135px">
+            
             </div>
         </div>
     </header>
@@ -27,7 +28,7 @@
             <ul class="ul">
                 <li><a href = "<?= site_url("LocalCommittee/viewEvents")?>">View events</a></li>
                 <li><a href = "<?= site_url("LocalCommittee/acceptMembers")?>">Accept members</a></li>
-                <li><a href="<?= site_url("LocalCommittee/publishEvents")?>">Publish events</a></li>
+                <li><a href="<?= site_url("LocalCommittee/publishEvents")?>">Publish event</a></li>
                 <li><a href="<?= site_url("LocalCommittee/changeInfo")?>">Edit profile</a></li>  
                 <li><a href="<?= site_url("LocalCommittee/logout")?>">Logout</a></li>
               </ul>
