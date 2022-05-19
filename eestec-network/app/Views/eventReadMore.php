@@ -37,9 +37,7 @@
 <main class="main">
     <div class="sekcija">
         <div></div>
-        
-         <?php foreach ($events as $event) {?>  
-            <div class='artikal'>  
+            <div class='artikal'>  <!--artikal treba da bude resizable-->
             <div class='lc'>
 
                 <div class='levaivica'>
@@ -69,19 +67,18 @@
                     "?>
                 </div>
                 <div>
-                    <a href='<?= site_url("Admin/eventReadMore/$event->IdEvent")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php $event->IdEvent?>>Read more</button></a>
+                    <a href='<?= site_url("Admin/clickReadMoreEvent/$event->IdEvent/1")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php $event->IdEvent?>>Read more</button></a>
                 </div>
                 <div>
-                  <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/1")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Accept</button></a>
+                  <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/2")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Accept</button></a>
                 </div>
                 <div>
-                    <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/2")?>'><button class = 'btn '  type='submit' name='dec' value = '<?php echo $event->IdEvent?>'>Decline</button></a>
+                    <a href='<?= site_url("Admin/acceptEvents/$event->IdEvent/3")?>'><button class = 'btn '  type='submit' name='dec' value = '<?php echo $event->IdEvent?>'>Decline</button></a>
                 </div>
             </div>
         </div>
         <div></div>
         <div></div>
-         <?php }?> 
     </div>
 </main>
 

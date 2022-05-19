@@ -64,13 +64,12 @@
                     $event->description;
                 </div>"?>
                 <div>
-                    <a href='<?= site_url("Admin/clickReadMoreEvent")?>'><button class = 'btn '  type='button'>Read more</button></a>
+                    <a href='<?= site_url("Admin/clickReadMoreEvent")?>'><button class = 'btn '  type='button' name="<?php $event->IdEvent?>.'rdmdel'">Read more</button></a>
                 </div>
                 <div>
-                    <a href='<?= site_url("Admin/clickAcceptEvent")?>'><button class = 'btn '  type='button'>Accept</button></a>
                 </div>
                 <div>
-                    <a href='<?= site_url("Admin/clickDeclineEvent")?>'><button class = 'btn '  type='button'>Decline</button></a>
+                    <a href='<?= site_url("Admin/clickDeleteEvent")?>'><button class = 'btn '  type='button' name="<?php $event->IdEvent?>.'del'">Delete</button></a>
                 </div>
             </div>
         </div>

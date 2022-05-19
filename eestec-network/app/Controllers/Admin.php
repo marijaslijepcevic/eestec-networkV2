@@ -18,16 +18,45 @@ class Admin extends BaseController
     }
   
       
-    public function acceptEvents(){
+    public function acceptEvents($id = 0, $op = 0){
         $eventModel = new \App\Models\eventModel();
+        
+        if($id > 0 && $op == 1){
+            $event = $eventModel->where('IdEvent', $id);
+            $event->save([
+                "IdEvent" => $id,
+                "isApproved" =>  1        
+            ]);
+        }
+        
+        if($id > 0 && $op == 2){
+            $event = $eventModel->where('IdEvent', $id);
+            $event->save([
+                "IdEvent" => $id,
+                "isApproved" =>  2        
+            ]);
+        }
+        
         $events = $eventModel->where("isApproved", 0)->findAll();
         $this->prikaz("adminAcceptEvents", ['events' => $events]);      
+          
     }
     
-    public function deleteEvents(){
+    public function deleteEvents($id = 0, $op = 0){  
         $eventModel = new \App\Models\eventModel();
+        
+        
+        
+        if($id > 0 && $op == 3){
+            $event = $eventModel->where('IdEvent', $id);
+            $event->save([
+                "IdEvent" => $id,
+                "isApproved" =>  2        
+            ]);
+        }
+        
         $events = $eventModel->where("isActive", 1)->findAll();
-        $this->prikaz("adminDeleteEvents", ['events' => $events]); 
+        $this->prikaz("adminDeleteEvents", ['events' => $events]);
     }
     
     public function acceptCommittees(){
@@ -37,24 +66,14 @@ class Admin extends BaseController
         $this->prikaz("adminAcceptCommittees", ['committees' => $committees]);  
     }
     
-    public function clickAcceptCommittee(){
-        
+    public function eventReadMore($id = 1){
+        $eventModel = new \App\Models\eventModel();
+        $event = $eventModel->where("IdEvent", $id);
+        $this->prikaz("eventReadMore", ['event' => $event]);  
     }
     
-    public function clickDeclineCommittee(){
+    public function clickDeleteEvent(){
         
     }
-    
-    public function clickReadMoreEvent(){
-        
-    }
-    
-    public function clickAcceptEvent(){
-        
-    }
-    
-    public function clickDeclineEvent(){
-        
-    }
-    
+
 }
