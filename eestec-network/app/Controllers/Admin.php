@@ -5,7 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\eventModel;
 
-class Admin extends Controller
+class Admin extends BaseController
 {
      protected function prikaz($stranica,$data){
         echo view($stranica, $data);    

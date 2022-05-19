@@ -1,4 +1,4 @@
-
+<!-- AUTOR JOVAN DOJCILOVIC -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+     <style>
         <?php include 'css/jovan.css'; ?>
     </style>
     <title>Feed</title>
@@ -14,7 +14,7 @@
 <body>
     <header class="header">
         <div class="wrapper">
-             <div class="left">
+            <div class="left">
              <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="300px" height="135px"> 
             </div>
             <div class="right">
@@ -27,15 +27,17 @@
     <nav class="nav">
         <div>
             <ul class="ul">
-                <li><a href="<?= site_url("RegUser/viewEvents")?>" class = "dugmence">View events</a></li>  
-                <li><a href="<?= site_url("RegUser/changeInfo")?>" class = "dugmence">Edit profile</a></li>  
-                <li><a href="<?= site_url("RegUser/logout")?>" class = "dugmence">Logout</a></li>
+                 <li><a href = "<?= site_url("LocalCommittee/viewEvents")?>">View events</a></li>
+                <li><a href = "<?= site_url("LocalCommittee/acceptMembers")?>">Accept members</a></li>
+                <li><a href="<?= site_url("LocalCommittee/publishEvents")?>">Publish events</a></li>
+                <li><a href="<?= site_url("LocalCommittee/changeInfo")?>">Edit profile</a></li>  
+                <li><a href="<?= site_url("LocalCommittee/logout")?>">Logout</a></li>
               </ul>
         </div>
 
     </nav>
-      <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
-    <form action="<?= site_url("RegUser/changeInfoClick")?>" method="post">
+     <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
+    <form action="<?= site_url("LocalCommittee/changeInfoClick")?>" method="post">
 
         <div class="container">
             <div></div>
@@ -49,17 +51,21 @@
                 <input type="password" placeholder="<?php echo "$user->psw" ?>" name="pswRepeat" >
                 <br>
                 
-                <label for="fistname"><b>First Name</b></label>
-                <input type="text" placeholder="<?php echo "$reguser->name" ?>" name="fistname" >
-                <br>
-                
-                <label for="lastname"><b>Last Name</b></label>
-                <input type="text" placeholder="<?php echo "$reguser->surname" ?>" name="lastname" >
+                <label for="comname"><b>Name of your Committee</b></label>
+                <input type="text" placeholder="<?php echo "$committee->committeeName" ?>" name="comname" >
                 <br>
                 
                 <div class = "razmak">
                     <label for="picture"><b>Submit a picture</b></label>
                     <input type="file" name="picture">
+                    <br>
+                </div>
+                
+                <div class = "razmak">
+                    <label for="type"><b>Type of your Committee</b></label><br>
+                    <input type="radio" name="type" value="Local Committee"> Local Committee
+                    <input type="radio"  name="type" value="Junior Local Committee" > Junior Local Committee
+                    <input type="radio" name="type" value="Observer" > Observer
                     <br>
                 </div>
                 

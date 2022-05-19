@@ -53,10 +53,10 @@ class Gost extends BaseController
             return redirect()->to(site_url("RegUser"));
         }
    
-        $committeeModel = new \App\Models\regUserModel;
+        $committeeModel = new \App\Models\committeeModel;
         $committee = $committeeModel->where('IdUser', $id)->first();
           
-        if($committee!=nul){
+        if($committee!=null){
             if($committee->isApproved == 0){
                 $this->prikaz('login',['msg' => "Admin te nije odobrio!"]);
                 return;                
