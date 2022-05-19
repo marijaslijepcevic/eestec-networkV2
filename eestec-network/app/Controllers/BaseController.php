@@ -50,3 +50,4 @@ class BaseController extends Controller
        $this->session = \Config\Services::session();
     }
 }
+
