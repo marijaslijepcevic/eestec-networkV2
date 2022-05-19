@@ -38,80 +38,50 @@
 <main class="main">
     <div class="sekcija">
         <div></div>
+        <?php foreach ($events as $event) {?>  
         <div class="artikal">  <!--artikal treba da bude resizable-->
             <div class="lc">
                 <div class="levaivica">
-                    <img src="images/jobfair.jpg" alt="" width="100px" height="100px">
+                    <?php $event->picture?>
+                    
+                   <?php echo '<img src = "data:image/jpeg;base64,'.base64_encode($event->picture).'"/ alt="" width="100px" height="100px">'; ?>
                 </div>
-                <div class="box1">
-                    <span class="levaivica">
-                        <h1>Jobfair</h1>
+               <div class='box1'>
+                    <span class='levaivica'>
+                        <?php echo "
+                        <h1>$event->eventName</h1>
+                           " ?>
                     </span>
                     <span>
-                        <h4>LC Beograd</h4>
+                         <?php
+                        $committeeModel = new \App\Models\committeeModel();
+                        $committee = $committeeModel->where('IdUser', $event->IdEventCom);
+                         echo "<h4>$committee->committeeName</h4>"
+                                ?>
                     </span>
                 </div>
-                <div class="opis">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, deserunt aliquid nihil ad voluptatibus ea mollitia porro repellat cumque voluptatum veniam adipisci, ullam cupiditate nobis provident quam inventore aperiam laudantium.
+  
+                 <div class='opis'>
+                    <?php echo "
+                    $event->description;
+                    "?>
                 </div>
 
                 <div>
-                    <button  class="btn">
-                        Read more
-                    </button>
+                    <a href='<?= site_url("LocalCommittee/eventReadMore/$event->IdEvent/3")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php echo $event->IdEvent?>>Read more</button></a>   
                 </div>
                 <div>
-                    <button  class="btn"><a href = "committeeAcceptParticipants.html" class = "dugmenceCrniTekst">
-                        Accept participants
-                        </a>
-                    </button>
+                    <a href='<?= site_url("LocalCommittee/acceptParticipants/$event->IdEvent")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Accept participants</button></a>
                 </div>
                 <div>
-                    <button  class="btn">
-                        Close applications
-                    </button>
+                    <a href='<?= site_url("LocalCommittee/closeApplications/$event->IdEvent")?>'><button class = 'btn '  type='submit' name='dec' value = '<?php echo $event->IdEvent?>'>Close applications</button></a>
                 </div>
+                
             </div>
         </div>
         <div></div>
-
         <div></div>
-        <div class="artikal">
-            <div class="lc">
-                <div class="levaivica">
-                    <img src="images/kongres.jpg" alt="" width="100px" height="100px">
-                </div>
-                <div class="box1">
-                    <span class="levaivica">
-                        <h1>Spring Congress</h1>
-                    </span>
-                    <span>
-                        <h4>LC Beograd</h4>
-                    </span>
-                </div>
-                <div class="opis">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime, deserunt aliquid nihil ad voluptatibus ea mollitia porro repellat cumque voluptatum veniam adipisci, ullam cupiditate nobis provident quam inventore aperiam laudantium.
-                </div>
-
-                <div>
-                    <button  class="btn">
-                        Read more
-                    </button>
-                </div>
-                <div>
-                    <button  class="btn"><a href = "committeeAcceptParticipants.html" class = "dugmenceCrniTekst">
-                        Accept participants
-                    </a>
-                    </button>
-                </div>
-                <div>
-                    <button  class="btn">
-                        Close applications
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div></div>
+         <?php }?> 
     </div>
 </main>
 

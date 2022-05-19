@@ -13,14 +13,21 @@ class LocalCommittee extends BaseController
     }
     
     public function index(){
-        $this->prikaz('committeePage',[]);        
+        $eventModel = new \App\Models\eventModel();
+        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->findAll();
+        $this->prikaz('committeePage', ['events' => $events]);        
     }
     public function viewEvents(){
-        $this->prikaz('committeePage',[]);        
+        $eventModel = new \App\Models\eventModel();
+        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->findAll();
+        $this->prikaz('committeePage', ['events' => $events]);      
     }
     
     public function acceptMembers(){
-        $this->prikaz('committeeAcceptMembers',[]);        
+        $reguserModel = new \App\Models\regUserModel;
+        $members = $reguserModel->where('isApproved',0)->where('IdUserCom',$this->session->get('user')->IdUser)->findAll();
+        
+        $this->prikaz('committeeAcceptMembers',['members'=>$members]);        
     }
     
     public function publishEvents(){
@@ -150,4 +157,37 @@ class LocalCommittee extends BaseController
          $this->index();
     }
     
+    public function acceptMembersAccept(){
+          $reguserModel = new \App\Models\regUserModel;
+          echo "uslo";
+         
+    }
+     
+    public function acceptMembersDecline(){
+          
+          
+    }
+    
+    public function eventReadMore($id, $op){
+        $eventModel = new \App\Models\eventModel();
+        $event = $eventModel->where("IdEvent", $id)->first();
+        $this->prikaz("eventReadMoreCommittee", ['event' => $event, 'op' => $op]);  
+    }
+    
+    public function acceptParticipants($id){
+        $eventModel = new \App\Models\eventModel();
+        $event = $eventModel->where("IdEvent", $id)->first();
+        $eventApplicationModel = new \App\Models\eventApplicationModel();
+        $participants = $eventApplicationModel->where('isAccepted', 0)->where('IdEvent', $id)->findAll();
+        
+        $this->prikaz("committeeAcceptParticipants", ['event' => $event, 'participants'=>$participants]);  
+    }
+    
+    
+    public function closeApplications($id){
+        $eventModel = new \App\Models\eventModel();
+        $event = $eventModel->where("IdEvent", $id)->first();
+        $this->prikaz("", ['event' => $event]);  
+    }
+  
 }

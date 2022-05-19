@@ -26,10 +26,11 @@
     <nav class="nav">
         <div>
             <ul class="ul">
-                <li><a href="<?= site_url("Admin/acceptEvents")?>">Accept events</a></li>  
-                <li><a href="<?= site_url("Admin/deleteEvents")?>">Delete events</a></li>  
-                <li><a href="<?= site_url("Admin/acceptCommittees")?>">Accept committees</a></li>  
-                <li><a href="<?= site_url("Admin/index")?>">Logout</a></li>  
+                <li><a href = "<?= site_url("LocalCommittee/viewEvents")?>">View events</a></li>
+                <li><a href = "<?= site_url("LocalCommittee/acceptMembers")?>">Accept members</a></li>
+                <li><a href="<?= site_url("LocalCommittee/publishEvents")?>">Publish event</a></li>
+                <li><a href="<?= site_url("LocalCommittee/changeInfo")?>">Edit profile</a></li>  
+                <li><a href="<?= site_url("LocalCommittee/logout")?>">Logout</a></li>
               </ul>
         </div>
 
@@ -72,16 +73,7 @@
                     </div>
                     
                     <div>
-                        <?php if($op == 1) : ?>
-                            <a href='<?= site_url("Admin/acceptEvents")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Back</button></a>
-                         <?php endif; ?>
-                        <?php  if($op ==2) : ?>
-                            <a href='<?= site_url("Admin/deleteEvents")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Back</button></a>    
-                        <?php endif; ?>
-                        <?php  if($op ==3) : ?>
-                            <a href='<?= site_url("LocalCommittee/viewEvents")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Back</button></a>    
-                         <?php endif; ?>
-                        
+                        <a href='<?= site_url("LocalCommittee/viewEvents")?>'><button class = 'btn '  type='button' name='acc'>Back</button></a>
                     </div>
                     <div>
                       

@@ -33,51 +33,32 @@
                 <li><a href="<?= site_url("LocalCommittee/logout")?>">Logout</a></li>
               </ul>
         </div>
-        </div>
 
     </nav>
 <main>
-    <h1 id="list">List of Members</h1>
-        <?php foreach ($members as $member) { ?>  
-            <label class="cont">
-                <input type="checkbox" name="check_list[]" class="cb" value=<?php echo "$member->IdUser" ?>/>First Name:<?php echo " $member->name" ?>,  Last Name: <?php echo " $member->surname" ?>,  Date of Registration:<?php echo " $member->dateOfReg" ?> 
-            </label><br>
+    <h1 id="list">List of Participants</h1>
+
+    <?php foreach ($participants as $participant) { 
+        $reguserModel = new \App\Models\regUserModel;
+        $reguser = $reguserModel->find($participant->IdUser);?>  
+        <div  class="cont">
+            <label>
+                <input type="checkbox"/>First Name:<?php echo " $reguser->name" ?>,  Last Name: <?php echo " $reguser->surname" ?>,  Date of Application:<?php echo " $participant->dateOfAppl" ?> 
+            </label>&nbsp&nbsp<input type="button" class="buttonMotivation" value="Motivational letter"><br>
+        </div>
           
-          
-        <?php }
-        ?>  
-
-
-
+        <?php } ?>  
+    
     <div class="accdec">
         <div>
-            <form method="post"> 
-                <input type="submit" name="button1" class="accdecb" value="Accept" /> 
-               
-            </form> 
-           
+            <button class = "accdecb" type="submit">Accept</button>
         </div>
         <div></div>
         <div>
-            <a href="<?= site_url("LocalCommittee/acceptMembersDecline")?>"><button class = "accdecb" type="submit">Decline</button></a>
+            <button class = "accdecb" type="submit">Finish</button>
         </div>
     </div>
 </main>
-<?php
-    if(array_key_exists('button1', $_POST)) { 
-        button1(); 
-    } 
-  
-    function button1() { 
-      
-         
-        echo "<script language=\"javascript\">"
-        . "var checkedValue = document.querySelector('.cb:checked').value;"
-                . "</script>";
 
-       return redirect()->to(site_url("LocalCommittee/acceptMembersAccept"));
-   } 
-  
-    ?> 
 </body>
 </html>
