@@ -29,7 +29,7 @@
                 <li><a href="<?= site_url("Admin/acceptEvents")?>">Accept events</a></li>  
                 <li><a href="<?= site_url("Admin/deleteEvents")?>">Delete events</a></li>  
                 <li><a href="<?= site_url("Admin/acceptCommittees")?>">Accept committees</a></li>  
-                <li><a href="<?= site_url("Admin/index")?>">Logout</a></li>  
+                <li><a href="<?= site_url("Admin/logout")?>">Logout</a></li>  
               </ul>
         </div>
 
