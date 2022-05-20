@@ -57,7 +57,7 @@
 
                 <br>
 
-                <a href ="guestPage.html" class = "guestLogin">Continue as a Guest?</a>
+                <a href="<?= site_url("Gost/guestPage")?>" class = "guestLogin">Continue as a Guest?</a>
             </div> 
             <div></div>
       </div>

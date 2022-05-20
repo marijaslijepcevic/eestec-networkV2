@@ -17,6 +17,18 @@ class Gost extends BaseController
         $this->prikaz('login',[]);  
         
     }
+    
+    public function guestPage(){
+        $eventModel = new \App\Models\eventModel();
+        $events = $eventModel->where("isActive", 1)->findAll();
+        $this->prikaz("guestPage", ['events' => $events]);  
+    }
+    
+    public function eventReadMore($id){
+        $eventModel = new \App\Models\eventModel();
+        $event = $eventModel->where("IdEvent", $id)->first();
+        $this->prikaz("eventReadMoreGost", ['event' => $event]);  
+    }
   
     
      public function loginSubmit()

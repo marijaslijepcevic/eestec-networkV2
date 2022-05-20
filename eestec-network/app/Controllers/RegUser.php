@@ -12,6 +12,12 @@ class RegUser extends BaseController
        
     }
     
+    public function eventReadMore($id){
+        $eventModel = new \App\Models\eventModel();
+        $event = $eventModel->where("IdEvent", $id)->first();
+        $this->prikaz("eventReadMoreMember", ['event' => $event]);  
+    }
+    
     public function index(){
         $this->prikaz('memberPage',[]);   //samo promeni stranicu kad se ubaci      
     }
