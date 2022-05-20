@@ -248,5 +248,11 @@ class LocalCommittee extends BaseController
 
          
     }
+      public function motivationalLetterclick($idEvent, $IdUser){
+        $eventApplicationModel = new \App\Models\eventApplicationModel;
+        $letter = $eventApplicationModel->where("IdEvent", $idEvent)->where("IdUser",$IdUser)->first()->motivationalLetter;
+        $this->prikaz("readMotivationalLetter", ['letter' => $letter, "IdEvent" => $idEvent]);  
+    }
+    
     
 }
