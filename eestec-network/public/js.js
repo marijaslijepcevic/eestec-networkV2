@@ -73,3 +73,16 @@ function lcDeclineCom(){
         });
     window.location.reload();
 }
+
+function submitLetter(){
+    var pismo = document.getElementById("letter");
+    $.ajax({
+            method: "POST",
+            url: window.location.origin + "/RegUser/submitMotivationalLetter",
+            data: {arguments: pismo},
+            success: function (obj, textstatus) {
+            },
+            error: function(xhr, status, error) {
+            }
+        });
+}

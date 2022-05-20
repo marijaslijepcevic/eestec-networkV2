@@ -74,7 +74,12 @@
                     <a href='<?= site_url("LocalCommittee/acceptParticipants/$event->IdEvent")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Accept participants</button></a>
                 </div>
                 <div>
-                    <a href='<?= site_url("LocalCommittee/closeApplications/$event->IdEvent")?>'><button class = 'btn '  type='submit' name='dec' value = '<?php echo $event->IdEvent?>'>Close applications</button></a>
+                    <?php if($event->openApplications == 0) : ?>
+                    <input style="visibility:hidden;" type="button" value="Close applications!" disabled>
+                    <?php endif; ?>
+                    <?php if($event->openApplications == 1) : ?>
+                        <a href='<?= site_url("LocalCommittee/closeApplications/$event->IdEvent")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Close applications</button></a>
+                     <?php endif; ?>
                 </div>
                 
             </div>

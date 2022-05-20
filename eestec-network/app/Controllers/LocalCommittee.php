@@ -19,7 +19,7 @@ class LocalCommittee extends BaseController
     }
     public function viewEvents(){
         $eventModel = new \App\Models\eventModel();
-        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->findAll();
+        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);      
     }
     
@@ -140,6 +140,7 @@ class LocalCommittee extends BaseController
             
             if($regUser==null){
                  $this->prikaz('committeePublishEvent',['msg' => "Nisu svi ljudi korisnici sistema"]);
+                 return;
             }
             
             $IdUser = $regUser->IdUser;
@@ -154,7 +155,7 @@ class LocalCommittee extends BaseController
            
 
         }
-         $this->index();
+        index();
     }
     
     public function acceptMembersAccept(){
@@ -212,12 +213,16 @@ class LocalCommittee extends BaseController
     
     public function closeApplications($id){
         $eventModel = new \App\Models\eventModel();
-        $event = $eventModel->where("IdEvent", $id)->first();
-        $this->prikaz("", ['event' => $event]);  
-    }
-  
-    public function temp($t){
         
-        $t = 3;
+        if($id > 0){
+            $event = $eventModel->where('IdEvent', $id);
+            $event->save([
+                "IdEvent" => $id,
+                "openApplications" =>  0        
+            ]);
+        }
+        
+        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->findAll();
+        $this->prikaz('committeePage', ['events' => $events]);   
     }
 }
