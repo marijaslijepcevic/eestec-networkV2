@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 19, 2022 at 02:12 PM
+-- Generation Time: May 20, 2022 at 09:29 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -96,6 +96,14 @@ CREATE TABLE IF NOT EXISTS `eventapplication` (
   KEY `IdEvent` (`IdEvent`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `eventapplication`
+--
+
+INSERT INTO `eventapplication` (`IdUser`, `IdEvent`, `motivationalLetter`, `isAccepted`, `dateOfAppl`) VALUES
+(2, 1, 'lkl', 0, '2022-05-19'),
+(3, 1, 'nlnlknkl', 0, '2022-05-19');
+
 -- --------------------------------------------------------
 
 --
@@ -174,8 +182,8 @@ CREATE TABLE IF NOT EXISTS `reguser` (
 
 INSERT INTO `reguser` (`IdUser`, `IdUserCom`, `name`, `surname`, `picture`, `isApproved`, `dateOfReg`) VALUES
 (2, 6, 'Sava', 'Andric', NULL, 1, '2016-10-01'),
-(3, 6, 'Marija', 'Sljepcevic', NULL, 1, '2016-10-01'),
-(4, 6, 'Jovan', 'Dojcilovic', NULL, 1, '2016-10-01'),
+(3, 6, 'Marija', 'Sljepcevic', NULL, 0, '2016-10-01'),
+(4, 6, 'Jovan', 'Dojcilovic', NULL, 0, '2016-10-01'),
 (5, 7, 'Petar', 'Petrovic', NULL, 0, '2016-10-01'),
 (8, 7, 'Zika', 'Zikic', NULL, 0, '2016-10-01'),
 (9, 7, 'Nikola', 'Nikolic', NULL, 0, '2016-10-01'),
