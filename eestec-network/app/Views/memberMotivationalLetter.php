@@ -6,7 +6,8 @@
     <style>
         <?php include 'css/sava.css'; ?>
     </style>
-    <script type="text/javascript" src="<?=base_url()?>/admin.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/js.js"></script>
     <title>Feed</title>
 </head>
 <body>
@@ -37,26 +38,27 @@
         <div></div>
         
             <div class='artikal'>
-                <div class='lc'>
-                    <div class='levaivica'>
-                        
-                           <?php echo 'Motivational letter:'; ?>
-                    </div>
+              
+                <br>
+                <div class='box1'>
+                    <font color="white" size="5"><b>Motivational letter:</b></font>
 
-                    
-                    <div class='opis'>
-                         <textarea id="letter" id="" cols="30" rows="10"></textarea> <br>
- 
-                    </div>
-                    
-                    <div>
-                        <a href='<?= site_url("RegUser/viewEvents")?>'><button class = 'btn '  type='button' name='acc'>Back</button></a>    
-                    </div>
-                    <div>                     
-                    </div>
-                    <div>
-                    </div>
-            </div>
+
+                 </div>
+
+                <br>
+                <textarea id="letter" id="" cols="80" rows="10"></textarea> <br>
+
+               
+                <br>
+                <button hidden="hidden" id="hidden" value="<?php echo "$IdEvent" ?>"></button>
+                <div>
+                    <a href='<?= site_url("RegUser/viewEvents")?>'><button class = 'btn '  type='button' name='acc'>Back</button></a>    
+
+                    <button class = 'btn '  type='submit' name='acc' onclick="submitLetter()">Submit</button>
+                </div>
+                <br>
+          
         </div>
         <div></div>
         <div></div>
