@@ -225,4 +225,24 @@ class LocalCommittee extends BaseController
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);   
     }
+    
+    public function acceptParticipantsAccept($IdEvent){  //nije dobro
+        $request = $_POST['arguments'];
+        $eventApplicationModel = new \App\Models\eventApplicationModel;
+        
+        foreach ($request[0] as $IdUser) {
+     //       $key = $eventApplicationModel->where("IdEvent", $IdEvent)->where("IdUser", $IdUser)->first();
+            $eventApplicationModel->save([
+                "IdUser" => $IdUser,
+                "IdEvent" => $IdEvent,
+                "isAccepted" => 1,
+                      
+            ]);
+            
+           
+        }
+
+         
+    }
+    
 }

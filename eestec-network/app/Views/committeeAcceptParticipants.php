@@ -8,6 +8,8 @@
     <style>
         <?php include 'css/marija.css'; ?>
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/js.js"></script>
     <title>Feed</title>
 </head>
 <body>
@@ -43,7 +45,7 @@
         $reguser = $reguserModel->find($participant->IdUser);?>  
         <div  class="cont">
             <label>
-                <input type="checkbox"/>First Name:<?php echo " $reguser->name" ?>,  Last Name: <?php echo " $reguser->surname" ?>,  Date of Application:<?php echo " $participant->dateOfAppl" ?> 
+                <input type="checkbox" name="check_par[]" class="cb" value=<?php echo $participant->IdUser ?>/>First Name:<?php echo " $reguser->name" ?>,  Last Name: <?php echo " $reguser->surname" ?>,  Date of Application:<?php echo " $participant->dateOfAppl" ?> 
             </label>&nbsp&nbsp<input type="button" class="buttonMotivation" value="Motivational letter"><br>
         </div>
           
@@ -51,11 +53,13 @@
     
     <div class="accdec">
         <div>
-            <button class = "accdecb" type="submit">Accept</button>
+            <button hidden="hidden" value="<?php echo $event->numOfParticipants ?>" id="numOfPar"></button>
+            <button hidden="hidden" value="<?php echo $event->numOfAcc ?>" id="numOfAcc"></button>
+            <button class = "accdecb" type="submit" onclick="acceptPar(<?php echo $event->IdEvent ?>)">Accept</button>
         </div>
         <div></div>
         <div>
-            <button class = "accdecb" type="submit">Finish</button>
+            <button class = "accdecb" type="submit" onclick="finishPar()">Finish</button>
         </div>
     </div>
 </main>

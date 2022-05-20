@@ -6,11 +6,11 @@ use CodeIgniter\Model;
 class eventApplicationModel extends Model
 {
     protected $table      = 'eventapplication';
-    protected $primaryKey = 'IdEvent';
+    protected $primaryKey = 'id';
 
    
     protected $returnType     = 'object';
-    protected $useAutoIncrement = false;
-    protected $allowedFields = ['IdUser', 'motivationalLetter', 'isAccepted', 'dateOfAppl'];
+    //protected $useAutoIncrement = false;
+    protected $allowedFields = ['IdEvent', 'IdUser', 'motivationalLetter', 'isAccepted', 'dateOfAppl'];
 
 }

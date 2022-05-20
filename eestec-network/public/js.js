@@ -75,7 +75,7 @@ function lcDeclineCom(){
 }
 
 function submitLetter(){
-    var pismo = document.getElementById("letter");
+    var pismo = document.getElementById("letter").value;
     $.ajax({
             method: "POST",
             url: window.location.origin + "/RegUser/submitMotivationalLetter",
@@ -85,4 +85,51 @@ function submitLetter(){
             error: function(xhr, status, error) {
             }
         });
+}
+
+function acceptPar(IdEv){
+    var markedCheckbox = document.getElementsByName('check_par[]'); 
+    var niz = []; 
+    for (var checkbox of markedCheckbox) {  
+      if (checkbox.checked)  
+        niz.push(checkbox.value);
+    }   
+    var numOfPar = document.getElementById('numOfPar').value;
+    var numOfAcc = document.getElementById('numOfAcc').value;
+    if(niz.length > numOfPar - numOfAcc){
+        window.location.reload();
+        return;
+    }
+    numOfAcc = numOfAcc + niz.length; //dodaj
+    $.ajax({
+            method: "POST",
+            url: window.location.origin + "/LocalCommittee/acceptParticipantsAccept",
+            data: {arguments: niz},
+            success: function (obj, textstatus) {
+                  alert("jeee");
+            },
+            error: function(xhr, status, error) {
+                alert("afds");
+            }
+        });
+    window.location.reload();
+}
+
+function finishPar(){  //nije dobro
+    var markedCheckbox = document.getElementsByName('check_par[]'); 
+    var niz = []; 
+    for (var checkbox of markedCheckbox) {  
+      if (checkbox.checked)  
+        niz.push(checkbox.value);
+    }   
+    $.ajax({
+            method: "POST",
+            url: window.location.origin + "/Admin/acceptCommitteesAccept",
+            data: {arguments: niz},
+            success: function (obj, textstatus) {
+            },
+            error: function(xhr, status, error) {
+            }
+        });
+    window.location.reload();
 }
