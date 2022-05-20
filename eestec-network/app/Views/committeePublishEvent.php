@@ -53,10 +53,10 @@
                 <br>
                 <div class="razmak">
                     <label for="type" required><b>Type of your Event</b></label><br>
-                    <input type="radio" name="type" required> IMW
-                    <input type="radio" name="type" required> Workshop
-                    <input type="radio" name="type" required> Exchange
-                    <input type="radio" name="type" required> Advanced workshop
+                    <input type="radio" name="type" value="IMW" required> IMW
+                    <input type="radio" name="type" value="Workshop" required> Workshop
+                    <input type="radio" name="type" value="Exchange" required> Exchange
+                    <input type="radio" name="type" value="Advanced workshop" required> Advanced workshop
                     <br>
                 </div>
 

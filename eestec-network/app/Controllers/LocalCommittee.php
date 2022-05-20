@@ -158,13 +158,39 @@ class LocalCommittee extends BaseController
     }
     
     public function acceptMembersAccept(){
+          $request = $_POST['arguments'];
           $reguserModel = new \App\Models\regUserModel;
-          echo "uslo";
+    
+        
+        
+        foreach ($request as $IdUser) {
+            $reguserModel->save([
+                "IdUser" =>  $IdUser,
+                "isApproved" => 1,
+                      
+            ]);
+            
+           
+        }
+
          
     }
      
     public function acceptMembersDecline(){
-          
+        $request = $_POST['arguments'];
+        $reguserModel = new \App\Models\regUserModel;
+    
+        
+        
+        foreach ($request as $IdUser) {
+            $reguserModel->save([
+                "IdUser" =>  $IdUser,
+                "isApproved" => 2,
+                      
+            ]);
+            
+           
+        }
           
     }
     
@@ -190,4 +216,8 @@ class LocalCommittee extends BaseController
         $this->prikaz("", ['event' => $event]);  
     }
   
+    public function temp($t){
+        
+        $t = 3;
+    }
 }

@@ -70,13 +70,39 @@ class Admin extends BaseController
         $this->prikaz("eventReadMore", ['event' => $event, 'op' => $op]);  
     }
     
-    public function clickDeleteEvent(){
-        
-    }
-    
     public function logout(){
         $this->session->destroy();
         return redirect()->to(site_url("Gost"));
     }
 
+    public function acceptCommitteesAccept(){
+          $request = $_POST['arguments'];
+          $committeeModel = new \App\Models\CommitteeModel;
+    
+        foreach ($request as $IdUser) {
+            $committeeModel->save([
+                "IdUser" =>  $IdUser,
+                "isApproved" => 1,
+                      
+            ]);
+            
+           
+        }   
+    }
+     
+    public function acceptCommitteesDecline(){
+        $request = $_POST['arguments'];
+        $committeeModel = new \App\Models\CommitteeModel;      
+        
+        foreach ($request as $IdUser) {
+            $committeeModel->save([
+                "IdUser" =>  $IdUser,
+                "isApproved" => 2,
+                      
+            ]);
+           
+        }
+          
+    }
+    
 }

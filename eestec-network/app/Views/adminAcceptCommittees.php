@@ -7,6 +7,8 @@
     <style>
         <?php include 'css/marija.css'; ?>
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/js.js"></script>
     <title>Feed</title>
 </head>
 <body>
@@ -36,20 +38,22 @@
 <main>
     <h1 id="list">List of Committees</h1>
 
-        <?php
-    foreach ($committees as $committee) {
-        echo "<label class='cont'>
-          <input type='checkbox'> Name: $committee->committeeName, Type: $committee->type, University: $committee->universityName, Date of Registration: $committee->dateOfReg
-    </label><br>";
-    }?>
+        <?php foreach ($committees as $committee) { ?>  
+        <label class="cont">
+            <input type="checkbox" name="check_com[]" class="cb" value=<?php echo $committee->IdUser ?>/>Name: <?php echo " $committee->committeeName" ?>, Type: <?php echo " $committee->type" ?>,  University :<?php echo " $committee->universityName"?>, Date of Registration: <?php echo " $committee->dateOfReg" ?> 
+        </label><br>
+
+
+    <?php }
+    ?>  
 
     <div class="accdec">
         <div>
-            <a href="<?= site_url("Admin/clickAcceptCommittee")?>"><button class = "accdecb "  type="button">Accept</button></a>
+            <button class = "accdecb" type="submit" onclick="lcAcceptCom()">Accept</button>
         </div>
         <div></div>
         <div>
-             <a href="<?= site_url("Admin/clickDeclineCommittee")?>"><button class = "accdecb "  type="button">Decline</button></a>
+            <button class = "accdecb" type="submit" onclick="lcDeclineCom()">Decline</button>
         </div>
     </div>
 </main>

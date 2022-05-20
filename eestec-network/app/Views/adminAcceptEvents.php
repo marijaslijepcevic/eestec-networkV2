@@ -64,7 +64,7 @@
 
                     <div class='opis'>
                         <?php echo "
-                        $event->description;
+                        $event->description
                         "?>
                     </div>
                     <div>

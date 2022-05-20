@@ -19,12 +19,17 @@ class RegUser extends BaseController
     }
     
     public function index(){
-        $this->prikaz('memberPage',[]);   //samo promeni stranicu kad se ubaci      
+        $eventModel = new \App\Models\eventModel();
+        $events = $eventModel->where("isActive", 1)->where("isApproved", 1)->findAll();
+        $this->prikaz('memberPage',['events' => $events]);      
     }
     
      public function viewEvents(){
-        $this->prikaz('memberPage',[]);   //samo promeni stranicu kad se ubaci      
-    }
+        $eventModel = new \App\Models\eventModel();
+        $events = $eventModel->where("isActive", 1)->where("isApproved", 1)->findAll();
+        $this->prikaz('memberPage',['events' => $events]);      
+        
+     }
     
      public function changeInfo(){
         $user = $this->session->get('user');
@@ -99,4 +104,45 @@ class RegUser extends BaseController
         $this->changeInfo();
     }
   
+    public function apply($IdEvent){
+        $eventAppModel = new \App\Models\eventApplicationModel;
+        $eventModel = new \App\Models\eventModel();
+        $type = $eventModel->find($IdEvent)->type;
+        
+        $date = date("Y-m-d");
+          
+        if($type == 'Workshop' || $type == 'Advanced workshop' ){
+            $this->prikaz("memberMotivationalLetter", ['$idEvent' => $IdEvent]);              
+        }else{
+            $eventAppModel->save([
+                'IdEvent'=> $IdEvent,
+                'IdUser' => $this->session->get('user')->IdUser,
+                'dateOfAppl'=> $date
+            ]);
+            
+        }
+        
+        
+    }
+    
+     public function submitMotivationalLetter($IdEvent){
+        $eventAppModel = new \App\Models\eventApplicationModel;
+      
+        $letter = $_POST['arguments'];
+        $date = date("Y-m-d");
+          
+        $eventAppModel->save([
+                'IdUser' => $this->session->get('user')->IdUser,
+                'IdEvent'=> $IdEvent,
+                'dateOfAppl'=> $date,
+                'motivationalLetter' => $letter
+        ]);
+        
+        
+    }
+    
+    
 }
+
+
+                   
