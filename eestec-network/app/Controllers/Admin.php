@@ -7,6 +7,7 @@ use App\Models\eventModel;
 
 class Admin extends BaseController
 {
+    
      protected function prikaz($stranica,$data){
         echo view($stranica, $data);    
     }
