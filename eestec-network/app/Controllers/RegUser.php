@@ -117,7 +117,17 @@ class RegUser extends BaseController
             $this->prikaz("memberMotivationalLetter", ['IdEvent' => $IdEvent]);   
             return;
         }else{
+            
+            $maxId = 0;
+            $req = $eventAppModel->findAll();
+            foreach ($req as $evApp) {
+                if($evApp->id > $maxId){
+                    $maxId = $evApp->id;
+                }
+            }
+            $maxId = $maxId + 1;
             $eventAppModel->save([
+                'id' => $maxId,
                 'IdEvent'=> $IdEvent,
                 'IdUser' => $this->session->get('user')->IdUser,
                 'dateOfAppl'=> $date
@@ -139,8 +149,17 @@ class RegUser extends BaseController
         $letter = $request[0];
         
         $date = date("Y-m-d");
-          
+        
+        $maxId = 0;
+        $req = $eventAppModel->findAll();
+        foreach ($req as $evApp) {
+            if($evApp->id > $maxId){
+                $maxId = $evApp->id;
+            }
+        }
+        $maxId = $maxId + 1;
         $eventAppModel->save([
+                'id' => $maxId,
                 'IdUser' => $this->session->get('user')->IdUser,
                 'IdEvent'=> $IdEvent,
                 'dateOfAppl'=> $date,

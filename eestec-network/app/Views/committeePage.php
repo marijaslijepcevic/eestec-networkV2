@@ -48,16 +48,13 @@
                 </div>
                <div class='box1'>
                     <span class='levaivica'>
-                        <?php echo "
-                        <h1>$event->eventName</h1>
-                           " ?>
-                    </span>
-                    <span>
-                         <?php
+                        <?php
                         $committeeModel = new \App\Models\committeeModel();
-                        $committee = $committeeModel->where('IdUser', $event->IdEventCom);
-                         echo "<h4>$committee->committeeName</h4>"
-                                ?>
+                        $committee = $committeeModel->find($event->IdEventCom);
+                        echo "
+                        <h1>$event->eventName - $committee->committeeName</h1>
+
+                           " ?>
                     </span>
                 </div>
   
@@ -71,10 +68,10 @@
                     <a href='<?= site_url("LocalCommittee/eventReadMore/$event->IdEvent/3")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php echo $event->IdEvent?>>Read more</button></a>   
                 </div>
                 <div>
-                                        <?php if($event->openApplications == 0) : ?>
-                    <input style="visibility:hidden;" type="button" value="Close applications!" disabled>
+                    <?php if($event->finishedSelection == 1) : ?>
+                    <input style="visibility:hidden;" type="button" value="Accept participants" disabled>
                     <?php endif; ?>
-                    <?php if($event->openApplications == 1) : ?> 
+                    <?php if($event->finishedSelection == 0) : ?> 
                         <a href='<?= site_url("LocalCommittee/acceptParticipants/$event->IdEvent")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Accept participants</button></a>
                      <?php endif; ?>
                 </div>

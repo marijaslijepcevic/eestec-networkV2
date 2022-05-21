@@ -108,53 +108,31 @@ function acceptPar(IdEv){
         $('#post').html("Nedovoljno slobodnih mesta!");
         return;
     }
-    numOfAcc = numOfAcc + vred.length; //dodaj
+    numOfAcc = numOfAcc + vred.length;
     vred.push(numOfAcc);
     $.ajax({
             method: "POST",
-            url: window.location.origin + "/LocalCommittee/acceptParticipantsAccept",
+            url: window.location.origin + "/LocalCommittee/acceptParticipantsAccept/" + IdEv,
             data: {arguments: vred},
             success: function (obj, textstatus) {
                   alert("jeee");
             },
-    error: function (jqXHR, exception) {
-        var msg = '';
-        if (jqXHR.status === 0) {
-            msg = 'Not connect.\n Verify Network.';
-        } else if (jqXHR.status == 404) {
-            msg = 'Requested page not found. [404]';
-        } else if (jqXHR.status == 500) {
-            msg = 'Internal Server Error [500].';
-        } else if (exception === 'parsererror') {
-            msg = 'Requested JSON parse failed.';
-        } else if (exception === 'timeout') {
-            msg = 'Time out error.';
-        } else if (exception === 'abort') {
-            msg = 'Ajax request aborted.';
-        } else {
-            msg = 'Uncaught Error.\n' + jqXHR.responseText;
-        }
-         $('#post').html(msg)
-    }
+            error: function(xhr, status, error) {
+            }
         });
-    //window.location.reload();
+        
+    window.location.reload();
 }
 
-function finishPar(){  //nije dobro
-    var markedCheckbox = document.getElementsByName('check_par[]'); 
-    var niz = []; 
-    for (var checkbox of markedCheckbox) {  
-      if (checkbox.checked)  
-        niz.push(checkbox.value);
-    }   
+function finishPar(IdEv){
     $.ajax({
             method: "POST",
-            url: window.location.origin + "/Admin/acceptCommitteesAccept",
-            data: {arguments: niz},
+            url: window.location.origin + "/LocalCommittee/acceptParticipantsFinish/" + IdEv,
+            data: {arguments: IdEv},
             success: function (obj, textstatus) {
             },
             error: function(xhr, status, error) {
             }
         });
-    window.location.reload();
+    window.location.replace("/LocalCommittee/viewEvents");
 }
