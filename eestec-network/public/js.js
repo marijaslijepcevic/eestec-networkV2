@@ -89,30 +89,48 @@ function submitLetter(){
 
 function acceptPar(IdEv){
     var markedCheckbox = document.getElementsByName('check_par[]'); 
-    var niz = []; 
+    var vred = []; 
     for (var checkbox of markedCheckbox) {  
       if (checkbox.checked)  
-        niz.push(checkbox.value);
+        vred.push(checkbox.value);
     }   
     var numOfPar = document.getElementById('numOfPar').value;
     var numOfAcc = document.getElementById('numOfAcc').value;
-    if(niz.length > numOfPar - numOfAcc){
+    if(vred.length > (numOfPar - numOfAcc)){
         window.location.reload();
+        $('#post').html("Nedovoljno slobodnih mesta!");
         return;
     }
-    numOfAcc = numOfAcc + niz.length; //dodaj
+    numOfAcc = numOfAcc + vred.length; //dodaj
+    vred.push(numOfAcc);
     $.ajax({
             method: "POST",
             url: window.location.origin + "/LocalCommittee/acceptParticipantsAccept",
-            data: {arguments: niz},
+            data: {arguments: vred},
             success: function (obj, textstatus) {
                   alert("jeee");
             },
-            error: function(xhr, status, error) {
-                alert("afds");
-            }
+    error: function (jqXHR, exception) {
+        var msg = '';
+        if (jqXHR.status === 0) {
+            msg = 'Not connect.\n Verify Network.';
+        } else if (jqXHR.status == 404) {
+            msg = 'Requested page not found. [404]';
+        } else if (jqXHR.status == 500) {
+            msg = 'Internal Server Error [500].';
+        } else if (exception === 'parsererror') {
+            msg = 'Requested JSON parse failed.';
+        } else if (exception === 'timeout') {
+            msg = 'Time out error.';
+        } else if (exception === 'abort') {
+            msg = 'Ajax request aborted.';
+        } else {
+            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+        }
+         $('#post').html(msg)
+    }
         });
-    window.location.reload();
+    //window.location.reload();
 }
 
 function finishPar(){  //nije dobro

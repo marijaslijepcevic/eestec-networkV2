@@ -59,6 +59,7 @@
         </div>
         <div></div>
         <div>
+                        <span id="post"></span>
             <button class = "accdecb" type="submit" onclick="finishPar()">Finish</button>
         </div>
     </div>

@@ -14,12 +14,12 @@ class LocalCommittee extends BaseController
     
     public function index(){
         $eventModel = new \App\Models\eventModel();
-        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->findAll();
+        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);        
     }
     public function viewEvents(){
         $eventModel = new \App\Models\eventModel();
-        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->findAll();
+        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);      
     }
     
@@ -226,22 +226,26 @@ class LocalCommittee extends BaseController
         $this->prikaz('committeePage', ['events' => $events]);   
     }
     
-    public function acceptParticipantsAccept($IdEvent){  //nije dobro
+    public function acceptParticipantsAccept($IdEvent){
         $request = $_POST['arguments'];
         $eventApplicationModel = new \App\Models\eventApplicationModel;
-        
-        foreach ($request[0] as $IdUser) {
-     //       $key = $eventApplicationModel->where("IdEvent", $IdEvent)->where("IdUser", $IdUser)->first();
-            $eventApplicationModel->save([
+        $numOfAcc = array_pop($request);
+        $eventApplications = $eventApplicationModel->where("IdEvent", $IdEvent)->findAll();
+        foreach ($request as $IdUser) {
+            $evsave = $eventApplications->where("IdUser", $IdUser)->find();
+            $evsave->save([
                 "IdUser" => $IdUser,
                 "IdEvent" => $IdEvent,
                 "isAccepted" => 1,
                       
-            ]);
-            
-           
+            ]);     
         }
-
+        $eventModel = new \App\Models\eventModel;
+        $ev = $eventModel->find($IdEvent);
+        $ev->save([
+            "IdEvent" => $IdEvent,
+            "numOfAcc" => $numOfAcc
+        ]);
          
     }
     
