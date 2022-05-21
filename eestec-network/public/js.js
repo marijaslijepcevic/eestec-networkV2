@@ -75,23 +75,16 @@ function lcDeclineCom(){
 }
 
 function submitLetter(){
-    
     var pismo = document.getElementById("letter").value;
-    var IdEvent = document.getElementById("hidden").value;
-  
-    var niz = [];
-    niz.push(pismo);
     $.ajax({
             method: "POST",
-            url: window.location.origin + "/RegUser/submitMotivationalLetter/"+IdEvent,
-            data: {arguments: niz},
+            url: window.location.origin + "/RegUser/submitMotivationalLetter",
+            data: {arguments: pismo},
             success: function (obj, textstatus) {
-               
             },
-            error: function(xhr, status, error) {  }
+            error: function(xhr, status, error) {
+            }
         });
-        
-     window.location.replace("/RegUser/viewEvents");
 }
 
 function acceptPar(IdEv){

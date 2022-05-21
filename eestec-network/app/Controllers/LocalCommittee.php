@@ -31,9 +31,7 @@ class LocalCommittee extends BaseController
     }
     
     public function publishEvents(){
-        $committeeModel = new \App\Models\committeeModel;
-        $committees = $committeeModel->findAll();
-        $this->prikaz('committeePublishEvent',["committees" => $committees]);        
+        $this->prikaz('committeePublishEvent',[]);        
     }
     
     public function changeInfo(){
@@ -157,9 +155,7 @@ class LocalCommittee extends BaseController
            
 
         }
-          $eventModel = new \App\Models\eventModel();
-        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->findAll();
-        $this->prikaz('committeePage', ['events' => $events]);        
+        index();
     }
     
     public function acceptMembersAccept(){

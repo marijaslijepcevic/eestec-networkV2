@@ -21,15 +21,13 @@ class RegUser extends BaseController
     public function index(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("isActive", 1)->where("isApproved", 1)->findAll();
-         $user = $this->session->get("user");
-        $this->prikaz('memberPage',['events' => $events, 'user' => $user]);      
+        $this->prikaz('memberPage',['events' => $events]);      
     }
     
      public function viewEvents(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("isActive", 1)->where("isApproved", 1)->findAll();
-         $user = $this->session->get("user");
-        $this->prikaz('memberPage',['events' => $events, 'user' => $user]);      
+        $this->prikaz('memberPage',['events' => $events]);      
         
      }
     
@@ -114,8 +112,7 @@ class RegUser extends BaseController
         $date = date("Y-m-d");
           
         if($type == 'Workshop' || $type == 'Advanced workshop' ){
-            $this->prikaz("memberMotivationalLetter", ['IdEvent' => $IdEvent]);   
-            return;
+            $this->prikaz("memberMotivationalLetter", ['$idEvent' => $IdEvent]);              
         }else{
             $eventAppModel->save([
                 'IdEvent'=> $IdEvent,
@@ -125,19 +122,13 @@ class RegUser extends BaseController
             
         }
         
-        $eventModel = new \App\Models\eventModel();
-        $events = $eventModel->where("isActive", 1)->where("isApproved", 1)->findAll();
-          $user = $this->session->get("user");
-        $this->prikaz('memberPage',['events' => $events, 'user' => $user]);      
         
     }
     
      public function submitMotivationalLetter($IdEvent){
         $eventAppModel = new \App\Models\eventApplicationModel;
-     
-        $request = $_POST['arguments'];
-        $letter = $request[0];
-        
+      
+        $letter = $_POST['arguments'];
         $date = date("Y-m-d");
           
         $eventAppModel->save([
@@ -147,7 +138,6 @@ class RegUser extends BaseController
                 'motivationalLetter' => $letter
         ]);
         
-       
         
     }
     
