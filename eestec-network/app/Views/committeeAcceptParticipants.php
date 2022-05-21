@@ -46,7 +46,7 @@
         <div  class="cont">
             <label>
                 <input type="checkbox" name="check_par[]" class="cb" value=<?php echo $participant->IdUser ?>/>First Name:<?php echo " $reguser->name" ?>,  Last Name: <?php echo " $reguser->surname" ?>,  Date of Application:<?php echo " $participant->dateOfAppl" ?> 
-            </label>&nbsp&nbsp<a href="<?= site_url("LocalCommittee/motivationalLetterclick/$event->IdEvent/$participant->IdUser")?>"><input type="button" class="buttonMotivation" value="Motivational letter"></a><br>
+            </label>&nbsp&nbsp<input type="button" class="buttonMotivation" value="Motivational letter"><br>
         </div>
           
         <?php } ?>  
