@@ -1,6 +1,3 @@
-@@ -1,103 +1,103 @@
-<!-- AUTOR JOVAN DOJCILOVIC -->
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +35,7 @@
     </nav>
     
     <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
-    <form action="<?php echo site_url("Gost/index") ?>" method="post">
+    <form action="<?php echo site_url("Gost/memberRegisterClick") ?>" method="post">
 
         <div class="container">
             <div></div>
@@ -69,11 +66,19 @@
                 
                 <div class = "razmak">
                 <label for="committee"><b>Select your Committee</b></label>
-                <input list="browsers" name="type" required>
+                <input list="browsers" name="committee" required>
                     <datalist id="browsers">
-                        <option value="LC Belgrade">
-                        <option value="Observer Guimares">
-                        <option value="JLC Porto">
+                        <?php
+                        $committeeModel = new \App\Models\committeeModel();
+                        $committees = $committeeModel->findAll();
+                        foreach ($committees as $committee) {  ?>
+                            <option  value = '<?php echo $committee->committeeName?>'>
+                          
+                        <?php }
+                         
+                       ?>
+                        
+                      
                     </datalist>
                 </div>
                 

@@ -109,6 +109,7 @@ class Gost extends BaseController
         }
         
         $uname = $this->request->getVar("uname");
+        
         $user = $userModel->where('username', $uname)->first();
         
         if($user!=null){
