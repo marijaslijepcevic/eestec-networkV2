@@ -68,7 +68,17 @@
                     <a href='<?= site_url("RegUser/eventReadMore/$event->IdEvent")?>'><button class = 'btn '  type='submit' name='rdmacc' value = <?php echo $event->IdEvent?>>Read more</button></a>   
                 </div>
                 <div>
-                    <a href='<?= site_url("RegUser/apply/$event->IdEvent")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Apply</button></a>
+                    <?php
+                    $eventAppl = new \App\Models\eventApplicationModel;
+                    $row = $eventAppl->where("IdEvent", $event->IdEvent)->where("IdUser", $user->IdUser)->findAll();
+                    if($row==null): ?>
+                        <a href='<?= site_url("RegUser/apply/$event->IdEvent")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Apply</button></a>
+                    <?php endif; ?>
+                    <?php if($row==null) : ?>
+                         <input style="visibility:hidden;" type="button" value="Apply!" disabled>
+                    <?php endif; ?>
+                   
+                    
                 </div>
                
             </div>

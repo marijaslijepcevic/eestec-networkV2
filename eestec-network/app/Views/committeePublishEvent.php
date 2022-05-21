@@ -70,15 +70,7 @@
                     <input type="text" placeholder="Enter Number of Participants" name="br_uc" required>
                     <br>
                </div>
-                <div class = "razmak">
-                    <label for="committee" ><b>Select your Committee</b></label>
-                    <input list="browsers" required>
-                        <datalist id="browsers">
-                            <option value="LC Belgrade">
-                            <option value="Observer Guimares">
-                            <option value="JLC Porto">
-                        </datalist>
-                </div>
+              
           
                 <div class="razmak">
                     <label for="org_odbor" required><b>Organizing Committee</b></label>
@@ -95,7 +87,7 @@
                     <div></div>
                     <div></div>
                     <div>
-                        <!--ODLUCITI GDE TE VODI-->
+                  
                         <button class = "login" type="submit" required>Publish Event</button>
                     </div>
                 </div>
