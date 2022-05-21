@@ -157,9 +157,9 @@ class LocalCommittee extends BaseController
            
 
         }
-          $eventModel = new \App\Models\eventModel();
-        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->findAll();
-        $this->prikaz('committeePage', ['events' => $events]);        
+        $eventModel = new \App\Models\eventModel();
+        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
+        $this->prikaz('committeePage', ['events' => $events]);           
     }
     
     public function acceptMembersAccept(){
@@ -226,18 +226,18 @@ class LocalCommittee extends BaseController
             ]);
         }
         
-        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->findAll();
-        $this->prikaz('committeePage', ['events' => $events]);   
+        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
+        $this->prikaz('committeePage', ['events' => $events]);     
     }
     
     public function acceptParticipantsAccept($IdEvent){
         $request = $_POST['arguments'];
         $eventApplicationModel = new \App\Models\eventApplicationModel;
         $numOfAcc = array_pop($request);
-        $eventApplications = $eventApplicationModel->where("IdEvent", $IdEvent)->findAll();
         foreach ($request as $IdUser) {
-            $evsave = $eventApplications->where("IdUser", $IdUser)->find();
-            $evsave->save([
+            $evsave = $eventApplicationModel->where("IdEvent", $IdEvent)->where("IdUser", $IdUser)->first();
+            $eventApplicationModel->save([
+                "id" => $evsave->id,
                 "IdUser" => $IdUser,
                 "IdEvent" => $IdEvent,
                 "isAccepted" => 1,
@@ -251,12 +251,26 @@ class LocalCommittee extends BaseController
             "numOfAcc" => $numOfAcc
         ]);
          
+        
+        
     }
-      public function motivationalLetterclick($idEvent, $IdUser){
+    
+    public function acceptParticipantsFinish($IdEvent){
+        $eventModel = new \App\Models\eventModel;
+        $eventModel->save([
+            "IdEvent" => $IdEvent,
+            "finishedSelection" => 1,
+            "openApplications" => 0
+
+        ]);          
+        $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
+        $this->prikaz('committeePage', ['events' => $events]);      
+    }
+    
+    public function motivationalLetterclick($idEvent, $IdUser){
         $eventApplicationModel = new \App\Models\eventApplicationModel;
         $letter = $eventApplicationModel->where("IdEvent", $idEvent)->where("IdUser",$IdUser)->first()->motivationalLetter;
         $this->prikaz("readMotivationalLetter", ['letter' => $letter, "IdEvent" => $idEvent]);  
     }
-    
     
 }

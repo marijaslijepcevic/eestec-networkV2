@@ -49,17 +49,14 @@
                 
                 <div class='box'>
                     <span class='levaivica'>
-                        <?php echo "
-                        <h1>$event->eventName</h1>
-                        "?>
-                    </span>
-                    <span>
-                         <?php
-                        $committeeModel = new \App\Models\committeeModel();
-                        $committee = $committeeModel->where('IdUser', $event->IdEventCom);
-                         echo "<h4>$committee->committeeName</h4>"
-                                ?>
-                    </span>
+                            <?php
+                            $committeeModel = new \App\Models\committeeModel();
+                            $committee = $committeeModel->find($event->IdEventCom);
+                            echo "
+                            <h1>$event->eventName - $committee->committeeName</h1>
+                                
+                               " ?>
+                        </span>
                 </div>
                 <div class='opis'>
                     <?php echo "

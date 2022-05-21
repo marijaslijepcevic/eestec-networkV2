@@ -10,7 +10,7 @@ class eventApplicationModel extends Model
 
    
     protected $returnType     = 'object';
-    //protected $useAutoIncrement = false;
-    protected $allowedFields = ['IdEvent', 'IdUser', 'motivationalLetter', 'isAccepted', 'dateOfAppl'];
+    protected $useAutoIncrement = false;
+    protected $allowedFields = ['id','IdEvent', 'IdUser', 'motivationalLetter', 'isAccepted', 'dateOfAppl'];
 
 }

@@ -46,7 +46,11 @@
         <div  class="cont">
             <label>
                 <input type="checkbox" name="check_par[]" class="cb" value=<?php echo $participant->IdUser ?>/>First Name:<?php echo " $reguser->name" ?>,  Last Name: <?php echo " $reguser->surname" ?>,  Date of Application:<?php echo " $participant->dateOfAppl" ?> 
-            </label>&nbsp&nbsp<a href="<?= site_url("LocalCommittee/motivationalLetterclick/$event->IdEvent/$participant->IdUser")?>"><input type="button" class="buttonMotivation" value="Motivational letter"></a><br>
+                        </label>&nbsp&nbsp
+                        
+                    <?php if($event->type!='IMW' && $event->type!='Exchange'):?>  
+                        <a href="<?= site_url("LocalCommittee/motivationalLetterclick/$event->IdEvent/$participant->IdUser")?>"><input type="button" class="buttonMotivation" value="Motivational letter"></a><br>
+                    <?php endif; ?>
         </div>
           
         <?php } ?>  
@@ -60,7 +64,7 @@
         <div></div>
         <div>
                         <span id="post"></span>
-            <button class = "accdecb" type="submit" onclick="finishPar()">Finish</button>
+            <button class = "accdecb" type="submit" onclick="finishPar(<?php echo $event->IdEvent ?>)">Finish</button>
         </div>
     </div>
 </main>

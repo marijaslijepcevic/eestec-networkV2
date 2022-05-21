@@ -7,6 +7,7 @@ use App\Models\eventModel;
 
 class Admin extends BaseController
 {
+    
      protected function prikaz($stranica,$data){
         echo view($stranica, $data);    
     }
@@ -25,7 +26,9 @@ class Admin extends BaseController
             $event = $eventModel->where('IdEvent', $id);
             $event->save([
                 "IdEvent" => $id,
-                "isApproved" =>  1        
+                "isApproved" =>  1,
+                "openApplications" =>  1,
+                "isActive" =>  1,
             ]);
         }
         

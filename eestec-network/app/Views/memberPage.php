@@ -46,16 +46,13 @@
                 </div>
                <div class='box1'>
                     <span class='levaivica'>
-                        <?php echo "
-                        <h1>$event->eventName</h1>
-                           " ?>
-                    </span>
-                    <span>
-                         <?php
+                        <?php
                         $committeeModel = new \App\Models\committeeModel();
-                        $committee = $committeeModel->where('IdUser', $event->IdEventCom);
-                         echo "<h4>$committee->committeeName</h4>"
-                                ?>
+                        $committee = $committeeModel->find($event->IdEventCom);
+                        echo "
+                        <h1>$event->eventName - $committee->committeeName</h1>
+
+                           " ?>
                     </span>
                 </div>
   
@@ -71,10 +68,10 @@
                     <?php
                     $eventAppl = new \App\Models\eventApplicationModel;
                     $row = $eventAppl->where("IdEvent", $event->IdEvent)->where("IdUser", $user->IdUser)->findAll();
-                    if($row==null): ?>
+                    if($row==null && $event->finishedSelection==0): ?>
                         <a href='<?= site_url("RegUser/apply/$event->IdEvent")?>'><button class = 'btn '  type='button' name='acc' value = '<?php echo $event->IdEvent?>'>Apply</button></a>
                     <?php endif; ?>
-                    <?php if($row==null) : ?>
+                    <?php if($row!=null || $event->finishedSelection==1) : ?>
                          <input style="visibility:hidden;" type="button" value="Apply!" disabled>
                     <?php endif; ?>
                    
