@@ -1,6 +1,4 @@
-@@ -1,95 +1,95 @@
-<!-- AUTOR JOVAN DOJCILOVIC -->
-
+<!-- Marija Slijepčević 0342/2019-->
 <!DOCTYPE html>
 <html lang="en">
 <head>

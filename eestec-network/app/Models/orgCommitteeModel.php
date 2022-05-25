@@ -1,5 +1,5 @@
 <?php
-//Marija
+// Jovan Dojčilović 0340/2019
 namespace App\Models;
 
 use CodeIgniter\Model;

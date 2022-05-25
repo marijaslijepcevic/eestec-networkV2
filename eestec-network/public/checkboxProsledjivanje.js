@@ -1,3 +1,4 @@
+// Marija Slijepčević 0342/2019
 function decline(){
     var markedCheckbox = document.getElementsByName('check_list[]'); 
     var niz = []; 

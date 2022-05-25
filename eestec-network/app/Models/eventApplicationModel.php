@@ -1,4 +1,5 @@
 <?php
+// Marija Slijepčević 0342/2019
 namespace App\Models;
 
 use CodeIgniter\Model;
