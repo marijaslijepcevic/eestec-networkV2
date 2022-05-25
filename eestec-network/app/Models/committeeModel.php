@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-
+/**
+ * CommitteeModel - model za komitet bazu
+ */
 class committeeModel extends Model
 {
     protected $table      = 'localcommittee';

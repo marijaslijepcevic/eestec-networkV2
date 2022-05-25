@@ -5,21 +5,35 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\eventModel;
-
+/**
+ * Admin kontroler - klasa za sve funkcije admina
+ */
 class Admin extends BaseController
 {
-    
+    /**
+     * Prikazivanje zadate stranice sa potrebnim informacijama.
+     * @param type $stranica
+     * @param type $data
+     */
      protected function prikaz($stranica,$data){
         echo view($stranica, $data);    
     }
-    
+    /**
+     * Prikazivanje pocetne stranice
+     */
     public function index(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("isApproved", 0)->findAll();
         $this->prikaz("adminAcceptEvents", ['events' => $events]);  
     }
   
-      
+   /**
+   * 
+    * Prikazivanje stranice za odobravanje dogadjaja od strane admina.
+    * 
+   * @param type $id
+   * @param type $op 
+   */    
     public function acceptEvents($id = 0, $op = 0){
         $eventModel = new \App\Models\eventModel();
         
@@ -46,6 +60,11 @@ class Admin extends BaseController
           
     }
     
+    /**
+     * 
+     * Prikazivanje stranice sa dogadjajima, gde je moguce obrisati neki od njih.
+     * @param type $id
+     */
     public function deleteEvents($id = 0){  
         $eventModel = new \App\Models\eventModel();
 
@@ -60,7 +79,9 @@ class Admin extends BaseController
         $events = $eventModel->where("isActive", 1)->findAll();
         $this->prikaz("adminDeleteEvents", ['events' => $events]);
     }
-    
+    /**
+     * Prikazivanje stranice za prihvatanje komiteta
+     */
     public function acceptCommittees(){
         $committeeModel = new \App\Models\committeeModel();
         $committees = $committeeModel->where("isApproved", 0)->findAll();
@@ -68,17 +89,29 @@ class Admin extends BaseController
         $this->prikaz("adminAcceptCommittees", ['committees' => $committees]);  
     }
     
+    /**
+     * Prikazivanje stranice za prikaz dodatnih informacija odredjenog dogadjaja.
+     * 
+     * @param type $id
+     * @param type $op
+     */
     public function eventReadMore($id, $op){
         $eventModel = new \App\Models\eventModel();
         $event = $eventModel->where("IdEvent", $id)->first();
         $this->prikaz("eventReadMore", ['event' => $event, 'op' => $op]);  
     }
-    
+    /**
+     * Odjavljivanje naloga i vracanje na pocetnu stranicu.
+     * 
+     * @return type
+     */
     public function logout(){
         $this->session->destroy();
         return redirect()->to(site_url("Gost"));
     }
-
+    /**
+     * Upisivanje u bazu koji su komiteti prihvaceni od strane admina
+     */
     public function acceptCommitteesAccept(){
           $request = $_POST['arguments'];
           $committeeModel = new \App\Models\CommitteeModel;
@@ -93,7 +126,9 @@ class Admin extends BaseController
            
         }   
     }
-     
+     /**
+      * Upisivanje u bazu koji su komiteti odbijeni od strane admina
+      */
     public function acceptCommitteesDecline(){
         $request = $_POST['arguments'];
         $committeeModel = new \App\Models\CommitteeModel;      

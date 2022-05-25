@@ -4,33 +4,51 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-
-class Gost extends BaseController
-{
+/**
+ * Gost kontroler - klasa za sve funkcije neulogovanog korisnika
+ */
+class Gost extends BaseController{ 
+    /**
+     * Prikazivanje zadate stranice sa potrebnim informacijama.
+     * @param type $stranica
+     * @param type $data
+     */
      protected function prikaz($stranica,$data){
        
         echo view($stranica,$data);
        
     }
-    
+     /**
+     * Prikazivanje pocetne stranice(login stranice).
+     */
     public function index(){
         $this->prikaz('login',[]);  
         
     }
-    
+    /**
+     * Prikazivanje stranice sa svim aktivnim dogadjajima.
+     */
     public function guestPage(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("isActive", 1)->findAll();
         $this->prikaz("guestPage", ['events' => $events]);  
     }
-    
+    /**
+     * Prikazivanje stranice za prikaz dodatnih informacija odredjenog dogadjaja.
+     * 
+     * @param type $id
+     */
     public function eventReadMore($id){
         $eventModel = new \App\Models\eventModel();
         $event = $eventModel->where("IdEvent", $id)->first();
         $this->prikaz("eventReadMoreGost", ['event' => $event]);  
     }
   
-    
+    /**
+     * Provera login informacija i potencijalno logovanje na odredjeni nalog.
+     * 
+     * @return type
+     */
      public function loginSubmit()
     {
          //skontaj ko se loguje
@@ -85,19 +103,28 @@ class Gost extends BaseController
         return redirect()->to(site_url("Admin"));
     }
    
-    
+    /**
+     * Prikaz stranice za izbor entiteta koji zeli da se registruje.
+     */
     public function register(){
         $this->prikaz('registrationPicker',[]);   
     }
-    
+    /**
+     * Prikaz stranice za registraciju clana udruzenja.
+     */
     public function memberRegister(){
         $this->prikaz('memberRegistration',[]);       
     }
-    
+    /**
+     * Prikaz stranice za registraciju komiteta
+     */
     public function committeeRegister(){
         $this->prikaz('committeeRegistration',[]);
     }
-    
+    /**
+     * Provera informacija za registraciju clana udruzenja.
+     * @return type
+     */
     public function memberRegisterClick(){
         $email = $this->request->getVar("email");
         $userModel = new \App\Models\userModel();
@@ -172,7 +199,11 @@ class Gost extends BaseController
         $this->prikaz('login',[]);      
          
     }
-    
+    /**
+     * Provera informacija za registraciju komiteta.
+     * 
+     * @return type
+     */
      public function committeeRegisterClick(){
          
         $email = $this->request->getVar("email");

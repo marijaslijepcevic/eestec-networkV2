@@ -3,7 +3,9 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-
+/**
+ * eventApplicationModel - model za bazu sa prijavljenim clanovima udruzenja za odredjeni dogadjaj
+ */
 class eventApplicationModel extends Model
 {
     protected $table      = 'eventapplication';
