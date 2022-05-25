@@ -6,50 +6,53 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
+//klasa za sve funkcije lokalnog komiteta
 class LocalCommittee extends BaseController
 {
+    //prikaz stranice $stranica koja se popunjuje podacima $data
      protected function prikaz($stranica,$data){
        
         echo view($stranica, $data);
        
     }
-    
+    //prikaz osnovne stranice lokalnog komiteta 
     public function index(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);        
     }
+    //prikaz stranice za pregled dogadjaja
     public function viewEvents(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);      
     }
-    
+    //prikaz stranice za prihvatanje članova
     public function acceptMembers(){
         $reguserModel = new \App\Models\regUserModel;
         $members = $reguserModel->where('isApproved',0)->where('IdUserCom',$this->session->get('user')->IdUser)->findAll();
         
         $this->prikaz('committeeAcceptMembers',['members'=>$members]);        
     }
-    
+    //prikaz stranice za objavljivanje dogadjaja
     public function publishEvents(){
         $committeeModel = new \App\Models\committeeModel;
         $committees = $committeeModel->findAll();
         $this->prikaz('committeePublishEvent',["committees" => $committees]);        
     }
-    
+    //prikaz stranice za promenu podataka korisničkog lokalnog komiteta
     public function changeInfo(){
         $user = $this->session->get('user');
         $committee = $this->session->get('committee');
         $this->prikaz('committeeChangeInfo',["user" => $user , "committee" => $committee]);       
     }
-    
+    //odjavljivanje naloga i vraćanje na početnu stranicu
     public function logout(){
         $this->session->destroy();
         return redirect()->to(site_url("Gost"));  
     }
-    
-     public function changeInfoClick(){
+    //menja podatke iz baze o lokalnom komitetu onim koji su zadati u formi
+    public function changeInfoClick(){
         $committeeModel = new \App\Models\committeeModel;
         $userModel = new \App\Models\userModel();
         $user = $this->session->get('user');
@@ -111,7 +114,7 @@ class LocalCommittee extends BaseController
         $this->session->set('committee', $committeeModel->find($id));
         $this->changeInfo();
     }
-    
+    //objavljuje novi dogadjaj na osnovu podataka iz forme
     public function publishEventClick(){
         $eventModel = new \App\Models\eventModel;
 
@@ -163,7 +166,7 @@ class LocalCommittee extends BaseController
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);           
     }
-    
+    //prihvata zahteve korisnika da se priključe lokalnom komitetu
     public function acceptMembersAccept(){
           $request = $_POST['arguments'];
           $reguserModel = new \App\Models\regUserModel;
@@ -182,7 +185,7 @@ class LocalCommittee extends BaseController
 
          
     }
-     
+    //odbija zahteve korisnika da se priključe lokalnom komitetu
     public function acceptMembersDecline(){
         $request = $_POST['arguments'];
         $reguserModel = new \App\Models\regUserModel;
@@ -200,13 +203,13 @@ class LocalCommittee extends BaseController
         }
           
     }
-    
+    //prikazuje dodatne informacije o događaju
     public function eventReadMore($id, $op){
         $eventModel = new \App\Models\eventModel();
         $event = $eventModel->where("IdEvent", $id)->first();
         $this->prikaz("eventReadMoreCommittee", ['event' => $event, 'op' => $op]);  
     }
-    
+    //prikaz stranice za prihvatanje prijavljenih korisnika na dogadjaje
     public function acceptParticipants($id){
         $eventModel = new \App\Models\eventModel();
         $event = $eventModel->where("IdEvent", $id)->first();
@@ -216,7 +219,7 @@ class LocalCommittee extends BaseController
         $this->prikaz("committeeAcceptParticipants", ['event' => $event, 'participants'=>$participants]);  
     }
     
-    
+    //onemogućuje dalje prijave na dogadjaje
     public function closeApplications($id){
         $eventModel = new \App\Models\eventModel();
         
@@ -231,7 +234,7 @@ class LocalCommittee extends BaseController
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);     
     }
-    
+    //prihvata zahteve korisnika da učestvuju na događajima
     public function acceptParticipantsAccept($IdEvent){
         $request = $_POST['arguments'];
         $eventApplicationModel = new \App\Models\eventApplicationModel;
@@ -256,7 +259,7 @@ class LocalCommittee extends BaseController
         
         
     }
-    
+    //završava izbor participanata i onemogućuje dalje prihvaćanje novih
     public function acceptParticipantsFinish($IdEvent){
         $eventModel = new \App\Models\eventModel;
         $eventModel->save([
@@ -269,6 +272,7 @@ class LocalCommittee extends BaseController
         $this->prikaz('committeePage', ['events' => $events]);      
     }
     
+    //prikazuje motivaciono pismo korisnika koji zeli da se prijavi na dati dogadjaj
     public function motivationalLetterclick($idEvent, $IdUser){
         $eventApplicationModel = new \App\Models\eventApplicationModel;
         $letter = $eventApplicationModel->where("IdEvent", $idEvent)->where("IdUser",$IdUser)->first()->motivationalLetter;

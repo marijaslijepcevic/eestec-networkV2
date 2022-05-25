@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-
+//predstavlja model organizacionog komiteta iz baze
 class orgCommitteeModel extends Model
 {
     protected $table      = 'organizingcommittee';

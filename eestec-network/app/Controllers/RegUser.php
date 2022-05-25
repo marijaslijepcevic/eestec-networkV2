@@ -5,46 +5,48 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 
+//klasa za sve funkcije lokalnog komiteta
 class RegUser extends BaseController
 {
+    //prikaz stranice $stranica koja se popunjuje podacima $data
      protected function prikaz($stranica,$data){
        
         echo view($stranica, $data);
        
     }
-    
+    //prikazuje dodatne informacije o događaju
     public function eventReadMore($id){
         $eventModel = new \App\Models\eventModel();
         $event = $eventModel->where("IdEvent", $id)->first();
         $this->prikaz("eventReadMoreMember", ['event' => $event]);  
     }
-    
+    //prikaz osnovne stranice lokalnog komiteta 
     public function index(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("isActive", 1)->where("isApproved", 1)->findAll();
          $user = $this->session->get("user");
         $this->prikaz('memberPage',['events' => $events, 'user' => $user]);      
     }
-    
-     public function viewEvents(){
+    //prikaz stranice za pregled dogadjaja
+    public function viewEvents(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("isActive", 1)->where("isApproved", 1)->findAll();
          $user = $this->session->get("user");
         $this->prikaz('memberPage',['events' => $events, 'user' => $user]);      
         
      }
-    
+    //prikaz stranice za promenu podataka korisnika
      public function changeInfo(){
         $user = $this->session->get('user');
         $reguser = $this->session->get('reguser');
         $this->prikaz('memberChangeInfo',["user" => $user , "reguser" => $reguser]);  
     }
-    
+    //odjavljivanje naloga i vraćanje na početnu stranicu
     public function logout(){
         $this->session->destroy();
         return redirect()->to(site_url("Gost"));
     }
-    
+    //menja podatke iz baze o korisniku onim koji su zadati u formi
     public function changeInfoClick(){
         $reguserModel = new \App\Models\regUserModel;
         $userModel = new \App\Models\userModel();
@@ -106,7 +108,7 @@ class RegUser extends BaseController
         $this->session->set('reguser', $reguserModel->find($id));
         $this->changeInfo();
     }
-  
+    //prijavljuje korisnika na dati dogadjaj
     public function apply($IdEvent){
         $eventAppModel = new \App\Models\eventApplicationModel;
         $eventModel = new \App\Models\eventModel();
@@ -142,7 +144,7 @@ class RegUser extends BaseController
         $this->prikaz('memberPage',['events' => $events, 'user' => $user]);      
         
     }
-    
+    //postavlja motivaciono pismo pri prijavi na dogadjaj
      public function submitMotivationalLetter($IdEvent){
         $eventAppModel = new \App\Models\eventApplicationModel;
      

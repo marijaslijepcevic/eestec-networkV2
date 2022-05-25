@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-
+//predstavlja model korisnika iz baze
 class userModel extends Model
 {
     protected $table      = 'user';
