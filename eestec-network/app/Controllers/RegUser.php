@@ -38,7 +38,7 @@ class RegUser extends BaseController
      public function changeInfo(){
         $user = $this->session->get('user');
         $reguser = $this->session->get('reguser');
-        $this->prikaz('memberChangeInfo',["user" => $user , "reguser" => $reguser]);  
+        $this->prikaz('memberChangeInfo',["user" => $user , "reguser" => $reguser]);
     }
      //odjavljivanje naloga i vraćanje na početnu stranicu
     public function logout(){
@@ -94,12 +94,19 @@ class RegUser extends BaseController
             ]);
         }
         
-        if($this->request->getVar("picture")!=null){
+        if($this->request->getFile("picture")!=null){
            
+            $file = $this->request->getFile('picture');
+            $imageName = $file->getRandomName();
+            if($file->isValid() && !$file->hasMoved()){
+                $file->move('upload/', $imageName);
+                //$file->store();
+            }
+            
             $reguserModel->save([
                 
                 'IdUser' => $this->session->get('user')->IdUser,
-                'picture'=> $this->request->getVar("picture")
+                'picture'=> $imageName
             ]);
         }
        

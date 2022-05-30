@@ -38,7 +38,7 @@
 
     </nav>
      <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
-    <form action="<?= site_url("LocalCommittee/changeInfoClick")?>" method="post">
+    <form action="<?= site_url("LocalCommittee/changeInfoClick")?>" method="post" enctype="multipart/form-data">
 
         <div class="container">
             <div></div>

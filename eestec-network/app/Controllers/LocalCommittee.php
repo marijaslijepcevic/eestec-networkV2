@@ -91,12 +91,19 @@ class LocalCommittee extends BaseController
         }
         
        
-        if($this->request->getVar("picture")!=null){
+        if($this->request->getFile("picture")!=null){
            
+            $file = $this->request->getFile('picture');
+            $imageName = $file->getRandomName();
+            if($file->isValid() && !$file->hasMoved()){
+                $file->move('upload/', $imageName);
+                //$file->store();
+            }
+            
             $committeeModel->save([
                 
                 'IdUser' => $this->session->get('user')->IdUser,
-                'picture'=> $this->request->getVar("picture")
+                'picture'=> $imageName
             ]);
         }
         
@@ -116,6 +123,13 @@ class LocalCommittee extends BaseController
     //objavljuje novi dogadjaj na osnovu podataka iz forme
     public function publishEventClick(){
         $eventModel = new \App\Models\eventModel;
+        
+        $file = $this->request->getFile('picture');
+        $imageName = $file->getRandomName();
+        if($file->isValid() && !$file->hasMoved()){
+            $file->move('upload/', $imageName);
+            //$file->store();
+        }
 
         $eventModel->save([
                 
@@ -123,7 +137,7 @@ class LocalCommittee extends BaseController
             "type" => $this->request->getVar("type"),
             "description" => $this->request->getVar("opis"),
             "numOfParticipants" => $this->request->getVar("br_uc"),
-            "picture" => $this->request->getVar("picture"),
+            "picture" => $imageName,
             "IdEventCom" => $this->session->get("committee")->IdUser,
             "dateStart" => $this->request->getVar("startDate"),
             "dateEnd" => $this->request->getVar("endDate")

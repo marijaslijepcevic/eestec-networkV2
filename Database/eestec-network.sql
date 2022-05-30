@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 30, 2022 at 02:30 PM
+-- Generation Time: May 30, 2022 at 10:07 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `type` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `numOfParticipants` int(10) UNSIGNED NOT NULL,
-  `picture` mediumblob NOT NULL,
+  `picture` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `isActive` tinyint(1) NOT NULL DEFAULT '0',
   `openApplications` tinyint(1) NOT NULL DEFAULT '0',
   `isApproved` int(11) NOT NULL DEFAULT '0',
@@ -67,24 +67,16 @@ CREATE TABLE IF NOT EXISTS `event` (
   PRIMARY KEY (`IdEvent`),
   KEY `IdEventCom` (`IdEventCom`),
   KEY `IdEvent` (`IdEvent`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `event`
 --
 
 INSERT INTO `event` (`IdEvent`, `eventName`, `type`, `description`, `numOfParticipants`, `picture`, `isActive`, `openApplications`, `isApproved`, `IdEventCom`, `finishedSelection`, `dateStart`, `dateEnd`, `numOfAcc`) VALUES
-(6, 'Spring Congress IMW', 'IMW', 'Rest well deserved after this year\'s Spring Congress! Join us for 2 unforgettable days in sunny Belgrade, with more than 250 other EESTEC-ers.', 250, 0x417274626f61726420312e706e67, 1, 0, 1, 11, 1, '2022-05-20', '2022-05-22', 0),
-(7, 'Autumn Congress IMW', 'IMW', 'Join us in the amazing Swiss Alps for the weekend - great views, great cheese, and great chocolate. A one of a kind event, that only an LC like Zurich can organize. You don\'t want to miss this one :)', 100, 0x4369726968206a6573656e6a692e706e67, 1, 1, 1, 18, 0, '2022-11-25', '2022-11-27', 0),
-(8, 'RESPAWN: Game Development Workshop', 'Workshop', 'Are you ready to dive into the world of game development while adventuring through the beautiful city of Novi Sad? ', 15, 0x42656c677261646549734261636b2e4a5047, 0, 1, 1, 11, 0, '2022-06-13', '2022-06-19', 0),
-(9, 'RESPAWN: Game Development Workshop', 'Workshop', 'Are you ready to dive into the world of game development while adventuring through the beautiful city of Novi Sad? \r\nIf your answer is YES, then you\'re in luck because we are looking for a team of adventurous heroes willing to join us on ', 15, 0x6d696e68656e206a6573656e6a692e706e67, 0, 1, 1, 11, 0, '2022-06-13', '2022-06-19', 0),
-(10, 'RESPAWN: Game Development Workshop', 'Workshop', 'Are you ready to dive into the world of game development while adventuring through the beautiful city of Novi Sad? \r\n\r\nIf your answer is YES, then you\'re in luck because we are looking for a team of adventurous heroes willing to join us on an epic quest to create the best game the world has ever seen!\r\n\r\nThroughout this adventure you will upgrade your game development skill tree to the next level ⬆ by participating in sessions focusing on both the theory and practical applications of the knowledge while creating your own game.\r\n\r\nOf course, the adventure spans way beyond just the sessions guild and advances into the vast open world of Novi Sad, the 2022 European Capital of Culture. You will have a chance to explore this immersive land and take part in various activities throughout it. \r\n\r\nFor the completionists among you, we\'ve prepared an  Achievement Hunt which will take you through various side quests around the city (some would even say rally) and allow you to collect enough XP to progress through the main storyline. Keep in mind that fast travel will be disabled during this questline so make sure to stock up on health and stamina potions beforehand!\r\n', 15, 0x6d696e68656e206a6573656e6a692e706e67, 0, 0, 2, 11, 0, '2022-06-13', '2022-06-19', 0),
-(11, 'RESPAWN: Game Development Workshop', 'Workshop', 'If your answer is YES, then you\'re in luck because we are looking for a team of adventurous heroes willing to join us on an epic quest to create the best game the world has ever seen!', 15, 0x417274626f61726420352e706e67, 0, 0, 2, 11, 0, '2022-05-30', '2022-06-05', 0),
-(12, 'RESPAWN: Game Development Workshop', 'Workshop', 'If your answer is YES, then you\'re in luck because we are looking for a team of adventurous heroes willing to join us on an epic quest to create the best game the world has ever seen!\r\n\r\nThroughout this adventure you will upgrade your game development skill tree to the next level ⬆ by participating in sessions focusing on both the theory and practical applications of the knowledge while creating your own game.', 15, 0x417274626f61726420352e706e67, 1, 1, 1, 11, 0, '2022-05-31', '2022-06-05', 0),
-(13, 'RESPAWN: Game Development Workshop', 'Workshop', 'If your answer is YES, then you\'re in luck because we are looking for a team of adventurous heroes willing to join us on an epic quest to create the best game the world has ever seen!\r\nThroughout this adventure you will upgrade your game development skill tree to the next level by participating in sessions focusing on both the theory and practical applications of the knowledge while creating your own game.', 15, 0x417274626f61726420352e706e67, 0, 0, 0, 11, 0, '2022-05-30', '2022-06-05', 0),
-(14, 'RESPAWN: Game Development Workshop', 'Workshop', 'If your answer is YES, then you\'re in luck because we are looking for a team of adventurous heroes willing to join us on  an epic quest to create the best game the world has ever seen!\r\n', 15, 0x417274626f61726420352e706e67, 1, 0, 1, 11, 0, '2022-05-23', '2022-05-29', 0),
-(15, 'RESPAWN: Game Development Workshop', 'Workshop', 'If your answer is YES, then you\'re in luck because we are looking for a team of adventurous heroes willing to join us on an epic quest to create the best game the world has ever seen!\n\nThroughout this adventure you will upgrade your game development skill tree to the next level by participating in sessions focusing on both the theory and practical applications of the knowledge while creating your own game.\n\nOf course, the adventure spans way beyond just the sessions guild and advances into the vast open world of Novi Sad, the 2022 European Capital of Culture. You will have a chance to explore this immersive land and take part in various activities throughout it.\n\nFor the completionists among you, we\'ve prepared an Achievement Hunt which will take you through various side quests around the city (some would even say rally) and allow you to collect enough XP to progress through the main storyline. Keep in mind that fast travel will be disabled during this questline so make sure to stock up on health and stamina potions beforehand!\n', 15, 0x417274626f6172642d352e6a706567, 1, 1, 1, 11, 0, '2022-05-30', '2022-06-05', 0),
-(16, 'RESPAWN: Game Development Workshop', 'Workshop', 'If your answer is YES, then you\'re in luck because we are looking for a team of adventurous heroes willing to join us on an epic quest to create the best game the world has ever seen! Throughout this adventure you will upgrade your game development skill tree to the next level by participating in sessions focusing on both the theory and practical applications of the knowledge while creating your own game. Of course, the adventure spans way beyond just the sessions guild and advances into the vast open world of Novi Sad, the 2022 European Capital of Culture. You will have a chance to explore this immersive land and take part in various activities', 15, 0x417274626f6172642d352e6a706567, 0, 0, 0, 11, 0, '2022-06-13', '2022-06-19', 0);
+(28, 'Spring Congress IMW', 'IMW', 'Rest well deserved after this year\'s Spring Congress! Join more than 250 other participants in sunny Belgrade this spring.', 250, '1653944552_5b4530539f5481c0d46c.png', 1, 0, 1, 20, 1, '2022-05-20', '2022-05-22', 0),
+(29, 'Autumn Congress', 'Workshop', 'The second biggest event of the year. In the beautiful Swiss Alps, the future of the Association will be discussed during 5 days of GMs.', 100, '1653947752_ce7a561fa05d2ab7aecd.png', 1, 1, 1, 22, 0, '2022-11-13', '2022-11-18', 0),
+(30, 'June, the Tenthest (I)MW', 'IMW', 'On a very short notice we decided to open up our (I)MW!\r\nCome with us to the beautiful landscapes of Bavaria and enjoy a weekend full of parties and fun next to the Zugspitze, the highest mountain of Germany! Drink Bavarian beer, have pretzels with Obazda and a Weißwurstfrühstück with us. Don’t know what that is? Well, then it is time to come and find out! We will be more than happy to see all of you \r\n\r\n \r\n\r\n \r\n\r\nJoin us for 2 nights in our cottage in the Alps in breathtaking scenery.\r\n\r\nWe will meet at the Technical University of Munich at 12:00 CEST and take a train to the cottage.\r\n\r\nIn the 3 days and 2 nights we will spend there, you can prepare yourself for lots of drinking games, an incredible hike or a nice day at the public pool in the beautiful scenery and lots of EESTEC spirit!', 15, '1653947860_6f7e1da90932b49466c4.jpg', 1, 1, 1, 27, 0, '2022-06-10', '2022-06-12', 0);
 
 -- --------------------------------------------------------
 
@@ -110,9 +102,13 @@ CREATE TABLE IF NOT EXISTS `eventapplication` (
 --
 
 INSERT INTO `eventapplication` (`IdUser`, `IdEvent`, `motivationalLetter`, `isAccepted`, `dateOfAppl`, `id`) VALUES
-(14, 6, NULL, 0, '2022-05-27', 1),
-(14, 7, NULL, 0, '2022-05-27', 2),
-(14, 15, 'Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!Hello my name is Jovan!', 0, '2022-05-29', 3);
+(21, 28, NULL, 1, '2022-05-30', 1),
+(23, 28, NULL, 1, '2022-05-30', 7),
+(24, 28, NULL, 1, '2022-05-30', 3),
+(25, 28, NULL, 1, '2022-05-30', 2),
+(28, 28, NULL, 1, '2022-05-30', 5),
+(29, 28, NULL, 1, '2022-05-30', 6),
+(30, 28, NULL, 1, '2022-05-30', 4);
 
 -- --------------------------------------------------------
 
@@ -125,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `localcommittee` (
   `IdUser` int(11) UNSIGNED NOT NULL,
   `committeeName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `universityName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `picture` longblob,
+  `picture` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `type` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `isApproved` int(11) NOT NULL DEFAULT '0',
   `dateOfReg` date NOT NULL,
@@ -138,10 +134,10 @@ CREATE TABLE IF NOT EXISTS `localcommittee` (
 --
 
 INSERT INTO `localcommittee` (`IdUser`, `committeeName`, `universityName`, `picture`, `type`, `isApproved`, `dateOfReg`) VALUES
-(11, 'Belgrade', 'University of Belgrade', NULL, 'Local Committee', 1, '2022-05-27'),
-(12, 'Zagreb', 'University of Zagreb', NULL, 'Local Committee', 1, '2022-05-27'),
-(13, 'Munich', 'Technische Universität München', NULL, 'Local Committee', 1, '2022-05-27'),
-(18, 'Zurich', 'ETH Zurich', NULL, 'Local Committee', 1, '2022-05-27');
+(20, 'Belgrade', 'University of Belgrade', '1653944277_de2ab4235e441a6360ff.png', 'Local Committee', 1, '2022-05-30'),
+(22, 'Zurich', 'ETH Zurich', '1653946116_aaeda821d65f9b017d4a.jpg', 'Local Committee', 1, '2022-05-30'),
+(26, 'Zagreb', 'University of Zagreb', '1653946386_a0fe393c3ae0f69ba2c4.png', 'Local Committee', 1, '2022-05-30'),
+(27, 'Munich', 'Technische Universität München', '1653946446_a2af97927118bdfa250a.jpg', 'Local Committee', 1, '2022-05-30');
 
 -- --------------------------------------------------------
 
@@ -164,27 +160,9 @@ CREATE TABLE IF NOT EXISTS `organizingcommittee` (
 --
 
 INSERT INTO `organizingcommittee` (`IdUser`, `IdEvent`, `Id`) VALUES
-(14, 6, 0),
-(14, 8, 0),
-(14, 9, 0),
-(14, 10, 0),
-(14, 11, 0),
-(14, 12, 0),
-(14, 13, 0),
-(14, 14, 0),
-(14, 15, 0),
-(14, 16, 0),
-(15, 6, 0),
-(15, 8, 0),
-(15, 9, 0),
-(15, 10, 0),
-(15, 11, 0),
-(15, 12, 0),
-(15, 13, 0),
-(15, 14, 0),
-(15, 15, 0),
-(15, 16, 0),
-(19, 7, 0);
+(21, 28, 0),
+(23, 29, 0),
+(28, 30, 0);
 
 -- --------------------------------------------------------
 
@@ -198,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `reguser` (
   `IdUserCom` int(11) UNSIGNED DEFAULT NULL,
   `name` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `surname` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `picture` blob,
+  `picture` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isApproved` int(11) NOT NULL DEFAULT '0',
   `dateOfReg` date NOT NULL,
   PRIMARY KEY (`IdUser`),
@@ -211,11 +189,13 @@ CREATE TABLE IF NOT EXISTS `reguser` (
 --
 
 INSERT INTO `reguser` (`IdUser`, `IdUserCom`, `name`, `surname`, `picture`, `isApproved`, `dateOfReg`) VALUES
-(14, 11, 'Jovan', 'Dojčilović', NULL, 1, '2022-05-27'),
-(15, 11, 'Marija', 'Slijepcevic', NULL, 1, '2022-05-27'),
-(16, 13, 'Atanas', 'Daltchev', NULL, 1, '2022-05-27'),
-(17, 12, 'Jan', 'Djurinec', NULL, 1, '2022-05-27'),
-(19, 18, 'Benjamin', 'Stadler', NULL, 1, '2022-05-27');
+(21, 20, 'Jovan', 'Dojčilović', '1653944338_ac7be77cb88f1fb2d442.jpg', 1, '2022-05-30'),
+(23, 22, 'Benjamin', 'Stadler', '1653946281_eb1261c2fec307473cd2', 1, '2022-05-30'),
+(24, 20, 'Marija', 'Slijepcevic', '1653946305_e488796cd73164caf1d4', 1, '2022-05-30'),
+(25, 20, 'Sava', 'Andric', '1653946338_a71044963dce3db73a2d', 1, '2022-05-30'),
+(28, 27, 'Atanas', 'Daltchev', '1653946736_eeebbf2ce55f672e6f89', 1, '2022-05-30'),
+(29, 26, 'Hana', 'Novak', '1653946775_f5a8b17248b675a0d190', 1, '2022-05-30'),
+(30, 26, 'Jan', 'Djurinec', '1653946796_d578c626251242b4addb', 1, '2022-05-30');
 
 -- --------------------------------------------------------
 
@@ -231,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`IdUser`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
@@ -239,15 +219,17 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`IdUser`, `username`, `psw`, `email`) VALUES
 (1, 'admin', '123', 'admin@gmail.com'),
-(11, 'lcBelgrade', '123', 'belgrade@eestec.net'),
-(12, 'lcZagreb', '123', 'zagreb@eestec.net'),
-(13, 'lcMunich', '123', 'munich@eestec.net'),
-(14, 'dojcilovicjovan', '123', 'jovandojcilovic@gmail.com'),
-(15, 'marijaslijepcevic', '123', 'marija.01.ms@gmail.com'),
-(16, 'atanas', '123', 'atanas@eestec.net'),
-(17, 'jandjurinec', '123', 'jan@eestec.net'),
-(18, 'lcZurich', '123', 'zurich@eestec.net'),
-(19, 'benjaminstadler', '123', 'benjaminstadler@eestec.net');
+(20, 'lcBelgrade', '123', 'belgrade@eestec.net'),
+(21, 'dojcilovicjovan', '123', 'jovandojcilovic@gmail.com'),
+(22, 'lcZurich', '123', 'zurich@eestec.net'),
+(23, 'benjaminstadler', '123', 'benjaminstadler@eestec.net'),
+(24, 'marijaslijepcevic', '123', 'marijaaslijepcevic@gmail.com'),
+(25, 'savaandric', '123', 'sava.andric17@gmail.com'),
+(26, 'lcZagreb', '123', 'zagreb'),
+(27, 'lcMunich', '123', 'munich@eestec.net'),
+(28, 'atanas', '123', 'atanas@eestec.net'),
+(29, 'hananovak', '123', 'hananovak@eestec.net'),
+(30, 'jandjurinec', '123', 'jan@eestec.net');
 
 --
 -- Constraints for dumped tables

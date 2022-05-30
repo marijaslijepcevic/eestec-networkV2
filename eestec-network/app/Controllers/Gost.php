@@ -162,7 +162,17 @@ class Gost extends BaseController
         $committee = $committeeModel->where('committeeName', $committeeName)->first();
         $committeeId = $committee->IdUser;
         
-        $picture = $this->request->getVar("picture");
+        $imageName = null;
+        if($this->request->getFile("picture")!=null){
+           
+            $file = $this->request->getFile('picture');
+            $imageName = $file->getRandomName();
+            if($file->isValid() && !$file->hasMoved()){
+                $file->move('upload/', $imageName);
+                //$file->store();
+            }
+            
+        }
         
         $reguserModel = new \App\Models\regUserModel;
         
@@ -176,13 +186,13 @@ class Gost extends BaseController
         ]);
         $idUser = $userModel->getInsertId();
         
-        if($picture!=null){
+        if($imageName!=null){
             $reguserModel->save([
                 'IdUser' => $idUser,
                 'IdUserCom' => $committeeId,
                 'name'=> $firstname,
                 'surname'=> $lastname,
-                'picture' => $picture,
+                'picture' => $imageName,
                 'dateOfReg' => $date
             ]);
         }else{
@@ -235,7 +245,19 @@ class Gost extends BaseController
         $comname = $this->request->getVar("comname");
         $university = $this->request->getVar("university");
         $type = $this->request->getVar("type");
-        $picture = $this->request->getVar("picture");
+        
+        $imageName = null;
+        if($this->request->getFile("picture")!=null){
+           
+            $file = $this->request->getFile('picture');
+            $imageName = $file->getRandomName();
+            if($file->isValid() && !$file->hasMoved()){
+                $file->move('upload/', $imageName);
+                //$file->store();
+            }
+            
+        }
+         
         
         $committeeModel = new \App\Models\committeeModel;
         
@@ -249,13 +271,13 @@ class Gost extends BaseController
         ]);
         $idUser = $userModel->getInsertId();
         
-        if($picture!=null){
+        if($imageName!=null){
             $committeeModel->save([
                 'IdUser' => $idUser,
                 'committeeName' => $comname,
                 'universityName'=> $university,
                 'type'=> $type,
-                'picture' => $picture,
+                'picture' => $imageName,
                 'dateOfReg' => $date
             ]);
         }else{

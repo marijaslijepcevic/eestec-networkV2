@@ -42,13 +42,13 @@
     <div class="container">
            <div class="col-sm-1">&nbsp;</div>
         
-            <div class='artikal col-sm-11'>  <!--artikal treba da bude resizable-->
+            <div class='artikal col-sm-11'>
                 <div class='lc container' >
                     
                     <div class='row'>
                         <div class='levaivica col-sm-2'>
 
-                               <?php echo '<img src = "data:image/jpeg;base64,'.base64_encode($event->picture).'"/ alt="" width="100px" height="100px">'; ?>
+                               <?php echo '<img src = "/upload/'.$event->picture.'"/ alt="" width="100px" height="100px">'; ?> 
                         </div>
 
                         <div class='kutija col-sm-10 text-center'>
