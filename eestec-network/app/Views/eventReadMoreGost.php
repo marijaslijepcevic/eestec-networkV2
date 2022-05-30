@@ -69,7 +69,22 @@
                     Type of Event: $event->type; <br>
                     Number of Participants: $event->numOfParticipants; <br>
                     Dates: $event->dateStart - $event->dateEnd; <br>
-                    "?>
+                     "?>
+                    <?php
+                    if($event->finishedSelection==1):?>
+                         <?php echo "Participants :             "?>
+                    <?php  
+                        $eventAppModel = new \App\Models\eventApplicationModel();
+                        $applications = $eventAppModel->where('IdEvent', $event->IdEvent)->where('isAccepted', 1)->findAll();
+                        
+                        foreach ($applications as $application){
+                            $reguserModel = new App\Models\regUserModel;
+                            $user = $reguserModel->where("IdUser", $application->IdUser)->first();
+                            ?>
+                             <?php echo "$user->name $user->surname <br>"?>
+                      <?php   }
+                    endif; ?>
+                 
                     <br>
                 </div>
 
