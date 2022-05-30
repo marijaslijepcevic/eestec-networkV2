@@ -92,7 +92,7 @@
                     <div></div>
                     <div></div>
                     <div>
-                        <button class = "login" type="submit">Register</button>
+                        <button class = "login redButton" type="submit">Register</button>
                         <!-- memberPage -->
                     </div>
                 </div>

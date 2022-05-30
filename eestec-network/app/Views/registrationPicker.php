@@ -34,22 +34,22 @@
 
     </nav>
     
-    <div class = "center">
+    <div class = "text-center center">
         <h1>What are you?</h1>
-    
-    <div class = "whatAreYou">
-        <div></div>
-        <div>
-            <a href = "<?php echo site_url("Gost/committeeRegister") ?>" class = "dugmence"><button class = "redButton"><h1>Local Comitee</h1></button></a>
- 
+        <br>
+        <div class = "row whatAreYou">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <a href = "<?php echo site_url("Gost/committeeRegister") ?>" class = "dugmence"><button class = "redButton"><h1>Local<br> Committee</h1></button></a>
+
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-3">
+                <a href = "<?php echo site_url("Gost/memberRegister") ?>" class = "dugmence"><button class = "redButton"><h1>Member</h1></button></a>
+
+            </div>
+            <div class="col-sm-2"></div>
         </div>
-        <div></div>
-        <div>
-            <a href = "<?php echo site_url("Gost/memberRegister") ?>" class = "dugmence"><button class = "redButton"><h1>Member</h1></button></a>
-           
-        </div>
-        <div></div>
-    </div>
     </div>
 
 
