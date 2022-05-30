@@ -50,6 +50,8 @@ button {
 
 .register{
     background-color: #797D7F;
+    width: auto;
+    border-radius: 10px;
     
 }
 
@@ -167,7 +169,10 @@ button:hover {
 
 .redButton {
     background-color: #e52a30;
-    border-radius: 15px;
+    border-radius: 10px;
+    width: auto;
+    float: right;
+    justify-content: end;
 }
 
 .redButton:hover{
@@ -186,4 +191,26 @@ button:hover {
 .dugmence{
     color:white;
     text-decoration: none;
+}
+
+.nav{
+    width: 100%;
+    background-color: #e52a30;
+}
+
+.pomagac{
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+}
+
+.omotac{
+      margin-left: 20px;
+      margin-right: 20px;
+      display: grid;
+      grid-template-columns: 30% 70%;
+}
+
+.omotac > div{
+      padding: 1em;
 }

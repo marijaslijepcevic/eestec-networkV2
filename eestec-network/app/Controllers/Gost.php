@@ -3,12 +3,13 @@
 // Jovan Dojčilović 0340/2019
 namespace App\Controllers;
 
+
 use CodeIgniter\Controller;
 /**
  * Gost kontroler - klasa za sve funkcije neulogovanog korisnika
  */
-class Gost extends BaseController{ 
-    /**
+class Gost extends BaseController
+{   /**
      * Prikazivanje zadate stranice sa potrebnim informacijama.
      * @param type $stranica
      * @param type $data
@@ -18,7 +19,7 @@ class Gost extends BaseController{
         echo view($stranica,$data);
        
     }
-     /**
+    /**
      * Prikazivanje pocetne stranice(login stranice).
      */
     public function index(){
@@ -57,13 +58,13 @@ class Gost extends BaseController{
        
         //proveri da li postoji korisnik
         if($user==null){
-          $this->prikaz('login',['msg' => "Korisnik ne postoji"]);
+          $this->prikaz('login',['msg' => "User doesn't exist"]);
           return;
         }
      
         //proveri da li je dobra sifra
         if($user->psw!=$this->request->getVar("psw")){
-          $this->prikaz('login',['msg' => "Pogresna lozinka"]);
+          $this->prikaz('login',['msg' => "Wrong password"]);
           return;
         }
         
@@ -75,7 +76,7 @@ class Gost extends BaseController{
         
         if($reguser!=null){
             if( $reguser->isApproved == 0){
-                $this->prikaz('login',['msg' => "Lokalni komitet te nije odobrio!"]);
+                $this->prikaz('login',['msg' => "You Local Committee hasn't approved your account yet!"]);
                 return;
             }
             $this->session->set('user',$user);
@@ -88,7 +89,7 @@ class Gost extends BaseController{
           
         if($committee!=null){
             if($committee->isApproved == 0){
-                $this->prikaz('login',['msg' => "Admin te nije odobrio!"]);
+                $this->prikaz('login',['msg' => "The Admin hasn't approved your account yet!"]);
                 return;                
             }
             $this->session->set('user',$user);
@@ -103,7 +104,7 @@ class Gost extends BaseController{
         return redirect()->to(site_url("Admin"));
     }
    
-    /**
+     /**
      * Prikaz stranice za izbor entiteta koji zeli da se registruje.
      */
     public function register(){
@@ -131,7 +132,7 @@ class Gost extends BaseController{
         $user = $userModel->where('email', $email)->first();
         
         if($user!=null){
-            $this->prikaz('memberRegistration',['msg' => "Postoji nalog sa ovim email-om!"]);
+            $this->prikaz('memberRegistration',['msg' => "An account with this email already exists!"]);
             return; 
         }
         
@@ -140,7 +141,7 @@ class Gost extends BaseController{
         $user = $userModel->where('username', $uname)->first();
         
         if($user!=null){
-            $this->prikaz('memberRegistration',['msg' => "Postoji nalog sa ovim username-om!"]);
+            $this->prikaz('memberRegistration',['msg' => "An account with this username already exists!"]);
             return; 
         }
        
@@ -148,7 +149,7 @@ class Gost extends BaseController{
         $pswRepeat = $this->request->getVar("pswRepeat");
         
         if($psw!=$pswRepeat){
-            $this->prikaz('memberRegistration',['msg' => "Sifre nisu iste"]);
+            $this->prikaz('memberRegistration',['msg' => "Passwords don't match"]);
             return; 
         }
        
@@ -199,7 +200,7 @@ class Gost extends BaseController{
         $this->prikaz('login',[]);      
          
     }
-    /**
+     /**
      * Provera informacija za registraciju komiteta.
      * 
      * @return type
@@ -211,7 +212,7 @@ class Gost extends BaseController{
         $user = $userModel->where('email', $email)->first();
         
         if($user!=null){
-            $this->prikaz('memberRegistration',['msg' => "Postoji nalog sa ovim email-om!"]);
+            $this->prikaz('memberRegistration',['msg' => "An account with this email already exists!"]);
             return; 
         }
         
@@ -219,7 +220,7 @@ class Gost extends BaseController{
         $user = $userModel->where('username', $uname)->first();
         
         if($user!=null){
-            $this->prikaz('memberRegistration',['msg' => "Postoji nalog sa ovim username-om!"]);
+            $this->prikaz('memberRegistration',['msg' => "An account with this username already exists!"]);
             return; 
         }
        
@@ -227,7 +228,7 @@ class Gost extends BaseController{
         $pswRepeat = $this->request->getVar("pswRepeat");
         
         if($psw!=$pswRepeat){
-            $this->prikaz('memberRegistration',['msg' => "Sifre nisu iste"]);
+            $this->prikaz('memberRegistration',['msg' => "Passwords don't match"]);
             return; 
         }
        

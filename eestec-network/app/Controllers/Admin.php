@@ -27,13 +27,13 @@ class Admin extends BaseController
         $this->prikaz("adminAcceptEvents", ['events' => $events]);  
     }
   
-   /**
-   * 
+    /**
+    * 
     * Prikazivanje stranice za odobravanje dogadjaja od strane admina.
     * 
-   * @param type $id
-   * @param type $op 
-   */    
+    * @param type $id
+    * @param type $op 
+    */  
     public function acceptEvents($id = 0, $op = 0){
         $eventModel = new \App\Models\eventModel();
         
@@ -59,7 +59,6 @@ class Admin extends BaseController
         $this->prikaz("adminAcceptEvents", ['events' => $events]);      
           
     }
-    
     /**
      * 
      * Prikazivanje stranice sa dogadjajima, gde je moguce obrisati neki od njih.
@@ -88,7 +87,6 @@ class Admin extends BaseController
         //$this->session->set('committees', $committees);
         $this->prikaz("adminAcceptCommittees", ['committees' => $committees]);  
     }
-    
     /**
      * Prikazivanje stranice za prikaz dodatnih informacija odredjenog dogadjaja.
      * 

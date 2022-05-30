@@ -9,19 +9,19 @@
     <style>
         <?php include 'css/jovan.css'; ?>
     </style>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <header class="header">
-        <div class="wrapper">
+        <div class="omotac">
             <div class="left">
-             
-             <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="300px" height="135px">
-                
+                <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="300px" height="135px">
+              
             </div>
             <div class="right">
-                <span class="helper"></span>
-                <img src="<?php echo base_url('images/eestectekst.svg')?>" alt=""  width="300px" height="135px">
-            
+                <span class="pomagac"></span>
+                   <img src="<?php echo base_url('images/eestectekst.svg')?>" alt=""  width="300px" height="135px">
             </div>
         </div>
     </header>
@@ -37,7 +37,7 @@
 
         <div class="container">
             <div></div>
-            <div>
+            <div >
                 <label for="uname"><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="uname" required>
                 <br>
@@ -51,8 +51,8 @@
                       
                     </div>
                     <div></div>
-                    <div>
-                        <button class = "login" type="submit">Login</button>
+                    <div class="">
+                        <button class = "login redButton" type="submit">Login</button>
                     
                     </div>
                 </div>

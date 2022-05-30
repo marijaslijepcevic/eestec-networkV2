@@ -5,29 +5,28 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-
 //klasa za sve funkcije lokalnog komiteta
 class LocalCommittee extends BaseController
 {
-    //prikaz stranice $stranica koja se popunjuje podacima $data
+     //prikaz stranice $stranica koja se popunjuje podacima $data
      protected function prikaz($stranica,$data){
        
         echo view($stranica, $data);
        
     }
-    //prikaz osnovne stranice lokalnog komiteta 
+     //prikaz osnovne stranice lokalnog komiteta
     public function index(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);        
     }
-    //prikaz stranice za pregled dogadjaja
+     //prikaz stranice za pregled dogadjaja
     public function viewEvents(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);      
     }
-    //prikaz stranice za prihvatanje članova
+     //prikaz stranice za prihvatanje članova
     public function acceptMembers(){
         $reguserModel = new \App\Models\regUserModel;
         $members = $reguserModel->where('isApproved',0)->where('IdUserCom',$this->session->get('user')->IdUser)->findAll();
@@ -40,7 +39,7 @@ class LocalCommittee extends BaseController
         $committees = $committeeModel->findAll();
         $this->prikaz('committeePublishEvent',["committees" => $committees]);        
     }
-    //prikaz stranice za promenu podataka korisničkog lokalnog komiteta
+     //prikaz stranice za promenu podataka korisničkog lokalnog komiteta
     public function changeInfo(){
         $user = $this->session->get('user');
         $committee = $this->session->get('committee');
@@ -52,7 +51,7 @@ class LocalCommittee extends BaseController
         return redirect()->to(site_url("Gost"));  
     }
     //menja podatke iz baze o lokalnom komitetu onim koji su zadati u formi
-    public function changeInfoClick(){
+     public function changeInfoClick(){
         $committeeModel = new \App\Models\committeeModel;
         $userModel = new \App\Models\userModel();
         $user = $this->session->get('user');
@@ -60,18 +59,18 @@ class LocalCommittee extends BaseController
         if($this->request->getVar("psw")!=null && $this->request->getVar("pswRepeat")==null ){
             $user = $this->session->get('user');
             $committee = $this->session->get('committee');
-            $this->prikaz('committeeChangeInfo',['msg' => "Unesi lozinku dva puta", "user" => $user , "committee" => $committee]);
+            $this->prikaz('committeeChangeInfo',['msg' => "You need to enter your password twice!", "user" => $user , "committee" => $committee]);
             return;
         }else if($this->request->getVar("psw")==null && $this->request->getVar("pswRepeat")!=null ){
              $user = $this->session->get('user');
             $committee = $this->session->get('committee');
-            $this->prikaz('committeeChangeInfo',['msg' => "Unesi lozinku dva puta", "user" => $user , "committee" => $committee]);
+            $this->prikaz('committeeChangeInfo',['msg' => "You need to enter your password twice!", "user" => $user , "committee" => $committee]);
             return;
         }else if($this->request->getVar("psw")!=null && $this->request->getVar("pswRepeat")!=null ){
             if($this->request->getVar("psw")!=$this->request->getVar("pswRepeat")){
                 $user = $this->session->get('user');
                 $committee = $this->session->get('committee');
-                $this->prikaz('committeeChangeInfo',['msg' => "Nisu iste lozinke","user" => $user , "committee" => $committee]);
+                $this->prikaz('committeeChangeInfo',['msg' => "The passwords don't match","user" => $user , "committee" => $committee]);
                 return;
             }
 
@@ -146,7 +145,7 @@ class LocalCommittee extends BaseController
             $regUser = $regUserModel->where('name',$name)->where('surname', $surname)->first();
             
             if($regUser==null){
-                 $this->prikaz('committeePublishEvent',['msg' => "Nisu svi ljudi korisnici sistema"]);
+                 $this->prikaz('committeePublishEvent',['msg' => "The people you entered are don't have eestec.net accounts!"]);
                  return;
             }
             
@@ -185,7 +184,7 @@ class LocalCommittee extends BaseController
 
          
     }
-    //odbija zahteve korisnika da se priključe lokalnom komitetu
+     //odbija zahteve korisnika da se priključe lokalnom komitetu
     public function acceptMembersDecline(){
         $request = $_POST['arguments'];
         $reguserModel = new \App\Models\regUserModel;
@@ -203,7 +202,7 @@ class LocalCommittee extends BaseController
         }
           
     }
-    //prikazuje dodatne informacije o događaju
+     //prikazuje dodatne informacije o događaju
     public function eventReadMore($id, $op){
         $eventModel = new \App\Models\eventModel();
         $event = $eventModel->where("IdEvent", $id)->first();
@@ -271,7 +270,6 @@ class LocalCommittee extends BaseController
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);      
     }
-    
     //prikazuje motivaciono pismo korisnika koji zeli da se prijavi na dati dogadjaj
     public function motivationalLetterclick($idEvent, $IdUser){
         $eventApplicationModel = new \App\Models\eventApplicationModel;

@@ -1,9 +1,11 @@
 <?php
 // Jovan Dojčilović 0340/2019
+
+//predstavlja model organizacionog komiteta iz baze
 namespace App\Models;
 
 use CodeIgniter\Model;
-//predstavlja model organizacionog komiteta iz baze
+
 class orgCommitteeModel extends Model
 {
     protected $table      = 'organizingcommittee';

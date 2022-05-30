@@ -8,25 +8,27 @@
      <style>
         <?php include 'css/jovan.css'; ?>
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Feed</title>
 </head>
 <body>
     <header class="header">
-        <div class="wrapper">
+        <div class="omotac">
             <div class="left">
-             <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="300px" height="135px"> 
+                <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="300px" height="135px">
+              
             </div>
             <div class="right">
-                <span class="helper"></span>
-                <img src="<?php echo base_url('images/eestectekst.svg')?>" alt=""  width="300px" height="135px">
-            
+                <span class="pomagac"></span>
+                   <img src="<?php echo base_url('images/eestectekst.svg')?>" alt=""  width="300px" height="135px">
             </div>
         </div>
     </header>
-    <nav class="nav">
+    <nav class="nav justify-content-center">
         <div>
             <ul class="ul">
-                 <li><a href = "<?= site_url("LocalCommittee/viewEvents")?>">View events</a></li>
+                <li><a href = "<?= site_url("LocalCommittee/viewEvents")?>">View events</a></li>
                 <li><a href = "<?= site_url("LocalCommittee/acceptMembers")?>">Accept members</a></li>
                 <li><a href="<?= site_url("LocalCommittee/publishEvents")?>">Publish event</a></li>
                 <li><a href="<?= site_url("LocalCommittee/changeInfo")?>">Edit profile</a></li>  
@@ -62,7 +64,7 @@
                 
                 <div class = "razmak">
                     <label for="type"><b>Type of your Committee</b></label><br>
-                    <input type="radio" name="type" value="Local Committee"> Local Committee
+                    <input type="radio" name="type" value="Local Committee"> Local Committee 
                     <input type="radio"  name="type" value="Junior Local Committee" > Junior Local Committee
                     <input type="radio" name="type" value="Observer" > Observer
                     <br>
@@ -73,7 +75,7 @@
                     <div></div>
                     <div>
                         <!--ODLUCITI GDE TE VODI-->
-                        <button class = "login" type="submit">Change Info</button>
+                        <button class = "login redButton" type="submit">Change Info</button>
                     </div>
                 </div>
 

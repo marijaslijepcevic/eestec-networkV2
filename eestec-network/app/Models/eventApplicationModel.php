@@ -1,11 +1,13 @@
 <?php
 // Marija Slijepčević 0342/2019
-namespace App\Models;
 
-use CodeIgniter\Model;
 /**
  * eventApplicationModel - model za bazu sa prijavljenim clanovima udruzenja za odredjeni dogadjaj
  */
+namespace App\Models;
+
+use CodeIgniter\Model;
+
 class eventApplicationModel extends Model
 {
     protected $table      = 'eventapplication';

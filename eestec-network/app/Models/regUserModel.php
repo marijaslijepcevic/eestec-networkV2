@@ -1,9 +1,11 @@
 <?php
 // Marija Slijepčević 0342/2019
+
+//predstavlja model ulogovanog korisnika iz baze
 namespace App\Models;
 
 use CodeIgniter\Model;
-//predstavlja model ulogovanog korisnika iz baze
+
 class regUserModel extends Model
 {
     protected $table      = 'reguser';

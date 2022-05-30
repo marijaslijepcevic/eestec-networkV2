@@ -4,7 +4,6 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
-
 //klasa za sve funkcije lokalnog komiteta
 class RegUser extends BaseController
 {
@@ -28,7 +27,7 @@ class RegUser extends BaseController
         $this->prikaz('memberPage',['events' => $events, 'user' => $user]);      
     }
     //prikaz stranice za pregled dogadjaja
-    public function viewEvents(){
+     public function viewEvents(){
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("isActive", 1)->where("isApproved", 1)->findAll();
          $user = $this->session->get("user");
@@ -41,12 +40,12 @@ class RegUser extends BaseController
         $reguser = $this->session->get('reguser');
         $this->prikaz('memberChangeInfo',["user" => $user , "reguser" => $reguser]);  
     }
-    //odjavljivanje naloga i vraćanje na početnu stranicu
+     //odjavljivanje naloga i vraćanje na početnu stranicu
     public function logout(){
         $this->session->destroy();
         return redirect()->to(site_url("Gost"));
     }
-    //menja podatke iz baze o korisniku onim koji su zadati u formi
+     //menja podatke iz baze o korisniku onim koji su zadati u formi
     public function changeInfoClick(){
         $reguserModel = new \App\Models\regUserModel;
         $userModel = new \App\Models\userModel();
@@ -55,18 +54,18 @@ class RegUser extends BaseController
         if($this->request->getVar("psw")!=null && $this->request->getVar("pswRepeat")==null ){
             $user = $this->session->get('user');
             $reguser = $this->session->get('reguser');
-            $this->prikaz('memberChangeInfo',['msg' => "Unesi lozinku dva puta", "user" => $user , "reguser" => $reguser]);
+            $this->prikaz('memberChangeInfo',['msg' => "You need to enter your password twice!", "user" => $user , "reguser" => $reguser]);
             return;
         }else if($this->request->getVar("psw")==null && $this->request->getVar("pswRepeat")!=null ){
              $user = $this->session->get('user');
             $reguser = $this->session->get('reguser');
-            $this->prikaz('memberChangeInfo',['msg' => "Unesi lozinku dva puta", "user" => $user , "reguser" => $reguser]);
+            $this->prikaz('memberChangeInfo',['msg' => "You need to enter your password twice!", "user" => $user , "reguser" => $reguser]);
             return;
         }else if($this->request->getVar("psw")!=null && $this->request->getVar("pswRepeat")!=null ){
             if($this->request->getVar("psw")!=$this->request->getVar("pswRepeat")){
                 $user = $this->session->get('user');
                 $reguser = $this->session->get('reguser');
-                $this->prikaz('memberChangeInfo',['msg' => "Nisu iste lozinke","user" => $user , "reguser" => $reguser]);
+                $this->prikaz('memberChangeInfo',['msg' => "The passwords don't match","user" => $user , "reguser" => $reguser]);
                 return;
             }
 
@@ -108,7 +107,7 @@ class RegUser extends BaseController
         $this->session->set('reguser', $reguserModel->find($id));
         $this->changeInfo();
     }
-    //prijavljuje korisnika na dati dogadjaj
+  //prijavljuje korisnika na dati dogadjaj
     public function apply($IdEvent){
         $eventAppModel = new \App\Models\eventApplicationModel;
         $eventModel = new \App\Models\eventModel();

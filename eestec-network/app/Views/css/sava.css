@@ -28,7 +28,13 @@ ul > li > a:hover, ul > li > a:active {
     padding: 20px;
 }
 
-.wrapper{
+/*OVO TREBA*/
+.nav{
+    width: 100%;
+    background-color: #e52a30;
+}
+
+/*.wrapper{
       margin-left: 20px;
       margin-right: 20px;
       display: grid;
@@ -36,6 +42,18 @@ ul > li > a:hover, ul > li > a:active {
 }
 
 .wrapper > div{
+      padding: 1em;
+}
+*/
+
+.omotac{
+      margin-left: 20px;
+      margin-right: 20px;
+      display: grid;
+      grid-template-columns: 30% 70%;
+}
+
+.omotac > div{
       padding: 1em;
 }
 
@@ -54,7 +72,13 @@ ul > li > a:hover, ul > li > a:active {
       background-color: white;
 }
 
-.helper{
+/*.helper{
+      display: inline-block;
+      vertical-align: middle;
+      height: 100%;
+}*/
+
+.pomagac{
       display: inline-block;
       vertical-align: middle;
       height: 100%;
@@ -79,13 +103,13 @@ ul > li > a:hover, ul > li > a:active {
     display: inline-block;
 }
 
-.lc{
+/*.lc{
     border-radius: 25px;
     display: grid;
     grid-auto-rows: 100px;
-}
+}*/
 
-.btn{
+/*.btn{
     display: inline-block;
     font-size: 20px;
     padding: 20px;
@@ -95,17 +119,18 @@ ul > li > a:hover, ul > li > a:active {
 .btn:hover{
     background-color: #e52a30;
 }
-
-.box1{
+*/
+/*.box1{
     grid-column-start: 2;
     grid-column-end: 4;
     text-align: center;
-}
+}*/
 
 .opis{
     grid-column-start: 1;
     grid-column-end: 4;
     padding-top: 15px;
+    height: 100%;
 }
 
 .levaivica{
@@ -124,4 +149,30 @@ ul > li > a:hover, ul > li > a:active {
 .dugmenceCrniTekst{
     color: black;
     text-decoration: none;
+}
+
+/*.box{
+    grid-column-start: 2;
+    grid-column-end: 4;
+    text-align: center;
+}*/
+.kutija{
+    width: 100%;
+    padding-top: 10px;
+}
+
+.dugme{
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.dugme:hover{
+    background-color: #e52a30;
+}
+
+.dugmad{
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

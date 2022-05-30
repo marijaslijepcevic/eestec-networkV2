@@ -1,11 +1,13 @@
 <?php
 // Marija Slijepčević 0342/2019
-namespace App\Models;
 
-use CodeIgniter\Model;
 /**
  * CommitteeModel - model za komitet bazu
  */
+namespace App\Models;
+
+use CodeIgniter\Model;
+
 class committeeModel extends Model
 {
     protected $table      = 'localcommittee';
