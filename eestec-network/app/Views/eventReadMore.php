@@ -15,15 +15,15 @@
     <title>Feed</title>
 </head>
 <body>
-<header class="header">
+    <header class="header">
         <div class="omotac">
             <div class="left">
-                <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="300px" height="135px">
+                <img src="<?php echo base_url('images/eestec.png')?>" alt=""  width="60%" height="auto">
               
             </div>
             <div class="right">
                 <span class="pomagac"></span>
-                   <img src="<?php echo base_url('images/eestectekst.svg')?>" alt=""  width="300px" height="135px">
+                   <img src="<?php echo base_url('images/eestectekst.svg')?>" alt=""  width="60%" height="auto">
             </div>
         </div>
     </header>

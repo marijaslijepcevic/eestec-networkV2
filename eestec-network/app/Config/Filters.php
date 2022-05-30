@@ -23,11 +23,6 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'gost' => \App\Filters\GostFilter::class,
-        'committee' => \App\Filters\LocalCommitteeFilter::class,
-        'admin' => \App\Filters\AdminFilter::class,
-        'reguser' => \App\Filters\RegUserFilter::class
-        
     ];
 
     /**
@@ -69,10 +64,5 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [
-        'committee' => ['before' => ['LocalCommittee/*', 'LocalCommittee']],
-        'admin' => ['before' => ['Admin/*', 'Admin']],
-        'reguser' => ['before' => ['RegUser/*', 'RegUser']],
-        'gost' => ['before' => ['Gost/*', 'Gost', '/']]
-    ];
+    public $filters = [];
 }

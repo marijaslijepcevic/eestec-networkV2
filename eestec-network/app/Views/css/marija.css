@@ -173,10 +173,7 @@ button:hover {
 .omotac > div{
       padding: 1em;
 }
-  
-  .left > img{
-      width: 100%;
-  }
+
 
   .right{
       text-align: center;
@@ -185,7 +182,6 @@ button:hover {
   .right > img{
       display: inline-block;
       vertical-align: middle;
-      width: 60%;
       background-color: white;
   }
 

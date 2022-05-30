@@ -57,9 +57,6 @@ ul > li > a:hover, ul > li > a:active {
       padding: 1em;
 }
 
-.left > img{
-      width: 100%;
-}
 
 .right{
       text-align: center;
@@ -68,7 +65,7 @@ ul > li > a:hover, ul > li > a:active {
 .right > img{
       display: inline-block;
       vertical-align: middle;
-      width: 60%;
+      
       background-color: white;
 }
 
