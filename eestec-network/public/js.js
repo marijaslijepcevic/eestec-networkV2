@@ -107,7 +107,7 @@ function acceptPar(IdEv){
     var numOfPar = document.getElementById('numOfPar').value;
     var numOfAcc = document.getElementById('numOfAcc').value;
     if(vred.length > (numOfPar - numOfAcc)){
-        window.location.reload();
+
         $('#post').html("Nedovoljno slobodnih mesta!");
         return;
     }
@@ -118,7 +118,6 @@ function acceptPar(IdEv){
             url: window.location.origin + "/LocalCommittee/acceptParticipantsAccept/" + IdEv,
             data: {arguments: vred},
             success: function (obj, textstatus) {
-                  alert("jeee");
             },
             error: function(xhr, status, error) {
             }

@@ -42,6 +42,7 @@
     </nav>
 <main>
     <br>
+    <p  style='text-align:center; color: red;' id='post'>
     <h1 id="list">List of Participants</h1>
 
     <?php foreach ($participants as $participant) { 
@@ -67,7 +68,6 @@
         </div>
         <div></div>
         <div>
-                        <span id="post"></span>
             <button class = "accdecb" type="submit" onclick="finishPar(<?php echo $event->IdEvent ?>)">Finish</button>
         </div>
     </div>
