@@ -1,7 +1,7 @@
 {
   "id": "d36cf713-7d2d-40ed-8341-09d97b105dcd",
   "version": "2.0",
-  "name": "eestec-network",
+  "name": "testovi marija",
   "url": "http://localhost:8080",
   "tests": [{
     "id": "3293e634-d069-4fbf-812c-3130045638c1",
@@ -11,13 +11,6 @@
       "comment": "",
       "command": "open",
       "target": "/Gost",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "5cee4937-5c18-47f4-a020-2c154c836659",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1381x736",
       "targets": [],
       "value": ""
     }, {
@@ -161,13 +154,6 @@
       "comment": "",
       "command": "open",
       "target": "/",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "732e497f-77b6-4904-b011-11925f08f0f8",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1381x736",
       "targets": [],
       "value": ""
     }, {
@@ -571,7 +557,7 @@
         ["xpath=//input[@name='uname']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "lcBelgrade"
+      "value": "lcMunich"
     }, {
       "id": "91a1e269-9dd0-4491-aa58-451d9a9e898e",
       "comment": "",
@@ -732,7 +718,7 @@
         ["xpath=//input[@name='uname']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "lcBelgrade"
+      "value": "lcMunich"
     }, {
       "id": "f98b1dc7-45e3-4ae2-ba28-783cd52458bd",
       "comment": "",
@@ -882,7 +868,7 @@
         ["xpath=//input[@name='uname']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "lcBelgrade"
+      "value": "lcMunich"
     }, {
       "id": "674a45ae-d4c4-442c-8317-57e53f551c14",
       "comment": "",
@@ -1135,7 +1121,7 @@
         ["xpath=//input[@name='uname']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "lcBelgrade"
+      "value": "lcMunich"
     }, {
       "id": "a17cc230-804b-4a90-972a-220575ea6b49",
       "comment": "",
@@ -1448,7 +1434,7 @@
         ["xpath=//input[@name='uname']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "ivanaivanovic"
+      "value": "markotintor"
     }, {
       "id": "097fbf14-3780-4292-b7ae-fcd71e473b51",
       "comment": "",
@@ -1524,7 +1510,7 @@
         ["xpath=//input[@name='uname']", "xpath:attributes"],
         ["xpath=//input", "xpath:position"]
       ],
-      "value": "lcZagreb"
+      "value": "lcPatras"
     }, {
       "id": "cef71571-5e44-488f-b7e4-3b7add7b83ec",
       "comment": "",

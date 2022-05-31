@@ -1,7 +1,7 @@
 {
   "id": "9d2c04e7-0cc1-4db2-86e3-d1a25222c810",
   "version": "2.0",
-  "name": "eestec-network",
+  "name": "savini_testovi",
   "url": "http://localhost:8080/",
   "tests": [{
     "id": "28b9360b-e9e5-4fa1-b503-a0b2e12ef4de",
@@ -24,30 +24,6 @@
       "id": "230e5519-519a-4753-b431-2f47f46cc469",
       "comment": "",
       "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "e1778fb9-437f-47f0-ad06-646776d74390",
-      "comment": "",
-      "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "858312b2-8d37-4c8d-80cf-0b76c79939b9",
-      "comment": "",
-      "command": "doubleClick",
       "target": "name=uname",
       "targets": [
         ["name=uname", "name"],
@@ -353,30 +329,6 @@
       ],
       "value": ""
     }, {
-      "id": "beb26095-169c-46af-abdf-7381353bcda1",
-      "comment": "",
-      "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "bb80f093-81a1-444f-bcf3-7f6ba36f821b",
-      "comment": "",
-      "command": "doubleClick",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "2a3ae022-9b9f-4749-a49b-a357e9773cda",
       "comment": "",
       "command": "type",
@@ -646,30 +598,6 @@
       ],
       "value": ""
     }, {
-      "id": "4569c8d5-a9fe-4fb8-9792-1f2ed2bd1a16",
-      "comment": "",
-      "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "0b035db6-819a-45b8-ae09-1eec36c97784",
-      "comment": "",
-      "command": "doubleClick",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "448b64d7-247a-4c7a-ab74-492362958dab",
       "comment": "",
       "command": "type",
@@ -706,7 +634,7 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "a86e548e-593e-4424-9adb-2e19136c9dd1",
+      "id": "da4d2217-578c-4fce-a72e-ec985ef03bfb",
       "comment": "",
       "command": "click",
       "target": "css=.artikal:nth-child(3) .col-sm-4:nth-child(2) .dugme",
@@ -800,30 +728,6 @@
       "id": "fce339e6-f8df-4145-93a3-b9a8d99cebfd",
       "comment": "",
       "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "7d1ede2a-c2da-4351-ac4f-7815f4b57c5c",
-      "comment": "",
-      "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "ed90c366-d031-4c3e-ad12-b3731d5e61ce",
-      "comment": "",
-      "command": "doubleClick",
       "target": "name=uname",
       "targets": [
         ["name=uname", "name"],
@@ -996,30 +900,6 @@
       "id": "200eb202-012b-4b40-aa54-713a0b7d8690",
       "comment": "",
       "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "75a5e0d5-9a59-4f14-a6fc-9fd9219fbf41",
-      "comment": "",
-      "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "1a83f0c1-752f-451d-851c-4f3107c2382b",
-      "comment": "",
-      "command": "doubleClick",
       "target": "name=uname",
       "targets": [
         ["name=uname", "name"],
@@ -1372,30 +1252,6 @@
       ],
       "value": ""
     }, {
-      "id": "834448c9-68ca-48b4-977f-471f14f8c8b8",
-      "comment": "",
-      "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "f028811f-c01c-4c2e-a3f8-52fcf273c33a",
-      "comment": "",
-      "command": "doubleClick",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "3c83c35e-3f49-4e5a-a9d1-52afd3161384",
       "comment": "",
       "command": "type",
@@ -1502,30 +1358,6 @@
       "id": "1ea93ea7-ad1b-46b6-ad39-642f59ab1769",
       "comment": "",
       "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "cda41c94-34e1-4e03-af48-33611f57257e",
-      "comment": "",
-      "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "23d17e6e-9ac7-4d19-be5a-c9e4b468822b",
-      "comment": "",
-      "command": "doubleClick",
       "target": "name=uname",
       "targets": [
         ["name=uname", "name"],
@@ -1643,30 +1475,6 @@
       "id": "6ccc30c5-649d-49c1-87f0-db6945091155",
       "comment": "",
       "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "a9375624-dbfd-43c3-afb3-d8195f8d0fb5",
-      "comment": "",
-      "command": "click",
-      "target": "name=uname",
-      "targets": [
-        ["name=uname", "name"],
-        ["css=input:nth-child(2)", "css:finder"],
-        ["xpath=//input[@name='uname']", "xpath:attributes"],
-        ["xpath=//input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "7a1db632-21d2-4ffc-8f00-f83ba303dd88",
-      "comment": "",
-      "command": "doubleClick",
       "target": "name=uname",
       "targets": [
         ["name=uname", "name"],

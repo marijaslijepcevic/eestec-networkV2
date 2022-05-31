@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 31, 2022 at 06:27 PM
+-- Generation Time: May 31, 2022 at 09:08 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   PRIMARY KEY (`IdEvent`),
   KEY `IdEventCom` (`IdEventCom`),
   KEY `IdEvent` (`IdEvent`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `event`
@@ -79,7 +79,9 @@ INSERT INTO `event` (`IdEvent`, `eventName`, `type`, `description`, `numOfPartic
 (30, 'June, the Tenthest (I)MW', 'IMW', 'On a very short notice we decided to open up our (I)MW!\r\nCome with us to the beautiful landscapes of Bavaria and enjoy a weekend full of parties and fun next to the Zugspitze, the highest mountain of Germany! Drink Bavarian beer, have pretzels with Obazda and a Weißwurstfrühstück with us. Don’t know what that is? Well, then it is time to come and find out! We will be more than happy to see all of you \r\n\r\n \r\n\r\n \r\n\r\nJoin us for 2 nights in our cottage in the Alps in breathtaking scenery.\r\n\r\nWe will meet at the Technical University of Munich at 12:00 CEST and take a train to the cottage.\r\n\r\nIn the 3 days and 2 nights we will spend there, you can prepare yourself for lots of drinking games, an incredible hike or a nice day at the public pool in the beautiful scenery and lots of EESTEC spirit!', 15, '1653947860_6f7e1da90932b49466c4.jpg', 1, 1, 0, 27, 0, '2022-06-10', '2022-06-12', 0),
 (31, 'How to work 24/7', 'Workshop', 'The smallest event of the year.', 2, '1653997294_40676e54c52b5392e4a6.jpg', 1, 1, 1, 20, 0, '2022-05-16', '2022-05-31', 0),
 (32, 'Money Heist: After CRedit', 'IMW', 'We will be getting rid of all the week\'s tiredness by chilling and having loads of fun. You want to know where? Right in Eskişehir! Eskişehir is a small student city with a warm environment, famous for its Odunpazarı and Porsuk Çayı, delicious Çibörek and super fun nightclubs. We\'ll be spending a wonderful weekend there, sightseeing in the morning and having fun to its fullest at night, until you dare to go! The fee includes:\r\n\r\naccommodation for two nights\r\npublic transport tickets in Eskişehir\r\nfood (2x breakfast, 3x lunch, 2x dinner)\r\nsome drinks for the Parties\r\ntickets for museums, morning activities', 40, '1653999977_e4bebd2a39ab74eb61b5.png', 1, 1, 0, 20, 0, '2022-08-19', '2022-08-21', 0),
-(33, 'Autumn Congress IMW', 'IMW', 'The best IMW after the best Congress!', 120, '1654001878_85d6af05e8ae630df786.png', 1, 1, 1, 22, 0, '2022-11-18', '2022-11-20', 0);
+(33, 'Autumn Congress IMW', 'IMW', 'The best IMW after the best Congress!', 120, '1654001878_85d6af05e8ae630df786.png', 1, 1, 1, 22, 0, '2022-11-18', '2022-11-20', 0),
+(35, 'Live Regional Meeting Region V', 'Exchange', 'After quite a long time, the Live Regional Meetings are coming back! We are excited to announce that LC Belgrade will host the LRM for Region V at the beginning of May. Stay tuned, because an IMW is on it’s way, too!', 100, '1654029028_7986fe0f6cd8682f1aa1.png', 1, 1, 1, 20, 0, '2022-08-18', '2022-08-25', 0),
+(36, 'Robot Strange in the Multiverse of Robotics', 'Workshop', '“Don’t cast that spell, don’t cast that spell “ as a wise man once said…\r\nBut this didn’t stand in the way of arrogance.\r\nSomething went really wrong after that spell.\r\nThe timeline is now broken and the multiverse of robotics is now unleashed!\r\nWill there be any way home?\r\n', 15, '1654031012_888d79ad311902915658.jpg', 1, 1, 1, 27, 0, '2022-08-12', '2022-08-18', 0);
 
 -- --------------------------------------------------------
 
@@ -174,11 +176,15 @@ INSERT INTO `organizingcommittee` (`IdUser`, `IdEvent`, `Id`) VALUES
 (21, 28, 0),
 (21, 31, 0),
 (21, 32, 0),
+(21, 35, 0),
 (23, 29, 0),
 (23, 33, 0),
 (24, 32, 0),
+(24, 35, 0),
 (25, 32, 0),
-(28, 30, 0);
+(25, 35, 0),
+(28, 30, 0),
+(28, 36, 0);
 
 -- --------------------------------------------------------
 
