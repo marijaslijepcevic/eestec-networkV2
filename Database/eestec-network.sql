@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 31, 2022 at 05:48 PM
+-- Generation Time: May 31, 2022 at 06:27 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -110,8 +110,10 @@ INSERT INTO `eventapplication` (`IdUser`, `IdEvent`, `motivationalLetter`, `isAc
 (23, 28, NULL, 1, '2022-05-30', 7),
 (24, 28, NULL, 1, '2022-05-30', 3),
 (24, 31, 'I would like to come! :)', 0, '2022-05-31', 8),
+(24, 33, NULL, 0, '2022-05-31', 12),
 (25, 28, NULL, 1, '2022-05-30', 2),
 (25, 31, 'It looks really interesting!', 0, '2022-05-31', 9),
+(25, 33, NULL, 0, '2022-05-31', 11),
 (28, 28, NULL, 1, '2022-05-30', 5),
 (29, 28, NULL, 1, '2022-05-30', 6),
 (30, 28, NULL, 1, '2022-05-30', 4);
