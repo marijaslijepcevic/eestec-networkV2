@@ -250,7 +250,8 @@ class LocalCommittee extends BaseController
         }
         
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
-        $this->prikaz('committeePage', ['events' => $events]);     
+        $msg = "You have closed applications for the event.";
+        $this->prikaz('committeePage', ['events' => $events, 'msg' => $msg]);     
     }
     //prihvata zahteve korisnika da učestvuju na događajima
     public function acceptParticipantsAccept($IdEvent){

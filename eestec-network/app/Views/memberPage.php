@@ -39,6 +39,7 @@
     
 <main class="main">
     <div class="container">
+        <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
         <div class="col-sm-1">&nbsp;</div>
         <?php foreach ($events as $event) {?>  
         <div class="artikal col-sm-11">  <!--artikal treba da bude resizable-->
