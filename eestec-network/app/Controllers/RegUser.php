@@ -154,8 +154,9 @@ class RegUser extends BaseController
         
         $eventModel = new \App\Models\eventModel();
         $events = $eventModel->where("isActive", 1)->where("isApproved", 1)->findAll();
-          $user = $this->session->get("user");
-        $this->prikaz('memberPage',['events' => $events, 'user' => $user]);      
+        $user = $this->session->get("user");
+        $msg = "You have applied for the event!";
+        $this->prikaz('memberPage',['events' => $events, 'user' => $user, 'msg' => $msg]);      
         
     }
     //postavlja motivaciono pismo pri prijavi na dogadjaj

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 31, 2022 at 11:57 AM
+-- Generation Time: May 31, 2022 at 05:48 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   PRIMARY KEY (`IdEvent`),
   KEY `IdEventCom` (`IdEventCom`),
   KEY `IdEvent` (`IdEvent`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `event`
@@ -76,8 +76,10 @@ CREATE TABLE IF NOT EXISTS `event` (
 INSERT INTO `event` (`IdEvent`, `eventName`, `type`, `description`, `numOfParticipants`, `picture`, `isActive`, `openApplications`, `isApproved`, `IdEventCom`, `finishedSelection`, `dateStart`, `dateEnd`, `numOfAcc`) VALUES
 (28, 'Spring Congress IMW', 'IMW', 'Rest well deserved after this year\'s Spring Congress! Join more than 250 other participants in sunny Belgrade this spring.', 250, '1653944552_5b4530539f5481c0d46c.png', 1, 0, 1, 20, 1, '2022-05-20', '2022-05-22', 0),
 (29, 'Autumn Congress', 'Workshop', 'The second biggest event of the year. In the beautiful Swiss Alps, the future of the Association will be discussed during 5 days of GMs.', 100, '1653947752_ce7a561fa05d2ab7aecd.png', 1, 1, 1, 22, 0, '2022-11-13', '2022-11-18', 0),
-(30, 'June, the Tenthest (I)MW', 'IMW', 'On a very short notice we decided to open up our (I)MW!\r\nCome with us to the beautiful landscapes of Bavaria and enjoy a weekend full of parties and fun next to the Zugspitze, the highest mountain of Germany! Drink Bavarian beer, have pretzels with Obazda and a Weißwurstfrühstück with us. Don’t know what that is? Well, then it is time to come and find out! We will be more than happy to see all of you \r\n\r\n \r\n\r\n \r\n\r\nJoin us for 2 nights in our cottage in the Alps in breathtaking scenery.\r\n\r\nWe will meet at the Technical University of Munich at 12:00 CEST and take a train to the cottage.\r\n\r\nIn the 3 days and 2 nights we will spend there, you can prepare yourself for lots of drinking games, an incredible hike or a nice day at the public pool in the beautiful scenery and lots of EESTEC spirit!', 15, '1653947860_6f7e1da90932b49466c4.jpg', 1, 1, 1, 27, 0, '2022-06-10', '2022-06-12', 0),
-(31, 'How to work 24/7', 'Workshop', 'The smallest event of the year.', 2, '1653997294_40676e54c52b5392e4a6.jpg', 1, 1, 1, 20, 0, '2022-05-16', '2022-05-31', 0);
+(30, 'June, the Tenthest (I)MW', 'IMW', 'On a very short notice we decided to open up our (I)MW!\r\nCome with us to the beautiful landscapes of Bavaria and enjoy a weekend full of parties and fun next to the Zugspitze, the highest mountain of Germany! Drink Bavarian beer, have pretzels with Obazda and a Weißwurstfrühstück with us. Don’t know what that is? Well, then it is time to come and find out! We will be more than happy to see all of you \r\n\r\n \r\n\r\n \r\n\r\nJoin us for 2 nights in our cottage in the Alps in breathtaking scenery.\r\n\r\nWe will meet at the Technical University of Munich at 12:00 CEST and take a train to the cottage.\r\n\r\nIn the 3 days and 2 nights we will spend there, you can prepare yourself for lots of drinking games, an incredible hike or a nice day at the public pool in the beautiful scenery and lots of EESTEC spirit!', 15, '1653947860_6f7e1da90932b49466c4.jpg', 1, 1, 0, 27, 0, '2022-06-10', '2022-06-12', 0),
+(31, 'How to work 24/7', 'Workshop', 'The smallest event of the year.', 2, '1653997294_40676e54c52b5392e4a6.jpg', 1, 1, 1, 20, 0, '2022-05-16', '2022-05-31', 0),
+(32, 'Money Heist: After CRedit', 'IMW', 'We will be getting rid of all the week\'s tiredness by chilling and having loads of fun. You want to know where? Right in Eskişehir! Eskişehir is a small student city with a warm environment, famous for its Odunpazarı and Porsuk Çayı, delicious Çibörek and super fun nightclubs. We\'ll be spending a wonderful weekend there, sightseeing in the morning and having fun to its fullest at night, until you dare to go! The fee includes:\r\n\r\naccommodation for two nights\r\npublic transport tickets in Eskişehir\r\nfood (2x breakfast, 3x lunch, 2x dinner)\r\nsome drinks for the Parties\r\ntickets for museums, morning activities', 40, '1653999977_e4bebd2a39ab74eb61b5.png', 1, 1, 0, 20, 0, '2022-08-19', '2022-08-21', 0),
+(33, 'Autumn Congress IMW', 'IMW', 'The best IMW after the best Congress!', 120, '1654001878_85d6af05e8ae630df786.png', 1, 1, 1, 22, 0, '2022-11-18', '2022-11-20', 0);
 
 -- --------------------------------------------------------
 
@@ -140,8 +142,11 @@ CREATE TABLE IF NOT EXISTS `localcommittee` (
 INSERT INTO `localcommittee` (`IdUser`, `committeeName`, `universityName`, `picture`, `type`, `isApproved`, `dateOfReg`) VALUES
 (20, 'Belgrade', 'University of Belgrade', '1653944277_de2ab4235e441a6360ff.png', 'Local Committee', 1, '2022-05-30'),
 (22, 'Zurich', 'ETH Zurich', '1653946116_aaeda821d65f9b017d4a.jpg', 'Local Committee', 1, '2022-05-30'),
-(26, 'Zagreb', 'University of Zagreb', '1653946386_a0fe393c3ae0f69ba2c4.png', 'Local Committee', 1, '2022-05-30'),
-(27, 'Munich', 'Technische Universität München', '1653946446_a2af97927118bdfa250a.jpg', 'Local Committee', 1, '2022-05-30');
+(26, 'Zagreb', 'University of Zagreb', '1653946386_a0fe393c3ae0f69ba2c4.png', 'Local Committee', 0, '2022-05-30'),
+(27, 'Munich', 'Technische Universität München', '1653946446_a2af97927118bdfa250a.jpg', 'Local Committee', 1, '2022-05-30'),
+(33, 'Krakow', 'AGH Krakow', '1654018900_df99f684458391adae35.png', 'Local Committee', 0, '2022-05-31'),
+(34, 'Madrid', 'Polytechnic University of Madrid', '1654019030_b5aa5bcb497ebfbc449f.png', 'Local Committee', 0, '2022-05-31'),
+(35, 'Patras', 'University Of Patras', '1654019151_504c8140421bbaf3e42d.png', 'Local Committee', 0, '2022-05-31');
 
 -- --------------------------------------------------------
 
@@ -166,7 +171,11 @@ CREATE TABLE IF NOT EXISTS `organizingcommittee` (
 INSERT INTO `organizingcommittee` (`IdUser`, `IdEvent`, `Id`) VALUES
 (21, 28, 0),
 (21, 31, 0),
+(21, 32, 0),
 (23, 29, 0),
+(23, 33, 0),
+(24, 32, 0),
+(25, 32, 0),
 (28, 30, 0);
 
 -- --------------------------------------------------------
@@ -201,8 +210,11 @@ INSERT INTO `reguser` (`IdUser`, `IdUserCom`, `name`, `surname`, `picture`, `isA
 (28, 27, 'Atanas', 'Daltchev', '1653946736_eeebbf2ce55f672e6f89', 1, '2022-05-30'),
 (29, 26, 'Hana', 'Novak', '1653946775_f5a8b17248b675a0d190', 1, '2022-05-30'),
 (30, 26, 'Jan', 'Djurinec', '1653946796_d578c626251242b4addb', 1, '2022-05-30'),
-(31, 20, 'Mika', 'Mikić', '1653998158_43ba9783e84d26f89e41', 0, '2022-05-31'),
-(32, 20, 'Ivana', 'Ivanović', '1653998209_001b49e074da7d369fd7', 0, '2022-05-31');
+(31, 20, 'Mika', 'Mikić', '1653998158_43ba9783e84d26f89e41', 1, '2022-05-31'),
+(32, 20, 'Ivana', 'Ivanović', '1653998209_001b49e074da7d369fd7', 0, '2022-05-31'),
+(36, 20, 'Igor', 'Zec', '1654019182_6ce43fcbfc1c768efde3', 0, '2022-05-31'),
+(37, 20, 'Andjela', 'Gazdic', '1654019210_88c66d6253f8a8d47289', 0, '2022-05-31'),
+(38, 20, 'Marko', 'Tintor', '1654019229_3d7fdec0f75d0213269b', 0, '2022-05-31');
 
 -- --------------------------------------------------------
 
@@ -218,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`IdUser`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
@@ -238,7 +250,13 @@ INSERT INTO `user` (`IdUser`, `username`, `psw`, `email`) VALUES
 (29, 'hananovak', '123', 'hananovak@eestec.net'),
 (30, 'jandjurinec', '123', 'jan@eestec.net'),
 (31, 'mikamikic', '123', 'mikamikic@gmail.com'),
-(32, 'ivanaivanovic', '123', 'ivanaivanovic@gmail.com');
+(32, 'ivanaivanovic', '123', 'ivanaivanovic@gmail.com'),
+(33, 'lcKrakow', '123', 'krakow@eestec.net'),
+(34, 'lcMadrid', '123', 'madrid@eestec.net'),
+(35, 'lcPatras', '123', 'patras@eestec.net'),
+(36, 'igorzec', '123', 'igorzec@gmail.com'),
+(37, 'andjelagazdic', '123', 'andjelagazdic@gmail.com'),
+(38, 'markotintor', '123', 'markotintor@gmail.com');
 
 --
 -- Constraints for dumped tables
