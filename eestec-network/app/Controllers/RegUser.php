@@ -112,7 +112,15 @@ class RegUser extends BaseController
        
         $this->session->set('user', $userModel->find($id) );
         $this->session->set('reguser', $reguserModel->find($id));
-        $this->changeInfo();
+        
+        $user = $this->session->get('user');
+        $reguser = $this->session->get('reguser');
+        
+                
+        $this->prikaz('memberChangeInfo',['msg' => "Info changed correctly","user" => $user , "reguser" => $reguser]);
+        return;
+                
+       
     }
   //prijavljuje korisnika na dati dogadjaj
     public function apply($IdEvent){

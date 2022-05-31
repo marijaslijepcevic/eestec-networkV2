@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 30, 2022 at 10:07 PM
+-- Generation Time: May 31, 2022 at 11:57 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   PRIMARY KEY (`IdEvent`),
   KEY `IdEventCom` (`IdEventCom`),
   KEY `IdEvent` (`IdEvent`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `event`
@@ -76,7 +76,8 @@ CREATE TABLE IF NOT EXISTS `event` (
 INSERT INTO `event` (`IdEvent`, `eventName`, `type`, `description`, `numOfParticipants`, `picture`, `isActive`, `openApplications`, `isApproved`, `IdEventCom`, `finishedSelection`, `dateStart`, `dateEnd`, `numOfAcc`) VALUES
 (28, 'Spring Congress IMW', 'IMW', 'Rest well deserved after this year\'s Spring Congress! Join more than 250 other participants in sunny Belgrade this spring.', 250, '1653944552_5b4530539f5481c0d46c.png', 1, 0, 1, 20, 1, '2022-05-20', '2022-05-22', 0),
 (29, 'Autumn Congress', 'Workshop', 'The second biggest event of the year. In the beautiful Swiss Alps, the future of the Association will be discussed during 5 days of GMs.', 100, '1653947752_ce7a561fa05d2ab7aecd.png', 1, 1, 1, 22, 0, '2022-11-13', '2022-11-18', 0),
-(30, 'June, the Tenthest (I)MW', 'IMW', 'On a very short notice we decided to open up our (I)MW!\r\nCome with us to the beautiful landscapes of Bavaria and enjoy a weekend full of parties and fun next to the Zugspitze, the highest mountain of Germany! Drink Bavarian beer, have pretzels with Obazda and a Weißwurstfrühstück with us. Don’t know what that is? Well, then it is time to come and find out! We will be more than happy to see all of you \r\n\r\n \r\n\r\n \r\n\r\nJoin us for 2 nights in our cottage in the Alps in breathtaking scenery.\r\n\r\nWe will meet at the Technical University of Munich at 12:00 CEST and take a train to the cottage.\r\n\r\nIn the 3 days and 2 nights we will spend there, you can prepare yourself for lots of drinking games, an incredible hike or a nice day at the public pool in the beautiful scenery and lots of EESTEC spirit!', 15, '1653947860_6f7e1da90932b49466c4.jpg', 1, 1, 1, 27, 0, '2022-06-10', '2022-06-12', 0);
+(30, 'June, the Tenthest (I)MW', 'IMW', 'On a very short notice we decided to open up our (I)MW!\r\nCome with us to the beautiful landscapes of Bavaria and enjoy a weekend full of parties and fun next to the Zugspitze, the highest mountain of Germany! Drink Bavarian beer, have pretzels with Obazda and a Weißwurstfrühstück with us. Don’t know what that is? Well, then it is time to come and find out! We will be more than happy to see all of you \r\n\r\n \r\n\r\n \r\n\r\nJoin us for 2 nights in our cottage in the Alps in breathtaking scenery.\r\n\r\nWe will meet at the Technical University of Munich at 12:00 CEST and take a train to the cottage.\r\n\r\nIn the 3 days and 2 nights we will spend there, you can prepare yourself for lots of drinking games, an incredible hike or a nice day at the public pool in the beautiful scenery and lots of EESTEC spirit!', 15, '1653947860_6f7e1da90932b49466c4.jpg', 1, 1, 1, 27, 0, '2022-06-10', '2022-06-12', 0),
+(31, 'How to work 24/7', 'Workshop', 'The smallest event of the year.', 2, '1653997294_40676e54c52b5392e4a6.jpg', 1, 1, 1, 20, 0, '2022-05-16', '2022-05-31', 0);
 
 -- --------------------------------------------------------
 
@@ -103,9 +104,12 @@ CREATE TABLE IF NOT EXISTS `eventapplication` (
 
 INSERT INTO `eventapplication` (`IdUser`, `IdEvent`, `motivationalLetter`, `isAccepted`, `dateOfAppl`, `id`) VALUES
 (21, 28, NULL, 1, '2022-05-30', 1),
+(21, 31, 'Yoo <3', 0, '2022-05-31', 10),
 (23, 28, NULL, 1, '2022-05-30', 7),
 (24, 28, NULL, 1, '2022-05-30', 3),
+(24, 31, 'I would like to come! :)', 0, '2022-05-31', 8),
 (25, 28, NULL, 1, '2022-05-30', 2),
+(25, 31, 'It looks really interesting!', 0, '2022-05-31', 9),
 (28, 28, NULL, 1, '2022-05-30', 5),
 (29, 28, NULL, 1, '2022-05-30', 6),
 (30, 28, NULL, 1, '2022-05-30', 4);
@@ -161,6 +165,7 @@ CREATE TABLE IF NOT EXISTS `organizingcommittee` (
 
 INSERT INTO `organizingcommittee` (`IdUser`, `IdEvent`, `Id`) VALUES
 (21, 28, 0),
+(21, 31, 0),
 (23, 29, 0),
 (28, 30, 0);
 
@@ -195,7 +200,9 @@ INSERT INTO `reguser` (`IdUser`, `IdUserCom`, `name`, `surname`, `picture`, `isA
 (25, 20, 'Sava', 'Andric', '1653946338_a71044963dce3db73a2d', 1, '2022-05-30'),
 (28, 27, 'Atanas', 'Daltchev', '1653946736_eeebbf2ce55f672e6f89', 1, '2022-05-30'),
 (29, 26, 'Hana', 'Novak', '1653946775_f5a8b17248b675a0d190', 1, '2022-05-30'),
-(30, 26, 'Jan', 'Djurinec', '1653946796_d578c626251242b4addb', 1, '2022-05-30');
+(30, 26, 'Jan', 'Djurinec', '1653946796_d578c626251242b4addb', 1, '2022-05-30'),
+(31, 20, 'Mika', 'Mikić', '1653998158_43ba9783e84d26f89e41', 0, '2022-05-31'),
+(32, 20, 'Ivana', 'Ivanović', '1653998209_001b49e074da7d369fd7', 0, '2022-05-31');
 
 -- --------------------------------------------------------
 
@@ -211,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`IdUser`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
@@ -229,7 +236,9 @@ INSERT INTO `user` (`IdUser`, `username`, `psw`, `email`) VALUES
 (27, 'lcMunich', '123', 'munich@eestec.net'),
 (28, 'atanas', '123', 'atanas@eestec.net'),
 (29, 'hananovak', '123', 'hananovak@eestec.net'),
-(30, 'jandjurinec', '123', 'jan@eestec.net');
+(30, 'jandjurinec', '123', 'jan@eestec.net'),
+(31, 'mikamikic', '123', 'mikamikic@gmail.com'),
+(32, 'ivanaivanovic', '123', 'ivanaivanovic@gmail.com');
 
 --
 -- Constraints for dumped tables

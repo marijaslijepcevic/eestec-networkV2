@@ -118,7 +118,12 @@ class LocalCommittee extends BaseController
         
         $this->session->set('user', $userModel->find($id) );
         $this->session->set('committee', $committeeModel->find($id));
-        $this->changeInfo();
+        
+        $user = $this->session->get('user');
+        $committee = $this->session->get('committee');
+        $this->prikaz('committeeChangeInfo',['msg' => "Info changed correctly", "user" => $user , "committee" => $committee]);      
+        
+       
     }
     //objavljuje novi dogadjaj na osnovu podataka iz forme
     public function publishEventClick(){
