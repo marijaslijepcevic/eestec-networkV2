@@ -40,6 +40,7 @@
 
     </nav>
 <main>
+    <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
     <br>
     <h1 id="list">List of Committees</h1>
 

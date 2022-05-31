@@ -39,8 +39,8 @@
     </nav>
 <main class="main">
     <div class="container">
-
-         <?php foreach ($events as $event) {?>
+        <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
+        <?php foreach ($events as $event) {?>
             <div class="col-sm-1">&nbsp;</div>
             <div class='artikal col-sm-11'>  
                 <div class='lc container'>

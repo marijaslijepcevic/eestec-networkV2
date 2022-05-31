@@ -5,11 +5,12 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\eventModel;
+
 /**
  * Admin kontroler - klasa za sve funkcije admina
  */
 class Admin extends BaseController
-{
+{ 
     /**
      * Prikazivanje zadate stranice sa potrebnim informacijama.
      * @param type $stranica
@@ -34,7 +35,7 @@ class Admin extends BaseController
     * @param type $id
     * @param type $op 
     */  
-    public function acceptEvents($id = 0, $op = 0){
+    public function acceptEvents($id = 0, $op = 0, $msg = ""){
         $eventModel = new \App\Models\eventModel();
         
         if($id > 0 && $op == 1){
@@ -45,6 +46,7 @@ class Admin extends BaseController
                 "openApplications" =>  1,
                 "isActive" =>  1,
             ]);
+            $msg = "Event accpeted";
         }
         
         if($id > 0 && $op == 2){
@@ -53,10 +55,11 @@ class Admin extends BaseController
                 "IdEvent" => $id,
                 "isApproved" =>  2        
             ]);
+            $msg = "Event declined";
         }
         
         $events = $eventModel->where("isApproved", 0)->findAll();
-        $this->prikaz("adminAcceptEvents", ['events' => $events]);      
+        $this->prikaz("adminAcceptEvents", ['events' => $events, 'msg' => $msg]);      
           
     }
     /**
@@ -64,7 +67,7 @@ class Admin extends BaseController
      * Prikazivanje stranice sa dogadjajima, gde je moguce obrisati neki od njih.
      * @param type $id
      */
-    public function deleteEvents($id = 0){  
+    public function deleteEvents($id = 0, $msg = ""){  
         $eventModel = new \App\Models\eventModel();
 
         if($id > 0){
@@ -73,15 +76,16 @@ class Admin extends BaseController
                 "IdEvent" => $id,
                 "isActive" =>  0        
             ]);
+            $msg = "Event successfully deleted!";
         }
         
         $events = $eventModel->where("isActive", 1)->findAll();
-        $this->prikaz("adminDeleteEvents", ['events' => $events]);
+        $this->prikaz("adminDeleteEvents", ['events' => $events, 'msg' => $msg]);
     }
     /**
      * Prikazivanje stranice za prihvatanje komiteta
      */
-    public function acceptCommittees(){
+    public function acceptCommittees( ){
         $committeeModel = new \App\Models\committeeModel();
         $committees = $committeeModel->where("isApproved", 0)->findAll();
         //$this->session->set('committees', $committees);
@@ -118,11 +122,8 @@ class Admin extends BaseController
             $committeeModel->save([
                 "IdUser" =>  $IdUser,
                 "isApproved" => 1,
-                      
             ]);
-            
-           
-        }   
+        }
     }
      /**
       * Upisivanje u bazu koji su komiteti odbijeni od strane admina
@@ -141,5 +142,6 @@ class Admin extends BaseController
         }
           
     }
+
     
 }

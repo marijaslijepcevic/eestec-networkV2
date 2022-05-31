@@ -18,7 +18,10 @@ use Psr\Log\LoggerInterface;
  *     class Home extends BaseController
  *
  * For security be sure to declare any new methods as protected or private.
+ * 
  */
+
+
 class BaseController extends Controller
 {
     /**
@@ -36,7 +39,7 @@ class BaseController extends Controller
      * @var array
      */
     protected $helpers = ["url", "form"];
-
+    
     /**
      * Constructor.
      */

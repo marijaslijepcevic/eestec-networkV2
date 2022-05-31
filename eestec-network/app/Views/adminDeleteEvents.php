@@ -37,6 +37,7 @@
 
     </nav>
 <main class="main">
+    <?php if(isset($msg)) echo "<p  style='text-align:center; color: red;'>$msg</p>"; ?>
     <div class="container">
         
          <?php foreach ($events as $event) {?>
