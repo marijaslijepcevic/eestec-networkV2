@@ -104,8 +104,8 @@ function acceptPar(IdEv){
       if (checkbox.checked)  
         vred.push(checkbox.value);
     }   
-    var numOfPar = document.getElementById('numOfPar').value;
-    var numOfAcc = document.getElementById('numOfAcc').value;
+    var numOfPar = parseInt(document.getElementById('numOfPar').value);
+    var numOfAcc = parseInt(document.getElementById('numOfAcc').value);
     if(vred.length > (numOfPar - numOfAcc)){
 
         $('#post').html("Nedovoljno slobodnih mesta!");

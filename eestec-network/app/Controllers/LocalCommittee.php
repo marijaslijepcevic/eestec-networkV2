@@ -1,7 +1,7 @@
 <?php
-// Sava Andrić 0365/2019
-// Jovan Dojčilović 0340/2019
-// Marija Slijepčević 0342/2019
+// Sava Andri? 0365/2019
+// Jovan Doj?ilovi? 0340/2019
+// Marija Slijep?evi? 0342/2019
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
@@ -26,7 +26,7 @@ class LocalCommittee extends BaseController
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);      
     }
-     //prikaz stranice za prihvatanje članova
+     //prikaz stranice za prihvatanje ?lanova
     public function acceptMembers(){
         $reguserModel = new \App\Models\regUserModel;
         $members = $reguserModel->where('isApproved',0)->where('IdUserCom',$this->session->get('user')->IdUser)->findAll();
@@ -39,13 +39,13 @@ class LocalCommittee extends BaseController
         $committees = $committeeModel->findAll();
         $this->prikaz('committeePublishEvent',["committees" => $committees]);        
     }
-     //prikaz stranice za promenu podataka korisničkog lokalnog komiteta
+     //prikaz stranice za promenu podataka korisni?kog lokalnog komiteta
     public function changeInfo(){
         $user = $this->session->get('user');
         $committee = $this->session->get('committee');
         $this->prikaz('committeeChangeInfo',["user" => $user , "committee" => $committee]);       
     }
-    //odjavljivanje naloga i vraćanje na početnu stranicu
+    //odjavljivanje naloga i vra?anje na po?etnu stranicu
     public function logout(){
         $this->session->destroy();
         return redirect()->to(site_url("Gost"));  
@@ -184,26 +184,20 @@ class LocalCommittee extends BaseController
         $events = $eventModel->where("IdEventCom", $this->session->get("user")->IdUser)->where("isActive", 1)->where("isApproved", 1)->findAll();
         $this->prikaz('committeePage', ['events' => $events]);           
     }
-    //prihvata zahteve korisnika da se priključe lokalnom komitetu
+    //prihvata zahteve korisnika da se priklju?e lokalnom komitetu
     public function acceptMembersAccept(){
-          $request = $_POST['arguments'];
-          $reguserModel = new \App\Models\regUserModel;
-    
-        
-        
+        $request = $_POST['arguments'];
+        $reguserModel = new \App\Models\regUserModel;
+
         foreach ($request as $IdUser) {
             $reguserModel->save([
                 "IdUser" =>  $IdUser,
                 "isApproved" => 1,
                       
-            ]);
-            
-           
+            ]);  
         }
-
-         
     }
-     //odbija zahteve korisnika da se priključe lokalnom komitetu
+     //odbija zahteve korisnika da se priklju?e lokalnom komitetu
     public function acceptMembersDecline(){
         $request = $_POST['arguments'];
         $reguserModel = new \App\Models\regUserModel;
@@ -221,7 +215,7 @@ class LocalCommittee extends BaseController
         }
           
     }
-     //prikazuje dodatne informacije o događaju
+     //prikazuje dodatne informacije o doga?aju
     public function eventReadMore($id, $op){
         $eventModel = new \App\Models\eventModel();
         $event = $eventModel->where("IdEvent", $id)->first();
@@ -237,7 +231,7 @@ class LocalCommittee extends BaseController
         $this->prikaz("committeeAcceptParticipants", ['event' => $event, 'participants'=>$participants]);  
     }
     
-    //onemogućuje dalje prijave na dogadjaje
+    //onemogu?uje dalje prijave na dogadjaje
     public function closeApplications($id){
         $eventModel = new \App\Models\eventModel();
         
@@ -253,7 +247,7 @@ class LocalCommittee extends BaseController
         $msg = "You have closed applications for the event.";
         $this->prikaz('committeePage', ['events' => $events, 'msg' => $msg]);     
     }
-    //prihvata zahteve korisnika da učestvuju na događajima
+    //prihvata zahteve korisnika da u?estvuju na doga?ajima
     public function acceptParticipantsAccept($IdEvent){
         $request = $_POST['arguments'];
         $eventApplicationModel = new \App\Models\eventApplicationModel;
@@ -265,12 +259,11 @@ class LocalCommittee extends BaseController
                 "IdUser" => $IdUser,
                 "IdEvent" => $IdEvent,
                 "isAccepted" => 1,
-                      
             ]);     
         }
         $eventModel = new \App\Models\eventModel;
-        $ev = $eventModel->find($IdEvent);
-        $ev->save([
+        $ev = $eventModel->where("IdEvent", $IdEvent)->first();
+        $eventModel->save([
             "IdEvent" => $IdEvent,
             "numOfAcc" => $numOfAcc
         ]);
@@ -278,7 +271,7 @@ class LocalCommittee extends BaseController
         
         
     }
-    //završava izbor participanata i onemogućuje dalje prihvaćanje novih
+    //zavr�ava izbor participanata i onemogu?uje dalje prihva?anje novih
     public function acceptParticipantsFinish($IdEvent){
         $eventModel = new \App\Models\eventModel;
         $eventModel->save([
